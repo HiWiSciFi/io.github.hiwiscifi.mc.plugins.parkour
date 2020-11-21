@@ -1,5 +1,9 @@
-name: Parkour plugin
+name: Parkour
 main: io.github.hiwiscifi.mc.plugins.parkour.Main
 version: 1.0
-api-version: 1.16.2
+api-version: 1.13
 commands:
+    test:
+        description: A test command
+        usage: /test
+        permission: io.github.hiwiscifi.mc.plugins.parkour.commands.test
