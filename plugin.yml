@@ -1,4 +1,4 @@
-name: Pasrkour plugin
+name: Parkour plugin
 main: io.github.hiwiscifi.mc.plugins.parkour.Main
 version: 1.0
 api-version: 1.16.2
