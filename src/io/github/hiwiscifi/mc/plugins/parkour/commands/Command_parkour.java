@@ -7,15 +7,18 @@ import org.bukkit.entity.Player;
 
 public class Command_parkour implements CommandExecutor {
 
+	public static Command_parkour Instance = null;
+	
 	public Command_parkour() {
 		System.out.println("Initializing parkour command...");
+		Instance = this;
 	}
 	
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 		
-		// parkour add course <name>
-		// parkour remove course <name>
+		// parkour create <name>
+		// parkour delete <name>
 		// parkour list
 		
 		// parkour checkpoint add <#> <name>
@@ -27,8 +30,18 @@ public class Command_parkour implements CommandExecutor {
 		if (sender instanceof Player) {
 			Player player = (Player) sender;
 			if (args[0].equals("create")) {
+				String parkourName = args[1];
+			}
+			else if (args[0].equals("delete")) {
+				String parkourName = args[1];
+			}
+			else if (args[0].equals("list")) {
 				
-			} else if (args[0].equals("")) {
+			}
+			else if (args[0].equals("checkpoint")) {
+				
+			}
+			else if (args[0].equals("world")) {
 				
 			}
 			return true;

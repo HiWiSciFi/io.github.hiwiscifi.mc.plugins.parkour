@@ -10,8 +10,11 @@ import org.bukkit.event.player.PlayerInteractEvent;
 
 public class Listener_PressurePlate implements Listener {
 	
+	public static Listener_PressurePlate Instance;
+	
 	public Listener_PressurePlate() {
 		System.out.println("Initializing pressure plate activation event listener...");
+		Instance = this;
 	}
 	
 	@EventHandler

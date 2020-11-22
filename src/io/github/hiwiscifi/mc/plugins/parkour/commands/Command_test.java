@@ -7,8 +7,11 @@ import org.bukkit.entity.Player;
 
 public class Command_test implements CommandExecutor {
 
+	public static Command_test Instance;
+	
 	public Command_test() {
 		System.out.println("Initializing test command...");
+		Instance = this;
 	}
 	
 	@Override

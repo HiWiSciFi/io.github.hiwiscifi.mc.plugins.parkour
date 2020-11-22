@@ -14,8 +14,11 @@ import net.md_5.bungee.api.ChatColor;
 
 public class Command_holo implements CommandExecutor {
 
+	public static Command_holo Instance;
+	
 	public Command_holo() {
 		System.out.println("Initializing holo command...");
+		Instance = this;
 	}
 	
 	@Override
