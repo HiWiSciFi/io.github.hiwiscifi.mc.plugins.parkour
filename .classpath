@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-14">
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+	<classpathentry kind="lib" path="D:/vanillaserverBackup_11102020_0136/vanillaserverBackup_11102020_0136/server.jar">
 		<attributes>
-			<attribute name="module" value="true"/>
+			<attribute name="javadoc_location" value="https://papermc.io/javadocs/paper/1.16/"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="lib" path="D:/vanillaserverBackup_11102020_0136/vanillaserverBackup_11102020_0136/server.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
