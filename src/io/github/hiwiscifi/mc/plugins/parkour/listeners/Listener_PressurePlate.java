@@ -8,9 +8,9 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 
-public class PressurePlateListener implements Listener {
+public class Listener_PressurePlate implements Listener {
 	
-	public PressurePlateListener() {
+	public Listener_PressurePlate() {
 		System.out.println("Initializing pressure plate activation event listener...");
 	}
 	

@@ -18,7 +18,6 @@ commands:
         description: A test command
         usage: /test
         permission: io.github.hiwiscifi.mc.plugins.parkour.commands.test
-        permission-message: &noperms "§cError: §fNo permission!"
 
 ####  ##### ####  #    # ###  ####   ####  ###  ####  #   #  ####
 #   # #     #   # ##  ##  #  #      #       #  #    # ##  # #

@@ -4,9 +4,9 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 
-public class PlayerJoinListener implements Listener {
+public class Listener_PlayerJoin implements Listener {
 	
-	public PlayerJoinListener() {
+	public Listener_PlayerJoin() {
 		System.out.println("Initializing player join event listener...");
 	}
 	
