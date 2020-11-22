@@ -1,5 +1,8 @@
 package io.github.hiwiscifi.mc.plugins.parkour;
 
+import java.util.HashMap;
+import java.util.List;
+
 import org.bukkit.event.HandlerList;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -10,6 +13,8 @@ import io.github.hiwiscifi.mc.plugins.parkour.listeners.Listener_PlayerJoin;
 import io.github.hiwiscifi.mc.plugins.parkour.listeners.Listener_PressurePlate;
 
 public class Main extends JavaPlugin {
+	
+	public static HashMap<String, List<ParkourCheckpoint>> parkours = new HashMap<String, List<ParkourCheckpoint>>();
 	
 	@Override
 	public void onEnable() {
@@ -23,6 +28,10 @@ public class Main extends JavaPlugin {
 		// Register Events
 		this.getServer().getPluginManager().registerEvents(new Listener_PlayerJoin(), this);
 		this.getServer().getPluginManager().registerEvents(new Listener_PressurePlate(), this);
+		
+		System.out.println("Loading parkours from file");
+		
+		System.out.println("Parkours loaded!");
 		
 		System.out.println("Parkour plugin initialized!");
 	}

@@ -42,7 +42,12 @@ public class Command_parkour implements CommandExecutor {
 				
 			}
 			else if (args[0].equals("world")) {
-				
+				if (args[1].equals("add")) {
+					String worldName = args[2];
+				}
+				else if (args[1].equals("remove")) {
+					String worldName = args[2];
+				}
 			}
 			return true;
 		}
