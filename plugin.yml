@@ -1,9 +1,31 @@
+####   ###  ####  #   #  ####  #    # ####
+#   # #   # #   # #  #  #    # #    # #   #
+####  ##### ####  ###   #    # #    # ####
+#     #   # #   # #  #  #    # #    # #   #
+#     #   # #   # #   #  ####   ####  #   #
 name: Parkour
 main: io.github.hiwiscifi.mc.plugins.parkour.Main
 version: 1.0
 api-version: 1.16
+
+ ####  ####  #    # #    #  ###  #   # ####   ####
+#     #    # ##  ## ##  ## #   # ##  # #   # #
+#     #    # # ## # # ## # ##### # # # #   #  ####
+#     #    # #    # #    # #   # #  ## #   #      #
+ ####  ####  #    # #    # #   # #   # ####   ####
 commands:
     test:
         description: A test command
         usage: /test
         permission: io.github.hiwiscifi.mc.plugins.parkour.commands.test
+        permission-message: &noperms "§cError: §fNo permission!"
+
+####  ##### ####  #    # ###  ####   ####  ###  ####  #   #  ####
+#   # #     #   # ##  ##  #  #      #       #  #    # ##  # #
+####  ####  ####  # ## #  #   ####   ####   #  #    # # # #  ####
+#     #     #   # #    #  #       #      #  #  #    # #  ##      #
+#     ##### #   # #    # ###  ####   ####  ###  ####  #   #  ####
+permissions:
+    io.github.hiwiscifi.mc.plugins.parkour.commands.test:
+        description: use the test command
+        default: true # true | op

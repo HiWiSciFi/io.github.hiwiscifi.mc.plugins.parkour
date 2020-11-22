@@ -1,0 +1,18 @@
+package io.github.hiwiscifi.mc.plugins.parkour.listeners;
+
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
+import org.bukkit.event.player.PlayerJoinEvent;
+
+public class PlayerJoinListener implements Listener {
+	
+	public PlayerJoinListener() {
+		System.out.println("Initializing player join event listener...");
+	}
+	
+	@EventHandler
+    public void onPlayerJoin(PlayerJoinEvent event)
+    {
+        //event.setJoinMessage("Welcome, " + event.getPlayer().getName() + "!");
+    }
+}

@@ -7,19 +7,12 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
-import org.bukkit.event.player.PlayerJoinEvent;
 
-public class MyListener implements Listener {
+public class PressurePlateListener implements Listener {
 	
-	public MyListener() {
-		System.out.println("Initializing event listener...");
+	public PressurePlateListener() {
+		System.out.println("Initializing pressure plate activation event listener...");
 	}
-	
-	@EventHandler
-    public void onPlayerJoin(PlayerJoinEvent event)
-    {
-        event.setJoinMessage("Welcome, " + event.getPlayer().getName() + "!");
-    }
 	
 	@EventHandler
 	public void pressurePlatePress(PlayerInteractEvent e) {
