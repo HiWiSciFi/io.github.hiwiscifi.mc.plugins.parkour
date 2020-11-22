@@ -22,6 +22,10 @@ commands:
         description: Create a holographic text
         usage: /holo <create>
         permission: io.github.hiwiscifi.mc.plugins.parkour.commands.holo
+    parkour:
+        description: Do cool stuff
+        usage: /parkour
+        permission: io.github.hiwiscifi.mc.plugins.parkour.commands.parkour
 
 ####  ##### ####  #    # ###  ####   ####  ###  ####  #   #  ####
 #   # #     #   # ##  ##  #  #      #       #  #    # ##  # #
@@ -34,4 +38,7 @@ permissions:
         default: true # true | op
     io.github.hiwiscifi.mc.plugins.parkour.commands.holo:
         description: use the holo command
+        default: op
+    io.github.hiwiscifi.mc.plugins.parkour.commands.parkour:
+        description: use the parkour command
         default: op
