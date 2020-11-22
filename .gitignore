@@ -24,3 +24,5 @@ hs_err_pid*
 
 /.settings
 /bin
+src/io/github/hiwiscifi/mc/plugins/parkour/.project
+src/io/github/hiwiscifi/mc/plugins/parkour/.classpath
