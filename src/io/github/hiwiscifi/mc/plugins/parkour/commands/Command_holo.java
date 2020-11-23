@@ -17,7 +17,7 @@ public class Command_holo implements CommandExecutor {
 	public static Command_holo Instance;
 	
 	public Command_holo() {
-		System.out.println("Initializing holo command...");
+		System.out.println("[Parkour] Initializing holo command...");
 		Instance = this;
 	}
 	

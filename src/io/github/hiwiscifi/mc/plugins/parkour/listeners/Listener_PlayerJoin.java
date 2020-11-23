@@ -9,7 +9,7 @@ public class Listener_PlayerJoin implements Listener {
 	public static Listener_PlayerJoin Instance;
 	
 	public Listener_PlayerJoin() {
-		System.out.println("Initializing player join event listener...");
+		System.out.println("[Parkour] Initializing player join event listener...");
 		Instance = this;
 	}
 	
