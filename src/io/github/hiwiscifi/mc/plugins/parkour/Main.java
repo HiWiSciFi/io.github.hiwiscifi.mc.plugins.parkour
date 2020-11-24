@@ -6,7 +6,6 @@ import java.util.List;
 import org.bukkit.event.HandlerList;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import io.github.hiwiscifi.mc.plugins.parkour.commands.Command_holo;
 import io.github.hiwiscifi.mc.plugins.parkour.commands.Command_parkour;
 import io.github.hiwiscifi.mc.plugins.parkour.commands.Command_test;
 import io.github.hiwiscifi.mc.plugins.parkour.listeners.Listener_PlayerJoin;
@@ -26,7 +25,6 @@ public class Main extends JavaPlugin {
 		
 		System.out.println("[Parkour] Registring commands...");
 		this.getCommand("test").setExecutor(new Command_test());
-		this.getCommand("holo").setExecutor(new Command_holo());
 		this.getCommand("parkour").setExecutor(new Command_parkour());
 		
 		System.out.println("[Parkour] Registring events...");

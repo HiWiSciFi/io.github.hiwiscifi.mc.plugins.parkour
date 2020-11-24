@@ -18,10 +18,6 @@ commands:
         description: A test command
         usage: /test
         permission: io.github.hiwiscifi.mc.plugins.parkour.commands.test
-    holo:
-        description: Create a holographic text
-        usage: /holo <create>
-        permission: io.github.hiwiscifi.mc.plugins.parkour.commands.holo
     parkour:
         description: Do cool stuff
         usage: /parkour
@@ -36,9 +32,6 @@ permissions:
     io.github.hiwiscifi.mc.plugins.parkour.commands.test:
         description: use the test command
         default: true # true | op
-    io.github.hiwiscifi.mc.plugins.parkour.commands.holo:
-        description: use the holo command
-        default: op
     io.github.hiwiscifi.mc.plugins.parkour.commands.parkour:
         description: use the parkour command
         default: op

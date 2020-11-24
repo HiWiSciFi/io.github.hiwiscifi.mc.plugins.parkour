@@ -1,6 +1,5 @@
 package io.github.hiwiscifi.mc.plugins.parkour.commands;
 
-import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -25,7 +24,7 @@ public class Command_parkour implements CommandExecutor {
 		// + parkour delete <parkour name>
 		// + parkour list
 		
-		// - parkour set location <parkour name>
+		// + parkour set location <parkour name>
 		// - parkour set endTpBack (true | false) <parkour name>
 		
 		// + parkour checkpoint add <parkour name>
@@ -39,7 +38,7 @@ public class Command_parkour implements CommandExecutor {
 			if (args[0].equals("create")) {
 				String parkourName = args[1];
 				player.sendMessage("[Parkour] Creating parkour \"" + parkourName + "\"...");
-				Parkour p = new Parkour(parkourName);
+				Parkour p = new Parkour(parkourName, player.getLocation());
 				Main.Instance.parkours.add(p);
 				p.Save();
 				player.sendMessage("[Parkour] Parkour created");
@@ -58,9 +57,23 @@ public class Command_parkour implements CommandExecutor {
 				
 			}
 			else if (args[0].equals("list")) {
-				Bukkit.broadcastMessage("[Parkour] List of registered parkours");
+				player.sendMessage("[Parkour] List of registered parkours");
 				for (Parkour p : Main.Instance.parkours) {
-					Bukkit.broadcastMessage(p.name);
+					player.sendMessage(p.name);
+				}
+			}
+			else if (args[0].equals("set")) {
+				if (args[1].equals("location")) {
+					String parkourName = args[2];
+					player.sendMessage("[Parkour] Setting start location for parkour \"" + parkourName + "\"...");
+					for (Parkour parkour : Main.Instance.parkours) {
+						if (parkour.name.equals(parkourName)) {
+							parkour.startLocation = player.getLocation();
+							parkour.Save();
+							player.sendMessage("[Parkour] New start location set!");
+							break;
+						}
+					}
 				}
 			}
 			else if (args[0].equals("checkpoint")) {
