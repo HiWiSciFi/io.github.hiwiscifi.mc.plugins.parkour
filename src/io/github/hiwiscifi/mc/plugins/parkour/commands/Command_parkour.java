@@ -21,15 +21,18 @@ public class Command_parkour implements CommandExecutor {
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 		
-		// parkour create <name>
-		// parkour delete <name>
-		// parkour list
+		// + parkour create <parkour name>
+		// + parkour delete <parkour name>
+		// + parkour list
 		
-		// parkour checkpoint add <parkour name>
-		// parkour checkpoint remove <parkour name>
+		// - parkour set location <parkour name>
+		// - parkour set endTpBack (true | false) <parkour name>
 		
-		// parkour world add <world name>
-		// parkour world remove <world name>
+		// + parkour checkpoint add <parkour name>
+		// - parkour checkpoint remove <parkour name>
+		
+		// - parkour world add <world name>
+		// - parkour world remove <world name>
 		
 		if (sender instanceof Player) {
 			Player player = (Player) sender;
@@ -76,14 +79,6 @@ public class Command_parkour implements CommandExecutor {
 							
 						}
 					}
-				}
-			}
-			else if (args[0].equals("world")) {
-				if (args[1].equals("add")) {
-					String worldName = args[2];
-				}
-				else if (args[1].equals("remove")) {
-					String worldName = args[2];
 				}
 			}
 			return true;

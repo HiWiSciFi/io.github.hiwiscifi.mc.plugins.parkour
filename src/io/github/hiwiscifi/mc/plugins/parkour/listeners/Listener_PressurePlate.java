@@ -15,14 +15,14 @@ import io.github.hiwiscifi.mc.plugins.parkour.Main;
 import io.github.hiwiscifi.mc.plugins.parkour.Parkour;
 
 public class Listener_PressurePlate implements Listener {
-	
+
 	public static Listener_PressurePlate Instance;
 	private List<Material> supportedMaterials;
-	
+
 	public Listener_PressurePlate() {
 		System.out.println("[Parkour] Initializing pressure plate activation event listener...");
 		Instance = this;
-		
+
 		supportedMaterials = new ArrayList<Material>();
 		supportedMaterials.add(Material.ACACIA_PRESSURE_PLATE);
 		supportedMaterials.add(Material.BIRCH_PRESSURE_PLATE);
@@ -37,20 +37,24 @@ public class Listener_PressurePlate implements Listener {
 		supportedMaterials.add(Material.STONE_PRESSURE_PLATE);
 		supportedMaterials.add(Material.WARPED_PRESSURE_PLATE);
 	}
-	
+
 	@EventHandler
 	public void pressurePlatePress(PlayerInteractEvent e) {
-        if(e.getAction().equals(Action.PHYSICAL)) {
-        	Block ablock = e.getClickedBlock();
-            if (supportedMaterials.contains(ablock.getType())) {
-            	for (Parkour p : Main.Instance.parkours) {
-            		for (Location l : p.checkpoints) {
-            			if (l.distance(ablock.getLocation()) < 0.25d) {
-            				e.getPlayer().sendMessage("Checkpoint from parkour " + p.name + " reached");
-            			}
-            		}
-            	}
-            }
-        }
-    }
+		if (e.getAction().equals(Action.PHYSICAL)) {
+			Block ablock = e.getClickedBlock();
+			if (supportedMaterials.contains(ablock.getType())) {
+				for (Parkour p : Main.Instance.parkours) {
+					if (p.startCheckpoint.distance(ablock.getLocation()) < 0.25d) {
+						e.getPlayer().sendMessage("Start for parkour " + p.name + " reached");
+					} else {
+						for (Location l : p.checkpoints) {
+							if (l.distance(ablock.getLocation()) < 0.25d) {
+								e.getPlayer().sendMessage("Checkpoint from parkour " + p.name + " reached");
+							}
+						}
+					}
+				}
+			}
+		}
+	}
 }
