@@ -44,12 +44,14 @@ public class Listener_PressurePlate implements Listener {
 			Block ablock = e.getClickedBlock();
 			if (supportedMaterials.contains(ablock.getType())) {
 				for (Parkour p : Main.Instance.parkours) {
-					if (p.startCheckpoint.distance(ablock.getLocation()) < 0.25d) {
-						e.getPlayer().sendMessage("Start for parkour " + p.name + " reached");
-					} else {
-						for (Location l : p.checkpoints) {
-							if (l.distance(ablock.getLocation()) < 0.25d) {
-								e.getPlayer().sendMessage("Checkpoint from parkour " + p.name + " reached");
+					if (p.startCheckpoint != null) {
+						if (p.startCheckpoint.distance(ablock.getLocation()) < 0.25d) {
+							e.getPlayer().sendMessage("Start for parkour " + p.name + " reached");
+						} else {
+							for (Location l : p.checkpoints) {
+								if (l.distance(ablock.getLocation()) < 0.25d) {
+									e.getPlayer().sendMessage("Checkpoint from parkour " + p.name + " reached");
+								}
 							}
 						}
 					}
