@@ -35,12 +35,24 @@ public class Command_parkour implements CommandExecutor {
 			Player player = (Player) sender;
 			if (args[0].equals("create")) {
 				String parkourName = args[1];
+				player.sendMessage("[Parkour] Creating parkour \"" + parkourName + "\"...");
 				Parkour p = new Parkour(parkourName);
 				Main.Instance.parkours.add(p);
 				p.Save();
+				player.sendMessage("[Parkour] Parkour created");
 			}
 			else if (args[0].equals("delete")) {
 				String parkourName = args[1];
+				player.sendMessage("[Parkour] Deleting parkour \"" + parkourName + "\"...");
+				for (int i = 0; i < Main.Instance.parkours.size(); i++) {
+					if (Main.Instance.parkours.get(i).name.equals(parkourName)) {
+						Main.Instance.parkours.get(i).Delete();
+						Main.Instance.parkours.remove(i);
+						break;
+					}
+				}
+				player.sendMessage("[Parkour] Parkour deleted");
+				
 			}
 			else if (args[0].equals("list")) {
 				Bukkit.broadcastMessage("[Parkour] List of registered parkours");

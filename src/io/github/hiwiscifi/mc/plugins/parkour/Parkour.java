@@ -8,6 +8,9 @@ import org.bukkit.Material;
 
 public class Parkour {
 	public String name;
+	public Location startCheckpoint;
+	public Location startLocation;
+	public Location endCheckpoint;
 	public List<Location> checkpoints;
 	
 	public Parkour(String name) {
@@ -27,7 +30,12 @@ public class Parkour {
 	}
 	
 	public void Save() {
-		Main.Instance.getConfig().set("parkours."+name+".checkpoints", checkpoints);
+		Main.Instance.getConfig().set("parkours." + name + ".checkpoints", checkpoints);
+		Main.Instance.saveConfig();
+	}
+	
+	public void Delete() {
+		Main.Instance.getConfig().set("parkours." + name, null);
 		Main.Instance.saveConfig();
 	}
 }
