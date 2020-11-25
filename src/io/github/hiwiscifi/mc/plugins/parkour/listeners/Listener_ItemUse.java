@@ -13,7 +13,7 @@ public class Listener_ItemUse implements Listener{
 	public static Listener_ItemUse Instance;
 
 	public Listener_ItemUse() {
-		System.out.println("[Parkour] Initializing player join event listener...");
+		System.out.println("[Parkour] Initializing item use event listener...");
 		Instance = this;
 	}
 
