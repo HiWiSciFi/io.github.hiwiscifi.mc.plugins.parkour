@@ -8,29 +8,36 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import io.github.hiwiscifi.mc.plugins.parkour.commands.Command_parkour;
 import io.github.hiwiscifi.mc.plugins.parkour.commands.Command_test;
+import io.github.hiwiscifi.mc.plugins.parkour.listeners.Listener_ItemUse;
 import io.github.hiwiscifi.mc.plugins.parkour.listeners.Listener_PlayerJoin;
 import io.github.hiwiscifi.mc.plugins.parkour.listeners.Listener_PressurePlate;
 
 public class Main extends JavaPlugin {
-	
+
 	public static Main Instance;
-	
+
 	public List<Parkour> parkours = new ArrayList<Parkour>();
+<<<<<<< Updated upstream
 	
+=======
+
+	@SuppressWarnings("unchecked")
+>>>>>>> Stashed changes
 	@Override
 	public void onEnable() {
 		System.out.println("-----Initializing Parkour plugin-----");
-		
+
 		Instance = this;
-		
+
 		System.out.println("[Parkour] Registring commands...");
 		this.getCommand("test").setExecutor(new Command_test());
 		this.getCommand("parkour").setExecutor(new Command_parkour());
-		
+
 		System.out.println("[Parkour] Registring events...");
 		this.getServer().getPluginManager().registerEvents(new Listener_PlayerJoin(), this);
 		this.getServer().getPluginManager().registerEvents(new Listener_PressurePlate(), this);
-		
+		this.getServer().getPluginManager().registerEvents(new Listener_ItemUse(), this);
+
 		System.out.println("[Parkour] Loading parkours from config...");
 		List<String> parkourNames = Parkour.getParkourNames();
 		for (String name : parkourNames) {
@@ -39,19 +46,19 @@ public class Main extends JavaPlugin {
 		
 		System.out.println("-----Parkour plugin initialized-----");
 	}
-	
+
 	@Override
 	public void onDisable() {
 		System.out.println("[Parkour] Saving data to files...");
-		
+
 		System.out.println("[Parkour] Preventing memory leaks...");
-		
+
 		// Unregister Events
 		HandlerList.unregisterAll();
-		
+
 		// run garbage collector
 		System.gc();
-		
+
 		System.out.println("[Parkour] Plugin disabled");
 	}
 }
