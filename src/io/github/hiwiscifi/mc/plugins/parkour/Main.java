@@ -10,6 +10,7 @@ import io.github.hiwiscifi.mc.plugins.parkour.commands.Command_parkour;
 import io.github.hiwiscifi.mc.plugins.parkour.commands.Command_test;
 import io.github.hiwiscifi.mc.plugins.parkour.listeners.Listener_ItemUse;
 import io.github.hiwiscifi.mc.plugins.parkour.listeners.Listener_PlayerJoin;
+import io.github.hiwiscifi.mc.plugins.parkour.listeners.Listener_PlayerRespawn;
 import io.github.hiwiscifi.mc.plugins.parkour.listeners.Listener_PressurePlate;
 
 public class Main extends JavaPlugin {
@@ -32,6 +33,7 @@ public class Main extends JavaPlugin {
 		this.getServer().getPluginManager().registerEvents(new Listener_PlayerJoin(), this);
 		this.getServer().getPluginManager().registerEvents(new Listener_PressurePlate(), this);
 		this.getServer().getPluginManager().registerEvents(new Listener_ItemUse(), this);
+		this.getServer().getPluginManager().registerEvents(new Listener_PlayerRespawn(), this);
 
 		System.out.println("[Parkour] Loading parkours from config...");
 		List<String> parkourNames = Parkour.getParkourNames();

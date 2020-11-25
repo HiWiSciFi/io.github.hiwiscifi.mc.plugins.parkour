@@ -3,16 +3,17 @@ package io.github.hiwiscifi.mc.plugins.parkour.listeners;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.NamespacedKey;
 import org.bukkit.block.Block;
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
+import org.bukkit.persistence.PersistentDataContainer;
 
 import io.github.hiwiscifi.mc.plugins.parkour.Main;
-import io.github.hiwiscifi.mc.plugins.parkour.Parkour;
 
 public class Listener_PressurePlate implements Listener {
 
@@ -37,13 +38,21 @@ public class Listener_PressurePlate implements Listener {
 		supportedMaterials.add(Material.STONE_PRESSURE_PLATE);
 		supportedMaterials.add(Material.WARPED_PRESSURE_PLATE);
 	}
-
+	
+	
+	
 	@EventHandler
 	public void pressurePlatePress(PlayerInteractEvent e) {
 		if (e.getAction().equals(Action.PHYSICAL)) {
 			Block ablock = e.getClickedBlock();
 			if (supportedMaterials.contains(ablock.getType())) {
-				for (Parkour p : Main.Instance.parkours) {
+				
+				Player player = e.getPlayer();
+				PersistentDataContainer pdc = player.getPersistentDataContainer();
+				
+				
+				
+				/*for (Parkour p : Main.Instance.parkours) {
 					if (p.startCheckpoint != null) {
 						if (p.startCheckpoint.distance(ablock.getLocation()) < 0.25d) {
 							e.getPlayer().sendMessage("Start for parkour " + p.name + " reached");
@@ -55,7 +64,7 @@ public class Listener_PressurePlate implements Listener {
 							}
 						}
 					}
-				}
+				}*/
 			}
 		}
 	}
