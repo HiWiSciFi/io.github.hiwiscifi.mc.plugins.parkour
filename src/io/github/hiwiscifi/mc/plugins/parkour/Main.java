@@ -17,12 +17,7 @@ public class Main extends JavaPlugin {
 	public static Main Instance;
 
 	public List<Parkour> parkours = new ArrayList<Parkour>();
-<<<<<<< Updated upstream
-	
-=======
 
-	@SuppressWarnings("unchecked")
->>>>>>> Stashed changes
 	@Override
 	public void onEnable() {
 		System.out.println("-----Initializing Parkour plugin-----");
