@@ -3,6 +3,7 @@ package io.github.hiwiscifi.mc.plugins.parkour.listeners;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.block.Block;
@@ -12,8 +13,10 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.persistence.PersistentDataContainer;
+import org.bukkit.persistence.PersistentDataType;
 
 import io.github.hiwiscifi.mc.plugins.parkour.Main;
+import io.github.hiwiscifi.mc.plugins.parkour.Parkour;
 
 public class Listener_PressurePlate implements Listener {
 
@@ -50,7 +53,21 @@ public class Listener_PressurePlate implements Listener {
 				Player player = e.getPlayer();
 				PersistentDataContainer pdc = player.getPersistentDataContainer();
 				
-				
+				if (false/*if already on parkour*/) {
+					
+				} else {
+					for (Parkour p : Main.Instance.parkours) {
+						if (p.startCheckpoint != null) {
+							if (p.startCheckpoint.distance(ablock.getLocation()) < 0.25d) {
+								NamespacedKey key1 = new NamespacedKey(Main.Instance, "[Parkour]currentParkour");
+								pdc.set(key1, PersistentDataType.STRING, p.name);
+								NamespacedKey key2 = new NamespacedKey(Main.Instance, "[Parkour]onParkour");
+								pdc.set(key2, PersistentDataType.BYTE, (byte)1);
+								player.sendMessage("You are now on the " + p.name + " parkour");
+							}
+						}
+					}
+				}
 				
 				/*for (Parkour p : Main.Instance.parkours) {
 					if (p.startCheckpoint != null) {
