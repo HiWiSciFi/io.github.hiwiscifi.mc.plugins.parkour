@@ -16,23 +16,27 @@ public class PlayerTeleport {
 	public static Location calculateCheckpointLocation(Player player) {
 		PersistentDataContainer pdc = player.getPersistentDataContainer();
 
-		NamespacedKey key1 = new NamespacedKey(Main.getInstance(), "parkour_onParkour");
-		boolean onParcour = (pdc.get(key1, PersistentDataType.INTEGER) % 2) == 1;
+		NamespacedKey onParkourKey = new NamespacedKey(Main.getInstance(), "parkour_onParkour");
+		boolean onParcour = (pdc.get(onParkourKey, PersistentDataType.INTEGER) % 2) == 1;
 
 		if(onParcour) {
-			NamespacedKey key2 = new NamespacedKey(Main.getInstance(), "parkour_currentParkour");
-			String currentParkour = pdc.get(key2, PersistentDataType.STRING);
+			NamespacedKey currentParkourKey = new NamespacedKey(Main.getInstance(), "parkour_currentParkour");
+			String currentParkour = pdc.get(currentParkourKey, PersistentDataType.STRING);
 
 			List<Parkour> parkours = Main.getInstance().parkours;
 			Parkour parkour = null;
 
-			for (int i = 0; i < parkours.size(); i++)
-				if(parkours.get(i).name == currentParkour)
+			for (int i = 0; i < parkours.size(); i++) {
+				if(parkours.get(i).name == currentParkour) {
 					parkour = parkours.get(i);
-			if(parkour == null) return null;
+				}
+			}
+			if(parkour == null) {
+				return null;
+			}
 
-			NamespacedKey key3 = new NamespacedKey(Main.getInstance(), "parkour_currentCheckpoint");
-			int currentCheckpoint = pdc.get(key3, PersistentDataType.INTEGER);
+			NamespacedKey currentCheckpointKey = new NamespacedKey(Main.getInstance(), "parkour_currentCheckpoint");
+			int currentCheckpoint = pdc.get(currentCheckpointKey, PersistentDataType.INTEGER);
 
 			try {
 				return parkour.checkpoints.get(currentCheckpoint);
@@ -40,31 +44,37 @@ public class PlayerTeleport {
 				return null;
 			}
 
-		} else
+		} else {
 			return null;
+		}
 	}
 
 	//TODO try
 	public static Location calculateParkourStartLocation(Player player) {
 		PersistentDataContainer pdc = player.getPersistentDataContainer();
 
-		NamespacedKey key1 = new NamespacedKey(Main.getInstance(), "parkour_onParkour");
-		boolean onParcour = (pdc.get(key1, PersistentDataType.INTEGER) % 2) == 1;
+		NamespacedKey onParkourKey = new NamespacedKey(Main.getInstance(), "parkour_onParkour");
+		boolean onParcour = (pdc.get(onParkourKey, PersistentDataType.INTEGER) % 2) == 1;
 
 		if(onParcour) {
-			NamespacedKey key2 = new NamespacedKey(Main.getInstance(), "parkour_currentParkour");
-			String currentParkour = pdc.get(key2, PersistentDataType.STRING);
+			NamespacedKey currentParkourKey = new NamespacedKey(Main.getInstance(), "parkour_currentParkour");
+			String currentParkour = pdc.get(currentParkourKey, PersistentDataType.STRING);
 
 			List<Parkour> parkours = Main.getInstance().parkours;
 			Parkour parkour = null;
 
-			for (int i = 0; i < parkours.size(); i++)
-				if(parkours.get(i).name == currentParkour)
+			for (int i = 0; i < parkours.size(); i++) {
+				if(parkours.get(i).name == currentParkour) {
 					parkour = parkours.get(i);
-			if(parkour == null) return null;
+				}
+			}
+			if(parkour == null) {
+				return null;
+			}
 
 			return parkour.startLocation;
-		} else
+		} else {
 			return null;
+		}
 	}
 }
