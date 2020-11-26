@@ -1,8 +1,5 @@
 package io.github.hiwiscifi.mc.plugins.parkour.listeners;
 
-
-
-
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.entity.Player;
@@ -16,6 +13,7 @@ import org.bukkit.persistence.PersistentDataType;
 
 import io.github.hiwiscifi.mc.plugins.parkour.Main;
 import io.github.hiwiscifi.mc.plugins.parkour.utils.PlayerTeleport;
+import io.github.hiwiscifi.mc.plugins.parkour.utils.US;
 
 public class Listener_ItemUse implements Listener{
 
@@ -23,11 +21,9 @@ public class Listener_ItemUse implements Listener{
 	private static Listener_ItemUse instance;
 
 	public Listener_ItemUse() {
-		System.out.println("[Parkour] Initializing item use event listener...");
+		System.out.println(US.OUT_PREFIX + US.getString(33) + US.THREE_DOTS);
 		instance = this;
 	}
-
-
 
 	@EventHandler
 	public void onPlayerUse(PlayerInteractEvent event)
@@ -46,7 +42,7 @@ public class Listener_ItemUse implements Listener{
 
 		PersistentDataContainer itemData = itemMeta.getPersistentDataContainer();
 		//TODO change name
-		NamespacedKey funcKey = new NamespacedKey(Main.getInstance(),"parkour_func");
+		NamespacedKey funcKey = new NamespacedKey(Main.getInstance(), US.getString(34));
 		if(itemData.has(funcKey, PersistentDataType.STRING)) {
 			String func = itemData.get(funcKey, PersistentDataType.STRING);
 

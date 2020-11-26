@@ -5,13 +5,15 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import io.github.hiwiscifi.mc.plugins.parkour.utils.US;
+
 public class Command_test implements CommandExecutor {
 
 	public static Command_test getInstance() { return instance; }
 	private static Command_test instance;
 	
 	public Command_test() {
-		System.out.println("[Parkour] Initializing test command...");
+		System.out.println(US.OUT_PREFIX + US.getString(31) + US.THREE_DOTS);
 		instance = this;
 	}
 	
@@ -19,7 +21,7 @@ public class Command_test implements CommandExecutor {
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 		if (sender instanceof Player) {
 			Player player = (Player) sender;
-			player.sendMessage("You are in world \"" + player.getLocation().getWorld().getName() + "\"");
+			player.sendMessage(US.OUT_PREFIX + US.addSpace(US.getString(32), US.END_SPACE) + US.inQuotes(player.getLocation().getWorld().getName()));
 			return true;
 		}
 		

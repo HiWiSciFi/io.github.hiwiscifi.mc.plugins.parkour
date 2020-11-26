@@ -54,9 +54,9 @@ public class US {
 		stringCollection.put(32,	"You are in world");
 		stringCollection.put(33,	"Initializing item use event listener");
 		stringCollection.put(34,	"parkour_func");
-		stringCollection.put(35,	"resetToCheckpoint");
-		stringCollection.put(36,	"resetToStart");
-		stringCollection.put(37,	"resetToSpawn");
+		
+		
+		
 		stringCollection.put(38,	"Initializing player join event listener");
 		stringCollection.put(39,	"parkour_currentParkour");
 		stringCollection.put(40,	"parkour_onParkour");
