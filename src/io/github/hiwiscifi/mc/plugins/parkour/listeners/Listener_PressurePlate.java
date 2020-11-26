@@ -58,13 +58,30 @@ public class Listener_PressurePlate implements Listener {
 				NamespacedKey currentParkourKey = new NamespacedKey(Main.getInstance(), "parkour_currentParkour");
 				NamespacedKey currentCheckpointKey = new NamespacedKey(Main.getInstance(), "parkour_currentCheckpoint");
 
-				if (false/* if already on parkour */) {
+				boolean onParkour = pdc.get(onParkourKey, PersistentDataType.INTEGER)%2 == 1;
+				String currentParkour = pdc.get(currentParkourKey, PersistentDataType.STRING);
+				int currentCheckpoint = pdc.get(currentCheckpointKey, PersistentDataType.INTEGER);
 
+				if (onParkour) {
+					List<Parkour> parkours = Main.getInstance().parkours;
+					Parkour parkour = null;
+
+					for (int i = 0; i < parkours.size(); i++) {
+						if(parkours.get(i).name == currentParkour) {
+							parkour = parkours.get(i);
+						}
+					}
+
+					if(parkour == null) {
+						pdc.set(onParkourKey, PersistentDataType.INTEGER, 0);
+						return;
+					}
+					//TODO HIER AEBEITET MAX
 				} else {
 					for (Parkour p : Main.getInstance().parkours) {
 						if (p.startCheckpoint != null) {
 							if (p.startCheckpoint.distance(ablock.getLocation()) < 0.25d) {
-								if(pdc.get(currentParkourKey, PersistentDataType.STRING) != p.name) {
+								if(currentParkour != p.name) {
 
 									pdc.set(currentParkourKey, PersistentDataType.STRING, p.name);
 									pdc.set(onParkourKey, PersistentDataType.INTEGER, 1);

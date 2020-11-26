@@ -14,6 +14,7 @@ import io.github.hiwiscifi.mc.plugins.parkour.Parkour;
 public class PlayerTeleport {
 
 	public static Location calculateCheckpointLocation(Player player) {
+		//checkpoint 0 => start location
 		PersistentDataContainer pdc = player.getPersistentDataContainer();
 
 		NamespacedKey onParkourKey = new NamespacedKey(Main.getInstance(), "parkour_onParkour");
@@ -49,7 +50,6 @@ public class PlayerTeleport {
 		}
 	}
 
-	//TODO try
 	public static Location calculateParkourStartLocation(Player player) {
 		PersistentDataContainer pdc = player.getPersistentDataContainer();
 
