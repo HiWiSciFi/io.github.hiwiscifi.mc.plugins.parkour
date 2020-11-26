@@ -7,6 +7,8 @@ import java.util.Set;
 import org.bukkit.Location;
 import org.bukkit.Material;
 
+import io.github.hiwiscifi.mc.plugins.parkour.utils.UtilityStrings;
+
 public class Parkour {
 	public String name;
 
@@ -48,8 +50,8 @@ public class Parkour {
 	}
 
 	public static List<String> getParkourNames() {
-		if (Main.getInstance().getConfig().contains("parkours")) {
-			Set<String> keys = Main.getInstance().getConfig().getConfigurationSection("parkours").getKeys(false);
+		if (Main.getInstance().getConfig().contains(UtilityStrings.getString(10))) {
+			Set<String> keys = Main.getInstance().getConfig().getConfigurationSection(UtilityStrings.getString(10)).getKeys(false);
 			List<String> names = new ArrayList<String>();
 			for (String s : keys)
 				names.add(s);
@@ -61,14 +63,14 @@ public class Parkour {
 	//TODO change naming
 	@SuppressWarnings("unchecked")
 	public static Parkour Load(String name) {
-		if (Main.getInstance().getConfig().contains("parkours." + name)) {
+		if (Main.getInstance().getConfig().contains(UtilityStrings.getString(10) + UtilityStrings.DOT + name)) {
 			Parkour parkour = new Parkour(name);
-			if (Main.getInstance().getConfig().contains("parkours." + name + ".checkpoints"))
-				parkour.checkpoints = (List<Location>) Main.getInstance().getConfig().getList("parkours." + name + ".checkpoints", parkour.checkpoints);
-			if (Main.getInstance().getConfig().contains("parkours." + name + ".startCheckpoint"))
-				parkour.startCheckpoint = Main.getInstance().getConfig().getLocation("parkours." + name + ".startCheckpoint");
-			if (Main.getInstance().getConfig().contains("parkours." + name + ".startLocation"))
-				parkour.startLocation = Main.getInstance().getConfig().getLocation("parkours." + name + ".startLocation");
+			if (Main.getInstance().getConfig().contains(UtilityStrings.getString(10) + UtilityStrings.DOT + name + UtilityStrings.DOT + "checkpoints"))
+				parkour.checkpoints = (List<Location>) Main.getInstance().getConfig().getList(UtilityStrings.getString(10) + UtilityStrings.DOT + name + UtilityStrings.DOT + "checkpoints", parkour.checkpoints);
+			if (Main.getInstance().getConfig().contains(UtilityStrings.getString(10) + UtilityStrings.DOT + name + UtilityStrings.DOT + "startCheckpoint"))
+				parkour.startCheckpoint = Main.getInstance().getConfig().getLocation(UtilityStrings.getString(10) + UtilityStrings.DOT + name + UtilityStrings.DOT + "startCheckpoint");
+			if (Main.getInstance().getConfig().contains(UtilityStrings.getString(10) + UtilityStrings.DOT + name + UtilityStrings.DOT + "startLocation"))
+				parkour.startLocation = Main.getInstance().getConfig().getLocation(UtilityStrings.getString(10) + UtilityStrings.DOT + name + UtilityStrings.DOT + "startLocation");
 			return parkour;
 		} else
 			return null;
@@ -76,15 +78,15 @@ public class Parkour {
 
 	//TODO change naming
 	public void Save() {
-		Main.getInstance().getConfig().set("parkours." + name + ".startCheckpoint", startCheckpoint);
-		Main.getInstance().getConfig().set("parkours." + name + ".startLocation", startLocation);
-		Main.getInstance().getConfig().set("parkours." + name + ".checkpoints", checkpoints);
+		Main.getInstance().getConfig().set(UtilityStrings.getString(10) + UtilityStrings.DOT + name + UtilityStrings.DOT + "startCheckpoint", startCheckpoint);
+		Main.getInstance().getConfig().set(UtilityStrings.getString(10) + UtilityStrings.DOT + name + UtilityStrings.DOT + "startLocation", startLocation);
+		Main.getInstance().getConfig().set(UtilityStrings.getString(10) + UtilityStrings.DOT + name + UtilityStrings.DOT + "checkpoints", checkpoints);
 		Main.getInstance().saveConfig();
 	}
 
 	//TODO change naming
 	public void Delete() {
-		Main.getInstance().getConfig().set("parkours." + name, null);
+		Main.getInstance().getConfig().set(UtilityStrings.getString(10) + UtilityStrings.DOT + name, null);
 		Main.getInstance().saveConfig();
 	}
 }
