@@ -65,11 +65,11 @@ public class Parkour {
 	public static Parkour Load(String name) {
 		if (Main.getInstance().getConfig().contains(UtilityStrings.getString(10) + UtilityStrings.DOT + name)) {
 			Parkour parkour = new Parkour(name);
-			if (Main.getInstance().getConfig().contains(UtilityStrings.getString(10) + UtilityStrings.DOT + name + UtilityStrings.DOT + "checkpoints"))
-				parkour.checkpoints = (List<Location>) Main.getInstance().getConfig().getList(UtilityStrings.getString(10) + UtilityStrings.DOT + name + UtilityStrings.DOT + "checkpoints", parkour.checkpoints);
-			if (Main.getInstance().getConfig().contains(UtilityStrings.getString(10) + UtilityStrings.DOT + name + UtilityStrings.DOT + "startCheckpoint"))
-				parkour.startCheckpoint = Main.getInstance().getConfig().getLocation(UtilityStrings.getString(10) + UtilityStrings.DOT + name + UtilityStrings.DOT + "startCheckpoint");
-			if (Main.getInstance().getConfig().contains(UtilityStrings.getString(10) + UtilityStrings.DOT + name + UtilityStrings.DOT + "startLocation"))
+			if (Main.getInstance().getConfig().contains(UtilityStrings.getString(10) + UtilityStrings.DOT + name + UtilityStrings.DOT + UtilityStrings.getString(11)))
+				parkour.checkpoints = (List<Location>) Main.getInstance().getConfig().getList(UtilityStrings.getString(10) + UtilityStrings.DOT + name + UtilityStrings.DOT + UtilityStrings.getString(11), parkour.checkpoints);
+			if (Main.getInstance().getConfig().contains(UtilityStrings.getString(10) + UtilityStrings.DOT + name + UtilityStrings.DOT + UtilityStrings.getString(12)))
+				parkour.startCheckpoint = Main.getInstance().getConfig().getLocation(UtilityStrings.getString(10) + UtilityStrings.DOT + name + UtilityStrings.DOT + UtilityStrings.getString(12));
+			if (Main.getInstance().getConfig().contains(UtilityStrings.getString(10) + UtilityStrings.DOT + name + UtilityStrings.DOT + UtilityStrings.getString(13)))
 				parkour.startLocation = Main.getInstance().getConfig().getLocation(UtilityStrings.getString(10) + UtilityStrings.DOT + name + UtilityStrings.DOT + "startLocation");
 			return parkour;
 		} else
@@ -78,9 +78,9 @@ public class Parkour {
 
 	//TODO change naming
 	public void Save() {
-		Main.getInstance().getConfig().set(UtilityStrings.getString(10) + UtilityStrings.DOT + name + UtilityStrings.DOT + "startCheckpoint", startCheckpoint);
-		Main.getInstance().getConfig().set(UtilityStrings.getString(10) + UtilityStrings.DOT + name + UtilityStrings.DOT + "startLocation", startLocation);
-		Main.getInstance().getConfig().set(UtilityStrings.getString(10) + UtilityStrings.DOT + name + UtilityStrings.DOT + "checkpoints", checkpoints);
+		Main.getInstance().getConfig().set(UtilityStrings.getString(10) + UtilityStrings.DOT + name + UtilityStrings.DOT + UtilityStrings.getString(12), startCheckpoint);
+		Main.getInstance().getConfig().set(UtilityStrings.getString(10) + UtilityStrings.DOT + name + UtilityStrings.DOT + UtilityStrings.getString(13), startLocation);
+		Main.getInstance().getConfig().set(UtilityStrings.getString(10) + UtilityStrings.DOT + name + UtilityStrings.DOT + UtilityStrings.getString(11), checkpoints);
 		Main.getInstance().saveConfig();
 	}
 
