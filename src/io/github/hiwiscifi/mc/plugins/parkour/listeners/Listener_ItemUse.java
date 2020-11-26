@@ -38,16 +38,17 @@ public class Listener_ItemUse implements Listener{
 
 		Material mat = item.getType();
 
-		if(mat.isAir())
+		if(mat.isAir()) {
 			return;
+		}
 
 		ItemMeta itemMeta = item.getItemMeta();
 
 		PersistentDataContainer itemData = itemMeta.getPersistentDataContainer();
-
-		NamespacedKey key = new NamespacedKey(Main.getInstance(),"parkour_func");
-		if(itemData.has(key, PersistentDataType.STRING)) {
-			String func = itemData.get(key, PersistentDataType.STRING);
+		//TODO change name
+		NamespacedKey funcKey = new NamespacedKey(Main.getInstance(),"parkour_func");
+		if(itemData.has(funcKey, PersistentDataType.STRING)) {
+			String func = itemData.get(funcKey, PersistentDataType.STRING);
 
 			switch(func) {
 			case "resetToCheckpoint":
