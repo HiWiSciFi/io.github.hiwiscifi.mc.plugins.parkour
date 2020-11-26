@@ -7,6 +7,7 @@ import org.bukkit.entity.Player;
 
 import io.github.hiwiscifi.mc.plugins.parkour.Main;
 import io.github.hiwiscifi.mc.plugins.parkour.Parkour;
+import io.github.hiwiscifi.mc.plugins.parkour.utils.US;
 
 public class Command_parkour implements CommandExecutor {
 
@@ -14,7 +15,7 @@ public class Command_parkour implements CommandExecutor {
 	private static Command_parkour instance;
 	
 	public Command_parkour() {
-		System.out.println("[Parkour] Initializing parkour command...");
+		System.out.println(US.OUT_PREFIX + US.getString(14) + US.THREE_DOTS);
 		instance = this;
 	}
 	
@@ -36,18 +37,18 @@ public class Command_parkour implements CommandExecutor {
 		
 		if (sender instanceof Player) {
 			Player player = (Player) sender;
-			if (args[0].equals("create")) {
+			if (args[0].equals(US.getString(15))) {
 				String parkourName = args[1];
-				player.sendMessage("[Parkour] Creating parkour \"" + parkourName + "\"...");
+				player.sendMessage(US.OUT_PREFIX + US.addSpace(US.getString(16), US.END_SPACE) + US.inQuotes(parkourName) + US.THREE_DOTS);
 				Parkour p = new Parkour(parkourName, player.getLocation());
 				Main.getInstance().parkours.add(p);
 				p.Save();
-				player.sendMessage("[Parkour] Parkour created");
+				player.sendMessage(US.OUT_PREFIX + US.getString(18));
 			}
-			else if (args[0].equals("delete")) {
+			else if (args[0].equals(US.getString(19))) {
 				//TODO don't delete just hide
 				String parkourName = args[1];
-				player.sendMessage("[Parkour] Deleting parkour \"" + parkourName + "\"...");
+				player.sendMessage(US.OUT_PREFIX + US.addSpace(US.getString(20), US.END_SPACE) + US.inQuotes(parkourName) + US.THREE_DOTS);
 				for (int i = 0; i < Main.getInstance().parkours.size(); i++) {
 					if (Main.getInstance().parkours.get(i).name.equals(parkourName)) {
 						Main.getInstance().parkours.get(i).Delete();
@@ -55,32 +56,32 @@ public class Command_parkour implements CommandExecutor {
 						break;
 					}
 				}
-				player.sendMessage("[Parkour] Parkour deleted");
+				player.sendMessage(US.OUT_PREFIX + US.getString(21));
 				
 			}
-			else if (args[0].equals("list")) {
-				player.sendMessage("[Parkour] List of registered parkours");
+			else if (args[0].equals(US.getString(22))) {
+				player.sendMessage(US.OUT_PREFIX + US.getString(23));
 				for (Parkour p : Main.getInstance().parkours) {
 					player.sendMessage(p.name);
 				}
 			}
-			else if (args[0].equals("set")) {
-				if (args[1].equals("location")) {
+			else if (args[0].equals(US.getString(24))) {
+				if (args[1].equals(US.getString(25))) {
 					String parkourName = args[2];
-					player.sendMessage("[Parkour] Setting start location for parkour \"" + parkourName + "\"...");
+					player.sendMessage(US.OUT_PREFIX + US.addSpace(US.getString(26), US.END_SPACE) + US.inQuotes(parkourName) + US.THREE_DOTS);
 					for (Parkour parkour : Main.getInstance().parkours) {
 						if (parkour.name.equals(parkourName)) {
 							parkour.startLocation = player.getLocation();
 							parkour.Save();
-							player.sendMessage("[Parkour] New start location set!");
+							player.sendMessage(US.OUT_PREFIX + US.getString(27));
 							break;
 						}
 					}
 				}
 				//TODO edit name
 			}
-			else if (args[0].equals("checkpoint")) {
-				if (args[1].equals("add")) {
+			else if (args[0].equals(US.getString(28))) {
+				if (args[1].equals(US.getString(29))) {
 					String parkourName = args[2];
 					for (Parkour p : Main.getInstance().parkours) {
 						if (p.name.equals(parkourName)) {
@@ -89,7 +90,7 @@ public class Command_parkour implements CommandExecutor {
 					}
 					//TODO add in between
 				}
-				else if (args[1].equals("remove")) {
+				else if (args[1].equals(US.getString(30))) {
 					String parkourName = args[2];
 					for (Parkour p : Main.getInstance().parkours) {
 						if (p.name.equals(parkourName)) {

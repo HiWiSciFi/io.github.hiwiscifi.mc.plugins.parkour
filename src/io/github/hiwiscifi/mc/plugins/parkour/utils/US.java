@@ -32,7 +32,7 @@ public class US {
 		stringCollection.put(10,	"parkours");
 		stringCollection.put(11,	"checkpoints");
 		stringCollection.put(12,	"startCheckpoint");
-		stringCollection.put(13,	"startLocation"); // ---
+		stringCollection.put(13,	"startLocation");
 		stringCollection.put(14,	"Initializing parkour command");
 		stringCollection.put(15,	"create");
 		stringCollection.put(16,	"Creating parkour");
@@ -63,7 +63,7 @@ public class US {
 		stringCollection.put(41,	"parkour_currentCheckpoint");
 		stringCollection.put(42,	"Initializing player post respawn event listener");
 		stringCollection.put(43,	"respawning");
-		stringCollection.put(44,	"Initializing pressure plate activation event listener"); // ---
+		stringCollection.put(44,	"Initializing pressure plate activation event listener");
 		stringCollection.put(45,	"You are now on the");
 	}
 	
