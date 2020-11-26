@@ -33,25 +33,23 @@ public class Listener_ItemUse implements Listener{
 	public void onPlayerUse(PlayerInteractEvent event)
 	{
 		Player player = event.getPlayer();
-		
+
 		ItemStack item = player.getInventory().getItemInMainHand();
-		
+
 		Material mat = item.getType();
-		
-		if(mat.isAir()) {
+
+		if(mat.isAir())
 			return;
-		}
-		
+
 		ItemMeta itemMeta = item.getItemMeta();
-		
+
 		PersistentDataContainer itemData = itemMeta.getPersistentDataContainer();
-		
+
 		NamespacedKey key = new NamespacedKey(Main.getInstance(),"parkour_func");
-		itemData.has(key, PersistentDataType.STRING);
-		
-		String func = itemData.get(key, PersistentDataType.STRING);
-		
-		switch(func) {
+		if(itemData.has(key, PersistentDataType.STRING)) {
+			String func = itemData.get(key, PersistentDataType.STRING);
+
+			switch(func) {
 			case "resetToCheckpoint":
 				player.teleport(PlayerTeleport.calculateCheckpointLocation(player));
 				break;
@@ -61,7 +59,8 @@ public class Listener_ItemUse implements Listener{
 			case "resetToSpawn":
 				player.teleport(player.getWorld().getSpawnLocation());
 				//TODO pluginworld speichern hilfe????
-				break;				
+				break;
+			}
 		}
 
 	}
