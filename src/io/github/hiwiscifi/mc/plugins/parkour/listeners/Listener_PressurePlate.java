@@ -19,7 +19,10 @@ import io.github.hiwiscifi.mc.plugins.parkour.Parkour;
 
 public class Listener_PressurePlate implements Listener {
 
-	public Listener_PressurePlate getInstance() { return instance; }
+	public Listener_PressurePlate getInstance() {
+		return instance;
+	}
+
 	private static Listener_PressurePlate instance;
 	private List<Material> supportedMaterials;
 
@@ -42,8 +45,6 @@ public class Listener_PressurePlate implements Listener {
 		supportedMaterials.add(Material.WARPED_PRESSURE_PLATE);
 	}
 
-
-
 	@EventHandler
 	public void pressurePlatePress(PlayerInteractEvent e) {
 		if (e.getAction().equals(Action.PHYSICAL)) {
@@ -53,32 +54,24 @@ public class Listener_PressurePlate implements Listener {
 				Player player = e.getPlayer();
 				PersistentDataContainer pdc = player.getPersistentDataContainer();
 
-				if (false/*if already on parkour*/) {
+				if (false/* if already on parkour */) {
 
-				} else
-					for (Parkour p : Main.getInstance().parkours)
-						if (p.startCheckpoint != null)
+				} else {
+					for (Parkour p : Main.getInstance().parkours) {
+						if (p.startCheckpoint != null) {
 							if (p.startCheckpoint.distance(ablock.getLocation()) < 0.25d) {
 								NamespacedKey key1 = new NamespacedKey(Main.getInstance(), "parkour_currentParkour");
-								pdc.set(key1, PersistentDataType.STRING, p.name);
-								NamespacedKey key2 = new NamespacedKey(Main.getInstance(), "parkour_onParkour");
-								pdc.set(key2, PersistentDataType.INTEGER, 1);
-								player.sendMessage("You are now on the " + p.name + " parkour");
-							}
-
-				/*for (Parkour p : Main.Instance.parkours) {
-					if (p.startCheckpoint != null) {
-						if (p.startCheckpoint.distance(ablock.getLocation()) < 0.25d) {
-							e.getPlayer().sendMessage("Start for parkour " + p.name + " reached");
-						} else {
-							for (Location l : p.checkpoints) {
-								if (l.distance(ablock.getLocation()) < 0.25d) {
-									e.getPlayer().sendMessage("Checkpoint from parkour " + p.name + " reached");
+								System.out.println(pdc.get(key1, PersistentDataType.STRING));
+								if(pdc.get(key1, PersistentDataType.STRING) != p.name) {
+									pdc.set(key1, PersistentDataType.STRING, p.name);
+									NamespacedKey key2 = new NamespacedKey(Main.getInstance(), "parkour_onParkour");
+									pdc.set(key2, PersistentDataType.INTEGER, 1);
+									player.sendMessage("You are now on the " + p.name + " parkour");
 								}
 							}
 						}
 					}
-				}*/
+				}
 			}
 		}
 	}

@@ -1,8 +1,8 @@
 package io.github.hiwiscifi.mc.plugins.parkour;
 
 //BIG TODOS
-//TODO change all Playertype references form p to player
 //TODO save current checkpoint on player (already in join event)
+//TODO rename key variables
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,11 +23,11 @@ public class Main extends JavaPlugin {
 	private static Main instance;
 
 	public List<Parkour> parkours = new ArrayList<Parkour>();
-	
+
 	@Override
 	public void onEnable() {
 		System.out.println("-----Initializing Parkour plugin-----");
-		
+
 		instance = this;
 
 		System.out.println("[Parkour] Registring commands...");
@@ -46,7 +46,7 @@ public class Main extends JavaPlugin {
 		for (String name : parkourNames) {
 			parkours.add(Parkour.Load(name));
 		}
-		
+
 		System.out.println("-----Parkour plugin initialized-----");
 	}
 
@@ -57,7 +57,7 @@ public class Main extends JavaPlugin {
 		System.out.println("[Parkour] Preventing memory leaks...");
 
 		instance = null;
-		
+
 		// Unregister Events
 		HandlerList.unregisterAll();
 
