@@ -40,5 +40,10 @@ public class Listener_PlayerJoin implements Listener {
 			pdc.set(key2, PersistentDataType.INTEGER,0);
 		}
 		
+		NamespacedKey key3 = new NamespacedKey(Main.getInstance(), "parkour_currentCheckpoint");
+		//TODO change data type
+		if(!pdc.has(key3, PersistentDataType.INTEGER)){
+			pdc.set(key3, PersistentDataType.INTEGER,-1);
+		}
 	}
 }

@@ -15,6 +15,7 @@ import org.bukkit.persistence.PersistentDataContainer;
 import org.bukkit.persistence.PersistentDataType;
 
 import io.github.hiwiscifi.mc.plugins.parkour.Main;
+import io.github.hiwiscifi.mc.plugins.parkour.utils.PlayerTeleport;
 
 public class Listener_ItemUse implements Listener{
 
@@ -31,9 +32,9 @@ public class Listener_ItemUse implements Listener{
 	@EventHandler
 	public void onPlayerUse(PlayerInteractEvent event)
 	{
-		Player p = event.getPlayer();
+		Player player = event.getPlayer();
 		
-		ItemStack item = p.getInventory().getItemInMainHand();
+		ItemStack item = player.getInventory().getItemInMainHand();
 		
 		Material mat = item.getType();
 		
@@ -51,14 +52,15 @@ public class Listener_ItemUse implements Listener{
 		String func = itemData.get(key, PersistentDataType.STRING);
 		
 		switch(func) {
-			case "resetCheckpoint":
-				
+			case "resetToCheckpoint":
+				player.teleport(PlayerTeleport.calculateCheckpointLocation(player));
 				break;
-			case "resetStart":
-				
+			case "resetToStart":
+				player.teleport(PlayerTeleport.calculateParkourStartLocation(player));
 				break;
-			case "resetSpawn":
-				
+			case "resetToSpawn":
+				player.teleport(player.getWorld().getSpawnLocation());
+				//TODO pluginworld speichern hilfe????
 				break;				
 		}
 

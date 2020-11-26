@@ -19,9 +19,30 @@ public class PlayerTeleport {
 		
 		NamespacedKey key1 = new NamespacedKey(Main.getInstance(), "parkour_onParkour");
 		boolean onParcour = (pdc.get(key1, PersistentDataType.INTEGER) % 2) == 1;
+		
 		if(onParcour) {
-			//TODO edit
-			return null;
+			NamespacedKey key2 = new NamespacedKey(Main.getInstance(), "parkour_currentParkour");
+			String currentParkour = pdc.get(key2, PersistentDataType.STRING);
+			
+			List<Parkour> parkours = Main.getInstance().parkours;
+			Parkour parkour = null;
+			
+			for (int i = 0; i < parkours.size(); i++) {
+				if(parkours.get(i).name == currentParkour) {
+					parkour = parkours.get(i);
+				}
+			}
+			if(parkour == null) return null;
+			
+			NamespacedKey key3 = new NamespacedKey(Main.getInstance(), "parkour_currentCheckpoint");
+			Integer currentCheckpoint = pdc.get(key2, PersistentDataType.INTEGER);
+			
+			try {
+				return parkour.checkpoints.get(currentCheckpoint);
+			} catch(IndexOutOfBoundsException e){
+				return null;
+			}
+			
 		}
 		else {
 			return null;
@@ -29,7 +50,7 @@ public class PlayerTeleport {
 	}
 	
 	//TODO try
-	public static Location getParkourStartLocation(Player player) {
+	public static Location calculateParkourStartLocation(Player player) {
 		PersistentDataContainer pdc = player.getPersistentDataContainer();
 		
 		NamespacedKey key1 = new NamespacedKey(Main.getInstance(), "parkour_onParkour");
