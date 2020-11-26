@@ -15,8 +15,9 @@ public class UtilityStrings {
 	public final static String OUT_PREFIX = "[Parkour] ";
 	public final static String THREE_DOTS = "...";
 	
-	private static HashMap<Integer, String> stringCollection = new HashMap<Integer, String>();
+	private static HashMap<Integer, String> stringCollection;
 	public static void initializeStringCollection() {
+		stringCollection = new HashMap<Integer, String>();
 		
 		stringCollection.put(0,		"Initializing Parkour plugin");
 		stringCollection.put(1,		"Registring commands");

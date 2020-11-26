@@ -16,6 +16,7 @@ import io.github.hiwiscifi.mc.plugins.parkour.listeners.Listener_ItemUse;
 import io.github.hiwiscifi.mc.plugins.parkour.listeners.Listener_PlayerJoin;
 import io.github.hiwiscifi.mc.plugins.parkour.listeners.Listener_PlayerRespawn;
 import io.github.hiwiscifi.mc.plugins.parkour.listeners.Listener_PressurePlate;
+import io.github.hiwiscifi.mc.plugins.parkour.utils.UtilityStrings;
 
 public class Main extends JavaPlugin {
 
@@ -26,35 +27,37 @@ public class Main extends JavaPlugin {
 
 	@Override
 	public void onEnable() {
-		System.out.println("-----Initializing Parkour plugin-----");
+		UtilityStrings.initializeStringCollection();
+		
+		System.out.println(UtilityStrings.fillWithMinus(UtilityStrings.getString(0), 40));
 
 		instance = this;
 
-		System.out.println("[Parkour] Registring commands...");
+		System.out.println(UtilityStrings.OUT_PREFIX + UtilityStrings.getString(1) + UtilityStrings.THREE_DOTS);
 		//TODO Remove
-		this.getCommand("test").setExecutor(new Command_test());
-		this.getCommand("parkour").setExecutor(new Command_parkour());
+		this.getCommand(UtilityStrings.getString(2)).setExecutor(new Command_test());
+		this.getCommand(UtilityStrings.getString(3)).setExecutor(new Command_parkour());
 
-		System.out.println("[Parkour] Registring events...");
+		System.out.println(UtilityStrings.OUT_PREFIX + UtilityStrings.getString(4) + UtilityStrings.THREE_DOTS);
 		this.getServer().getPluginManager().registerEvents(new Listener_PlayerJoin(), this);
 		this.getServer().getPluginManager().registerEvents(new Listener_PressurePlate(), this);
 		this.getServer().getPluginManager().registerEvents(new Listener_ItemUse(), this);
 		this.getServer().getPluginManager().registerEvents(new Listener_PlayerRespawn(), this);
 
-		System.out.println("[Parkour] Loading parkours from config...");
+		System.out.println(UtilityStrings.OUT_PREFIX + UtilityStrings.getString(5) + UtilityStrings.THREE_DOTS);
 		List<String> parkourNames = Parkour.getParkourNames();
 		for (String name : parkourNames) {
 			parkours.add(Parkour.Load(name));
 		}
 
-		System.out.println("-----Parkour plugin initialized-----");
+		System.out.println(UtilityStrings.fillWithMinus(UtilityStrings.getString(6), 40));
 	}
 
 	@Override
 	public void onDisable() {
-		System.out.println("[Parkour] Saving data to files...");
+		System.out.println(UtilityStrings.OUT_PREFIX + UtilityStrings.getString(7) + UtilityStrings.THREE_DOTS);
 
-		System.out.println("[Parkour] Preventing memory leaks...");
+		System.out.println(UtilityStrings.OUT_PREFIX + UtilityStrings.getString(8) + UtilityStrings.THREE_DOTS);
 
 		instance = null;
 
@@ -64,6 +67,6 @@ public class Main extends JavaPlugin {
 		// run garbage collector
 		System.gc();
 
-		System.out.println("[Parkour] Plugin disabled");
+		System.out.println(UtilityStrings.OUT_PREFIX + UtilityStrings.getString(9));
 	}
 }
