@@ -21,6 +21,7 @@ public class Listener_PlayerJoin implements Listener {
 		instance = this;
 	}
 
+	//TODO add extract functions
 	@EventHandler
 	public void onPlayerJoin(PlayerJoinEvent e)
 	{

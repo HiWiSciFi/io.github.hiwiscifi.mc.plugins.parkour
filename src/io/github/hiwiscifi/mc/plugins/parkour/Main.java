@@ -1,5 +1,9 @@
 package io.github.hiwiscifi.mc.plugins.parkour;
 
+//BIG TODOS
+//TODO change all player references form p to player
+//TODO save current checkpoint on player
+
 import java.util.ArrayList;
 import java.util.List;
 

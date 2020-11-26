@@ -1,11 +1,16 @@
 package io.github.hiwiscifi.mc.plugins.parkour.listeners;
 
-import java.util.Set;
-
+import org.bukkit.Location;
+import org.bukkit.NamespacedKey;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerRespawnEvent;
+import org.bukkit.persistence.PersistentDataContainer;
+import org.bukkit.persistence.PersistentDataType;
+
+import io.github.hiwiscifi.mc.plugins.parkour.Main;
+import io.github.hiwiscifi.mc.plugins.parkour.utils.PlayerTeleport;
 
 public class Listener_PlayerRespawn implements Listener {
 	
@@ -20,12 +25,21 @@ public class Listener_PlayerRespawn implements Listener {
 	
 	@EventHandler
 	public void onRespawn(PlayerRespawnEvent e) {
+		//TODO remove coments
+		//von Max für Hax <3
 		Player player = e.getPlayer();
-		Set<String> tags = player.getScoreboardTags();
-		if (tags.contains("[Parkour]DoingParkour")) {
-			//von Max für Hax <3
+		
+		Location respawnLocation = PlayerTeleport.calculateCheckpointLocation(player);
+		
+		if(respawnLocation != null) {
 			e.setRespawnLocation(respawnLocation);
-			// set respawn to last visited checkpoint
 		}
+		
+		//Set<String> tags = player.getScoreboardTags();
+		//if (tags.contains("[Parkour]DoingParkour")) {
+			
+			
+			// set respawn to last visited checkpoint
+		//}
 	}
 }
