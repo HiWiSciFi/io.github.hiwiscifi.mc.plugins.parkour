@@ -7,6 +7,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerRespawnEvent;
 
 import io.github.hiwiscifi.mc.plugins.parkour.utils.PlayerTeleport;
+import io.github.hiwiscifi.mc.plugins.parkour.utils.US;
 
 public class Listener_PlayerRespawn implements Listener {
 
@@ -15,7 +16,7 @@ public class Listener_PlayerRespawn implements Listener {
 
 	//TODO change naming
 	public Listener_PlayerRespawn() {
-		System.out.println("[Parkour] Initializing player post respawn event listener...");
+		System.out.println(US.OUT_PREFIX + US.getString(42) + US.THREE_DOTS);
 		instance = this;
 	}
 
@@ -29,7 +30,7 @@ public class Listener_PlayerRespawn implements Listener {
 
 		if(respawnLocation != null) {
 			e.setRespawnLocation(respawnLocation);
-			System.out.println("respawning");
+			System.out.println(US.OUT_PREFIX + US.getString(43));
 		}
 
 		//Set<String> tags = player.getScoreboardTags();

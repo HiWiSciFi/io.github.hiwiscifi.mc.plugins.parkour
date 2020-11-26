@@ -61,7 +61,7 @@ public class US {
 		stringCollection.put(39,	"parkour_currentParkour");
 		stringCollection.put(40,	"parkour_onParkour");
 		stringCollection.put(41,	"parkour_currentCheckpoint");
-		stringCollection.put(42,	"Initializing player post respawn event listener");
+		stringCollection.put(42,	"Initializing player respawn event listener");
 		stringCollection.put(43,	"respawning");
 		stringCollection.put(44,	"Initializing pressure plate activation event listener");
 		stringCollection.put(45,	"You are now on the");
