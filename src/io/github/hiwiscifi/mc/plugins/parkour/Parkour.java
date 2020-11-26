@@ -46,8 +46,8 @@ public class Parkour {
 	}
 	
 	public static List<String> getParkourNames() {
-		if (Main.Instance.getConfig().contains("parkours")) {
-			Set<String> keys = Main.Instance.getConfig().getConfigurationSection("parkours").getKeys(false);
+		if (Main.getInstance().getConfig().contains("parkours")) {
+			Set<String> keys = Main.getInstance().getConfig().getConfigurationSection("parkours").getKeys(false);
 			List<String> names = new ArrayList<String>();
 			for (String s : keys) {
 				names.add(s);
@@ -60,16 +60,16 @@ public class Parkour {
 	
 	@SuppressWarnings("unchecked")
 	public static Parkour Load(String name) {
-		if (Main.Instance.getConfig().contains("parkours." + name)) {
+		if (Main.getInstance().getConfig().contains("parkours." + name)) {
 			Parkour parkour = new Parkour(name);
-			if (Main.Instance.getConfig().contains("parkours." + name + ".checkpoints")) {
-				parkour.checkpoints = (List<Location>) Main.Instance.getConfig().getList("parkours." + name + ".checkpoints", parkour.checkpoints);
+			if (Main.getInstance().getConfig().contains("parkours." + name + ".checkpoints")) {
+				parkour.checkpoints = (List<Location>) Main.getInstance().getConfig().getList("parkours." + name + ".checkpoints", parkour.checkpoints);
 			}
-			if (Main.Instance.getConfig().contains("parkours." + name + ".startCheckpoint")) {
-				parkour.startCheckpoint = Main.Instance.getConfig().getLocation("parkours." + name + ".startCheckpoint");
+			if (Main.getInstance().getConfig().contains("parkours." + name + ".startCheckpoint")) {
+				parkour.startCheckpoint = Main.getInstance().getConfig().getLocation("parkours." + name + ".startCheckpoint");
 			}
-			if (Main.Instance.getConfig().contains("parkours." + name + ".startLocation")) {
-				parkour.startLocation = Main.Instance.getConfig().getLocation("parkours." + name + ".startLocation");
+			if (Main.getInstance().getConfig().contains("parkours." + name + ".startLocation")) {
+				parkour.startLocation = Main.getInstance().getConfig().getLocation("parkours." + name + ".startLocation");
 			}
 			return parkour;
 		} else {
@@ -78,14 +78,14 @@ public class Parkour {
 	}
 	
 	public void Save() {
-		Main.Instance.getConfig().set("parkours." + name + ".startCheckpoint", startCheckpoint);
-		Main.Instance.getConfig().set("parkours." + name + ".startLocation", startLocation);
-		Main.Instance.getConfig().set("parkours." + name + ".checkpoints", checkpoints);
-		Main.Instance.saveConfig();
+		Main.getInstance().getConfig().set("parkours." + name + ".startCheckpoint", startCheckpoint);
+		Main.getInstance().getConfig().set("parkours." + name + ".startLocation", startLocation);
+		Main.getInstance().getConfig().set("parkours." + name + ".checkpoints", checkpoints);
+		Main.getInstance().saveConfig();
 	}
 	
 	public void Delete() {
-		Main.Instance.getConfig().set("parkours." + name, null);
-		Main.Instance.saveConfig();
+		Main.getInstance().getConfig().set("parkours." + name, null);
+		Main.getInstance().saveConfig();
 	}
 }
