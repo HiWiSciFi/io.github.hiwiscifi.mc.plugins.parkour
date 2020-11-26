@@ -60,9 +60,9 @@ public class Listener_PressurePlate implements Listener {
 					for (Parkour p : Main.getInstance().parkours) {
 						if (p.startCheckpoint != null) {
 							if (p.startCheckpoint.distance(ablock.getLocation()) < 0.25d) {
-								NamespacedKey key1 = new NamespacedKey(Main.getInstance(), "[Parkour]currentParkour");
+								NamespacedKey key1 = new NamespacedKey(Main.getInstance(), "parkour_currentParkour");
 								pdc.set(key1, PersistentDataType.STRING, p.name);
-								NamespacedKey key2 = new NamespacedKey(Main.getInstance(), "[Parkour]onParkour");
+								NamespacedKey key2 = new NamespacedKey(Main.getInstance(), "parkour_onParkour");
 								pdc.set(key2, PersistentDataType.BYTE, (byte)1);
 								player.sendMessage("You are now on the " + p.name + " parkour");
 							}

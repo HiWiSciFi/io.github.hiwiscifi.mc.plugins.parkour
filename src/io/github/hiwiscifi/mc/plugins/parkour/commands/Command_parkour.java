@@ -45,6 +45,7 @@ public class Command_parkour implements CommandExecutor {
 				player.sendMessage("[Parkour] Parkour created");
 			}
 			else if (args[0].equals("delete")) {
+				//TODO don't delete just hide
 				String parkourName = args[1];
 				player.sendMessage("[Parkour] Deleting parkour \"" + parkourName + "\"...");
 				for (int i = 0; i < Main.getInstance().parkours.size(); i++) {
@@ -76,6 +77,7 @@ public class Command_parkour implements CommandExecutor {
 						}
 					}
 				}
+				//TODO edit name
 			}
 			else if (args[0].equals("checkpoint")) {
 				if (args[1].equals("add")) {
@@ -85,6 +87,7 @@ public class Command_parkour implements CommandExecutor {
 							p.AddCheckpoint(player.getLocation());
 						}
 					}
+					//TODO add in between
 				}
 				else if (args[1].equals("remove")) {
 					String parkourName = args[2];
@@ -94,6 +97,8 @@ public class Command_parkour implements CommandExecutor {
 						}
 					}
 				}
+				//TODO list
+				//TODO edit
 			}
 			return true;
 		}

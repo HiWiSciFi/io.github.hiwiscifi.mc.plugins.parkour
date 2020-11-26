@@ -27,6 +27,7 @@ public class Main extends JavaPlugin {
 		instance = this;
 
 		System.out.println("[Parkour] Registring commands...");
+		//TODO Remove
 		this.getCommand("test").setExecutor(new Command_test());
 		this.getCommand("parkour").setExecutor(new Command_parkour());
 

@@ -1,5 +1,5 @@
 package io.github.hiwiscifi.mc.plugins.parkour;
-
+//TODO same name
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -29,6 +29,7 @@ public class Parkour {
 		startCheckpoint = null;
 	}
 	
+	//TODO change naming
 	public void AddCheckpoint(Location location) {
 		Location loc = location.toBlockLocation();
 		if (startCheckpoint == null) {
@@ -41,6 +42,7 @@ public class Parkour {
 		Save();
 	}
 	
+	//TODO change naming
 	public void RemoveCheckpoint() {
 		Save();
 	}
@@ -58,6 +60,7 @@ public class Parkour {
 		}
 	}
 	
+	//TODO change naming
 	@SuppressWarnings("unchecked")
 	public static Parkour Load(String name) {
 		if (Main.getInstance().getConfig().contains("parkours." + name)) {
@@ -77,6 +80,7 @@ public class Parkour {
 		}
 	}
 	
+	//TODO change naming
 	public void Save() {
 		Main.getInstance().getConfig().set("parkours." + name + ".startCheckpoint", startCheckpoint);
 		Main.getInstance().getConfig().set("parkours." + name + ".startLocation", startLocation);
@@ -84,6 +88,7 @@ public class Parkour {
 		Main.getInstance().saveConfig();
 	}
 	
+	//TODO change naming
 	public void Delete() {
 		Main.getInstance().getConfig().set("parkours." + name, null);
 		Main.getInstance().saveConfig();

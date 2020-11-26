@@ -54,11 +54,9 @@ public class Listener_ItemUse implements Listener{
 			case "resetCheckpoint":
 				
 				break;
-				
 			case "resetStart":
 				
 				break;
-				
 			case "resetSpawn":
 				
 				break;				

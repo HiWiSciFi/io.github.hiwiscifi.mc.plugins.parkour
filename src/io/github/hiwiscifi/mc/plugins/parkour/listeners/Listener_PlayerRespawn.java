@@ -12,6 +12,7 @@ public class Listener_PlayerRespawn implements Listener {
 	public Listener_PlayerRespawn getInstance() { return instance; }
 	private static Listener_PlayerRespawn instance;
 	
+	//TODO change naming
 	public Listener_PlayerRespawn() {
 		System.out.println("[Parkour] Initializing player post respawn event listener...");
 		instance = this;
@@ -22,6 +23,8 @@ public class Listener_PlayerRespawn implements Listener {
 		Player player = e.getPlayer();
 		Set<String> tags = player.getScoreboardTags();
 		if (tags.contains("[Parkour]DoingParkour")) {
+			//von Max für Hax <3
+			e.setRespawnLocation(respawnLocation);
 			// set respawn to last visited checkpoint
 		}
 	}
