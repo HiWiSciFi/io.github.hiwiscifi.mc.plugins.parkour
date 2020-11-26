@@ -16,6 +16,7 @@ import org.bukkit.persistence.PersistentDataType;
 
 import io.github.hiwiscifi.mc.plugins.parkour.Main;
 import io.github.hiwiscifi.mc.plugins.parkour.Parkour;
+import io.github.hiwiscifi.mc.plugins.parkour.utils.UtilityStrings;
 
 public class Listener_PressurePlate implements Listener {
 
@@ -27,7 +28,7 @@ public class Listener_PressurePlate implements Listener {
 	private List<Material> supportedMaterials;
 
 	public Listener_PressurePlate() {
-		System.out.println("[Parkour] Initializing pressure plate activation event listener...");
+		System.out.println(UtilityStrings.OUT_PREFIX + UtilityStrings.getString(44) + UtilityStrings.THREE_DOTS);
 		instance = this;
 
 		supportedMaterials = new ArrayList<Material>();
@@ -54,9 +55,9 @@ public class Listener_PressurePlate implements Listener {
 				Player player = e.getPlayer();
 				PersistentDataContainer pdc = player.getPersistentDataContainer();
 
-				NamespacedKey onParkourKey = new NamespacedKey(Main.getInstance(), "parkour_onParkour");
-				NamespacedKey currentParkourKey = new NamespacedKey(Main.getInstance(), "parkour_currentParkour");
-				NamespacedKey currentCheckpointKey = new NamespacedKey(Main.getInstance(), "parkour_currentCheckpoint");
+				NamespacedKey onParkourKey = new NamespacedKey(Main.getInstance(), UtilityStrings.getString(40));
+				NamespacedKey currentParkourKey = new NamespacedKey(Main.getInstance(), UtilityStrings.getString(39));
+				NamespacedKey currentCheckpointKey = new NamespacedKey(Main.getInstance(), UtilityStrings.getString(41));
 
 				boolean onParkour = pdc.get(onParkourKey, PersistentDataType.INTEGER)%2 == 1;
 				String currentParkour = pdc.get(currentParkourKey, PersistentDataType.STRING);
@@ -86,7 +87,7 @@ public class Listener_PressurePlate implements Listener {
 									pdc.set(currentParkourKey, PersistentDataType.STRING, p.name);
 									pdc.set(onParkourKey, PersistentDataType.INTEGER, 1);
 
-									player.sendMessage("You are now on the " + p.name + " parkour");
+									player.sendMessage(UtilityStrings.OUT_PREFIX + UtilityStrings.getString(45) + UtilityStrings.addSpace(p.name, UtilityStrings.BEGIN_SPACE | UtilityStrings.END_SPACE) + UtilityStrings.getString(3));
 									//TODO set item and check gamemode
 								}
 							}
