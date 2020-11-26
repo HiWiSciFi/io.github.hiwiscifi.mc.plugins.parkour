@@ -65,7 +65,7 @@ public class US {
 	}
 	
 	public static String getString(int index) {
-		if (index >= stringCollection.size() || index < 0) {
+		if (!stringCollection.containsKey(index) || index < 0) {
 			return null;
 		}
 		return stringCollection.get(index);
