@@ -87,7 +87,7 @@ public class Listener_PressurePlate implements Listener {
 									pdc.set(currentParkourKey, PersistentDataType.STRING, p.name);
 									pdc.set(onParkourKey, PersistentDataType.INTEGER, 1);
 
-									player.sendMessage(US.OUT_PREFIX + US.getString(45) + US.addSpace(p.name, US.BEGIN_SPACE | US.END_SPACE) + US.getString(3));
+									player.sendMessage(US.OUT_PREFIX + US.getString(45) + US.addSpace(p.name, true, true) + US.getString(3));
 									//TODO set item and check gamemode
 								}
 							}

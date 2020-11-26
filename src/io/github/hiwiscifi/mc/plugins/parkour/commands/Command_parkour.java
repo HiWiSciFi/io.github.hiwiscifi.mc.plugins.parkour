@@ -39,7 +39,7 @@ public class Command_parkour implements CommandExecutor {
 			Player player = (Player) sender;
 			if (args[0].equals(US.getString(15))) {
 				String parkourName = args[1];
-				player.sendMessage(US.OUT_PREFIX + US.addSpace(US.getString(16), US.END_SPACE) + US.inQuotes(parkourName) + US.THREE_DOTS);
+				player.sendMessage(US.OUT_PREFIX + US.addSpace(US.getString(16), false, true) + US.inQuotes(parkourName) + US.THREE_DOTS);
 				Parkour p = new Parkour(parkourName, player.getLocation());
 				Main.getInstance().parkours.add(p);
 				p.Save();
@@ -48,7 +48,7 @@ public class Command_parkour implements CommandExecutor {
 			else if (args[0].equals(US.getString(19))) {
 				//TODO don't delete just hide
 				String parkourName = args[1];
-				player.sendMessage(US.OUT_PREFIX + US.addSpace(US.getString(20), US.END_SPACE) + US.inQuotes(parkourName) + US.THREE_DOTS);
+				player.sendMessage(US.OUT_PREFIX + US.addSpace(US.getString(20), false, true) + US.inQuotes(parkourName) + US.THREE_DOTS);
 				for (int i = 0; i < Main.getInstance().parkours.size(); i++) {
 					if (Main.getInstance().parkours.get(i).name.equals(parkourName)) {
 						Main.getInstance().parkours.get(i).Delete();
@@ -68,7 +68,7 @@ public class Command_parkour implements CommandExecutor {
 			else if (args[0].equals(US.getString(24))) {
 				if (args[1].equals(US.getString(25))) {
 					String parkourName = args[2];
-					player.sendMessage(US.OUT_PREFIX + US.addSpace(US.getString(26), US.END_SPACE) + US.inQuotes(parkourName) + US.THREE_DOTS);
+					player.sendMessage(US.OUT_PREFIX + US.addSpace(US.getString(26), false, true) + US.inQuotes(parkourName) + US.THREE_DOTS);
 					for (Parkour parkour : Main.getInstance().parkours) {
 						if (parkour.name.equals(parkourName)) {
 							parkour.startLocation = player.getLocation();

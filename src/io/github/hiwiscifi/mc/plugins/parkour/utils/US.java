@@ -4,9 +4,6 @@ import java.util.HashMap;
 
 public class US {
 	
-	public final static int BEGIN_SPACE = 1;
-	public final static int END_SPACE = 2;
-	
 	public final static String EMPTY = "";
 	public final static String DOT = ".";
 	public final static String QUOTATION_MARK = "\"";
@@ -78,9 +75,9 @@ public class US {
 		return QUOTATION_MARK + string + QUOTATION_MARK;
 	}
 	
-	public static String addSpace(String string, int params) {
-		if ((params & BEGIN_SPACE) == BEGIN_SPACE) string = SPACE + string;
-		if ((params & END_SPACE) == END_SPACE) string = string + SPACE;
+	public static String addSpace(String string, boolean addStartSpace, boolean addEndSpace) {
+		if (addStartSpace) string = SPACE + string;
+		if (addEndSpace) string = string + SPACE;
 		return string;
 	}
 	
