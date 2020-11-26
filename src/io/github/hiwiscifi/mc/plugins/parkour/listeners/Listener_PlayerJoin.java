@@ -10,6 +10,7 @@ import org.bukkit.persistence.PersistentDataContainer;
 import org.bukkit.persistence.PersistentDataType;
 
 import io.github.hiwiscifi.mc.plugins.parkour.Main;
+import io.github.hiwiscifi.mc.plugins.parkour.utils.US;
 
 public class Listener_PlayerJoin implements Listener {
 
@@ -17,7 +18,7 @@ public class Listener_PlayerJoin implements Listener {
 	private static Listener_PlayerJoin instance;
 
 	public Listener_PlayerJoin() {
-		System.out.println("[Parkour] Initializing player join event listener...");
+		System.out.println(US.OUT_PREFIX + US.getString(38) + US.THREE_DOTS);
 		instance = this;
 	}
 
@@ -29,14 +30,14 @@ public class Listener_PlayerJoin implements Listener {
 		Player p = e.getPlayer();
 		PersistentDataContainer pdc = p.getPersistentDataContainer();
 
-		NamespacedKey currentParkourKey = new NamespacedKey(Main.getInstance(), "parkour_currentParkour");
+		NamespacedKey currentParkourKey = new NamespacedKey(Main.getInstance(), US.getString(39));
 		pdc.set(currentParkourKey, PersistentDataType.STRING,"");
 
 
-		NamespacedKey onParkourKey = new NamespacedKey(Main.getInstance(), "parkour_onParkour");
+		NamespacedKey onParkourKey = new NamespacedKey(Main.getInstance(), US.getString(40));
 		pdc.set(onParkourKey, PersistentDataType.INTEGER,0);
 
-		NamespacedKey currentCheckpointKey = new NamespacedKey(Main.getInstance(), "parkour_currentCheckpoint");
+		NamespacedKey currentCheckpointKey = new NamespacedKey(Main.getInstance(), US.getString(41));
 		pdc.set(currentCheckpointKey, PersistentDataType.INTEGER,-1);
 
 	}
