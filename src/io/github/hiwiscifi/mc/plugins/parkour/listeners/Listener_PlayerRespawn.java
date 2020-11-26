@@ -9,11 +9,12 @@ import org.bukkit.event.player.PlayerRespawnEvent;
 
 public class Listener_PlayerRespawn implements Listener {
 	
-	public static Listener_PlayerRespawn Instance;
+	public Listener_PlayerRespawn getInstance() { return instance; }
+	private static Listener_PlayerRespawn instance;
 	
 	public Listener_PlayerRespawn() {
 		System.out.println("[Parkour] Initializing player post respawn event listener...");
-		Instance = this;
+		instance = this;
 	}
 	
 	@EventHandler

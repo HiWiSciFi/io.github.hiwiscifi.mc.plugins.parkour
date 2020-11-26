@@ -15,15 +15,16 @@ import io.github.hiwiscifi.mc.plugins.parkour.listeners.Listener_PressurePlate;
 
 public class Main extends JavaPlugin {
 
-	public static Main Instance;
+	public static Main getInstance() { return instance; }
+	private static Main instance;
 
 	public List<Parkour> parkours = new ArrayList<Parkour>();
 	
 	@Override
 	public void onEnable() {
 		System.out.println("-----Initializing Parkour plugin-----");
-
-		Instance = this;
+		
+		instance = this;
 
 		System.out.println("[Parkour] Registring commands...");
 		this.getCommand("test").setExecutor(new Command_test());
@@ -50,6 +51,8 @@ public class Main extends JavaPlugin {
 
 		System.out.println("[Parkour] Preventing memory leaks...");
 
+		instance = null;
+		
 		// Unregister Events
 		HandlerList.unregisterAll();
 

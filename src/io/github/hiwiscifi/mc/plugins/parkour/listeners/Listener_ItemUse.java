@@ -10,11 +10,12 @@ import org.bukkit.event.player.PlayerInteractEvent;
 
 public class Listener_ItemUse implements Listener{
 
-	public static Listener_ItemUse Instance;
+	public static Listener_ItemUse getInstance() { return instance; }
+	private static Listener_ItemUse instance;
 
 	public Listener_ItemUse() {
 		System.out.println("[Parkour] Initializing item use event listener...");
-		Instance = this;
+		instance = this;
 	}
 
 

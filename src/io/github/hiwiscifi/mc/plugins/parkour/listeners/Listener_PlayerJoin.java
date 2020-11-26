@@ -7,11 +7,12 @@ import org.bukkit.event.player.PlayerJoinEvent;
 
 public class Listener_PlayerJoin implements Listener {
 
-	public static Listener_PlayerJoin Instance;
+	public static Listener_PlayerJoin getInstance() { return instance; }
+	private static Listener_PlayerJoin instance;
 
 	public Listener_PlayerJoin() {
 		System.out.println("[Parkour] Initializing player join event listener...");
-		Instance = this;
+		instance = this;
 	}
 
 	@EventHandler

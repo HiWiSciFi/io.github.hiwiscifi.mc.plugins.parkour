@@ -20,12 +20,13 @@ import io.github.hiwiscifi.mc.plugins.parkour.Parkour;
 
 public class Listener_PressurePlate implements Listener {
 
-	public static Listener_PressurePlate Instance;
+	public Listener_PressurePlate getInstance() { return instance; }
+	private static Listener_PressurePlate instance;
 	private List<Material> supportedMaterials;
 
 	public Listener_PressurePlate() {
 		System.out.println("[Parkour] Initializing pressure plate activation event listener...");
-		Instance = this;
+		instance = this;
 
 		supportedMaterials = new ArrayList<Material>();
 		supportedMaterials.add(Material.ACACIA_PRESSURE_PLATE);
@@ -56,12 +57,12 @@ public class Listener_PressurePlate implements Listener {
 				if (false/*if already on parkour*/) {
 					
 				} else {
-					for (Parkour p : Main.Instance.parkours) {
+					for (Parkour p : Main.getInstance().parkours) {
 						if (p.startCheckpoint != null) {
 							if (p.startCheckpoint.distance(ablock.getLocation()) < 0.25d) {
-								NamespacedKey key1 = new NamespacedKey(Main.Instance, "[Parkour]currentParkour");
+								NamespacedKey key1 = new NamespacedKey(Main.getInstance(), "[Parkour]currentParkour");
 								pdc.set(key1, PersistentDataType.STRING, p.name);
-								NamespacedKey key2 = new NamespacedKey(Main.Instance, "[Parkour]onParkour");
+								NamespacedKey key2 = new NamespacedKey(Main.getInstance(), "[Parkour]onParkour");
 								pdc.set(key2, PersistentDataType.BYTE, (byte)1);
 								player.sendMessage("You are now on the " + p.name + " parkour");
 							}

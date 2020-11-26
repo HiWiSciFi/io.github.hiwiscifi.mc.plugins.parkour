@@ -7,11 +7,12 @@ import org.bukkit.entity.Player;
 
 public class Command_test implements CommandExecutor {
 
-	public static Command_test Instance;
+	public static Command_test getInstance() { return instance; }
+	private static Command_test instance;
 	
 	public Command_test() {
 		System.out.println("[Parkour] Initializing test command...");
-		Instance = this;
+		instance = this;
 	}
 	
 	@Override
