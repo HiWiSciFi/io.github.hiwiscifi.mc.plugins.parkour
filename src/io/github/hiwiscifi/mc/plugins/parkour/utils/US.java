@@ -2,7 +2,7 @@ package io.github.hiwiscifi.mc.plugins.parkour.utils;
 
 import java.util.HashMap;
 
-public class UtilityStrings {
+public class US {
 	
 	public final static int BEGIN_SPACE = 1;
 	public final static int END_SPACE = 2;
