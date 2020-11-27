@@ -30,15 +30,22 @@ public class Listener_PlayerJoin implements Listener {
 		Player p = e.getPlayer();
 		PersistentDataContainer pdc = p.getPersistentDataContainer();
 
+		NamespacedKey currentCheckpointKey = new NamespacedKey(Main.getInstance(), US.getString(41));
+		if(!pdc.has(currentCheckpointKey, PersistentDataType.INTEGER))
+		{
+			pdc.set(currentCheckpointKey, PersistentDataType.INTEGER,0);
+			// 0 => startCheckpoint
+			// 1 => checkpoints(0)
+		}
+
 		NamespacedKey currentParkourKey = new NamespacedKey(Main.getInstance(), US.getString(39));
-		pdc.set(currentParkourKey, PersistentDataType.STRING,"");
+		if(!pdc.has(currentParkourKey, PersistentDataType.STRING)) {
+			pdc.set(currentParkourKey, PersistentDataType.STRING,"");
+		}
 
 
 		NamespacedKey onParkourKey = new NamespacedKey(Main.getInstance(), US.getString(40));
 		pdc.set(onParkourKey, PersistentDataType.INTEGER,0);
-
-		NamespacedKey currentCheckpointKey = new NamespacedKey(Main.getInstance(), US.getString(41));
-		pdc.set(currentCheckpointKey, PersistentDataType.INTEGER,-1);
 
 	}
 }

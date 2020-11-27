@@ -1,8 +1,11 @@
 package io.github.hiwiscifi.mc.plugins.parkour;
 
 //BIG TODOS
-//TODO save current checkpoint on player (already in join event)
+//TODO respawn checkpoint not with block pos
+//TODO remove parkour_
+//TODO inv bar
 //TODO rename key variables
+//TODO remove all sysoutsprints
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +31,7 @@ public class Main extends JavaPlugin {
 	@Override
 	public void onEnable() {
 		US.initializeStringCollection();
-		
+
 		System.out.println(US.fillWithMinus(US.getString(0), 40));
 
 		instance = this;

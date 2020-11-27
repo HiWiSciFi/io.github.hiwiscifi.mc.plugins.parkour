@@ -77,18 +77,37 @@ public class Listener_PressurePlate implements Listener {
 						pdc.set(onParkourKey, PersistentDataType.INTEGER, 0);
 						return;
 					}
-					//TODO HIER AEBEITET MAX
-				} else {
-					for (Parkour p : Main.getInstance().parkours) {
-						if (p.startCheckpoint != null) {
-							if (p.startCheckpoint.distance(ablock.getLocation()) < 0.25d) {
-								if(currentParkour != p.name) {
 
-									pdc.set(currentParkourKey, PersistentDataType.STRING, p.name);
+					if(!(parkour.checkpoints.size() > currentCheckpoint)) {
+						//in theory never reached
+						finishParkour(player,parkour);
+						return;
+					}
+
+					if (parkour.checkpoints.get(currentCheckpoint).distance(ablock.getLocation()) < 0.25d) {
+						if(parkour.checkpoints.size() == currentCheckpoint+1) {
+							finishParkour(player,parkour);
+							return;
+						}
+
+						pdc.set(currentCheckpointKey, PersistentDataType.INTEGER, currentCheckpoint + 1);
+					}
+
+				} else {
+					for (Parkour parkour : Main.getInstance().parkours) {
+						if (parkour.startCheckpoint != null) {
+							if (parkour.startCheckpoint.distance(ablock.getLocation()) < 0.25d) {
+								if(!onParkour) {
+
+									pdc.set(currentCheckpointKey,PersistentDataType.INTEGER,0);
+									pdc.set(currentParkourKey, PersistentDataType.STRING, parkour.name);
 									pdc.set(onParkourKey, PersistentDataType.INTEGER, 1);
 
-									player.sendMessage(US.OUT_PREFIX + US.getString(45) + US.addSpace(p.name, true, true) + US.getString(3));
-									//TODO set item and check gamemode
+									player.sendMessage(US.OUT_PREFIX + US.getString(45) + US.addSpace(parkour.name, true, true) + US.getString(3));
+									//TODO set item and check gamemode store those items and remove them after parkour is finished or aborted
+									if(parkour.checkpoints.size() == 0) {
+										finishParkour(player,parkour);
+									}
 								}
 							}
 						}
@@ -97,4 +116,17 @@ public class Listener_PressurePlate implements Listener {
 			}
 		}
 	}
+
+	public void finishParkour(Player player, Parkour parkour) {
+		PersistentDataContainer pdc = player.getPersistentDataContainer();
+
+		NamespacedKey onParkourKey = new NamespacedKey(Main.getInstance(), US.getString(40));
+
+		pdc.set(onParkourKey, PersistentDataType.INTEGER, 0);
+
+		System.out.println("completed");
+		//TODO broadcast
+
+	}
+
 }

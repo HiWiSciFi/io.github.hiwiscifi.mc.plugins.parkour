@@ -26,7 +26,7 @@ public class Listener_PlayerRespawn implements Listener {
 		//von Max für Hax <3
 		Player player = e.getPlayer();
 
-		Location respawnLocation = PlayerTeleport.calculateParkourStartLocation(player);
+		Location respawnLocation = PlayerTeleport.calculateCheckpointLocation(player);
 
 		if(respawnLocation != null) {
 			e.setRespawnLocation(respawnLocation);
