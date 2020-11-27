@@ -33,11 +33,5 @@ public class Listener_PlayerRespawn implements Listener {
 			System.out.println(US.OUT_PREFIX + US.getString(43));
 		}
 
-		//Set<String> tags = player.getScoreboardTags();
-		//if (tags.contains("[Parkour]DoingParkour")) {
-
-
-		// set respawn to last visited checkpoint
-		//}
 	}
 }

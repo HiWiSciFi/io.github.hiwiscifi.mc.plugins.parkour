@@ -54,7 +54,7 @@ public class Listener_ItemUse implements Listener{
 				player.teleport(ParkourHelper.calculateParkourStartLocation(player));
 				break;
 			case "resetToSpawn":
-				player.teleport(player.getWorld().getSpawnLocation());
+				player.teleport(player.getWorld().getSpawnLocation() );
 				//TODO pluginworld speichern hilfe????
 				break;
 			}
