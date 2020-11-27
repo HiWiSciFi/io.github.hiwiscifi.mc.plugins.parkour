@@ -1,5 +1,7 @@
 package io.github.hiwiscifi.mc.plugins.parkour.listeners;
 
+//TODO game modes
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,6 +18,7 @@ import org.bukkit.persistence.PersistentDataType;
 
 import io.github.hiwiscifi.mc.plugins.parkour.Main;
 import io.github.hiwiscifi.mc.plugins.parkour.Parkour;
+import io.github.hiwiscifi.mc.plugins.parkour.utils.ParkourHelper;
 import io.github.hiwiscifi.mc.plugins.parkour.utils.US;
 
 public class Listener_PressurePlate implements Listener {
@@ -80,19 +83,19 @@ public class Listener_PressurePlate implements Listener {
 
 					if(!(parkour.checkpoints.size() > currentCheckpoint)) {
 						//Theoretically never reached
-						finishParkour(player,parkour);
+						ParkourHelper.finishParkour(player,parkour);
 						return;
 					}
 
 					if (parkour.checkpoints.get(currentCheckpoint).distance(ablock.getLocation()) < 0.25d) {
 						if(parkour.checkpoints.size() == currentCheckpoint+1) {
-							finishParkour(player,parkour);
+							ParkourHelper.finishParkour(player,parkour);
 							return;
 						}
-						startCheckpoint(player, parkour, currentCheckpoint + 1);
+						ParkourHelper.startCheckpoint(player, parkour, currentCheckpoint + 1);
 					}
 					if (currentCheckpoint > 0 && parkour.checkpoints.get(currentCheckpoint-1).distance(ablock.getLocation()) < 0.25d) {
-						restartCheckpoint(player, parkour, currentCheckpoint);
+						ParkourHelper.restartCheckpoint(player, parkour, currentCheckpoint);
 					}
 
 
@@ -101,10 +104,10 @@ public class Listener_PressurePlate implements Listener {
 						if (parkour.startCheckpoint != null) {
 							if (parkour.startCheckpoint.distance(ablock.getLocation()) < 0.25d) {
 								if(!onParkour) {
-									startParkour(player, parkour);
+									ParkourHelper.startParkour(player, parkour);
 								}
 								else {
-									restartParkour(player, parkour);
+									ParkourHelper.restartParkour(player, parkour);
 								}
 							}
 						}
@@ -114,57 +117,6 @@ public class Listener_PressurePlate implements Listener {
 		}
 	}
 	
-	private void startParkour(Player player, Parkour parkour) {
-		PersistentDataContainer pdc = player.getPersistentDataContainer();
-
-		NamespacedKey onParkourKey = new NamespacedKey(Main.getInstance(), US.getString(40));
-		NamespacedKey currentParkourKey = new NamespacedKey(Main.getInstance(), US.getString(39));
-		NamespacedKey currentCheckpointKey = new NamespacedKey(Main.getInstance(), US.getString(41));
-		
-		pdc.set(currentCheckpointKey,PersistentDataType.INTEGER,0);
-		pdc.set(currentParkourKey, PersistentDataType.STRING, parkour.name);
-		pdc.set(onParkourKey, PersistentDataType.INTEGER, 1);
-
-		player.sendMessage(US.OUT_PREFIX + US.getString(45) + US.addSpace(parkour.name, true, true) + US.getString(3));
-		//TODO set item and check gamemode store those items and remove them after parkour is finished or aborted
-		if(parkour.checkpoints.size() == 0) {
-			finishParkour(player,parkour);
-		}
-		
-		//TODO start timer 
-	}
 	
-	private void restartParkour(Player player, Parkour parkour) {
-		
-		//TODO reset timer
-	}
-	
-	private void startCheckpoint(Player player, Parkour parkour, int checkpoint) {
-		NamespacedKey currentCheckpointKey = new NamespacedKey(Main.getInstance(), US.getString(41));
-
-		PersistentDataContainer pdc = player.getPersistentDataContainer();
-
-		pdc.set(currentCheckpointKey, PersistentDataType.INTEGER, checkpoint);
-		//TODO start checkpoint timer
-		
-	}
-	
-	private void restartCheckpoint(Player player, Parkour parkour, int checkpoint) {
-		//TODO reset checkpoint timer
-		
-	}
-
-	private void finishParkour(Player player, Parkour parkour) {
-		PersistentDataContainer pdc = player.getPersistentDataContainer();
-
-		NamespacedKey onParkourKey = new NamespacedKey(Main.getInstance(), US.getString(40));
-
-		pdc.set(onParkourKey, PersistentDataType.INTEGER, 0);
-
-		System.out.println("completed");
-		//TODO broadcast
-		
-		//TODO ausgelagertes timer zeug
-	}
 	
 }

@@ -12,7 +12,7 @@ import org.bukkit.persistence.PersistentDataContainer;
 import org.bukkit.persistence.PersistentDataType;
 
 import io.github.hiwiscifi.mc.plugins.parkour.Main;
-import io.github.hiwiscifi.mc.plugins.parkour.utils.PlayerTeleport;
+import io.github.hiwiscifi.mc.plugins.parkour.utils.ParkourHelper;
 import io.github.hiwiscifi.mc.plugins.parkour.utils.US;
 
 public class Listener_ItemUse implements Listener{
@@ -48,10 +48,10 @@ public class Listener_ItemUse implements Listener{
 
 			switch(func) {
 			case "resetToCheckpoint":
-				player.teleport(PlayerTeleport.calculateCheckpointLocation(player));
+				player.teleport(ParkourHelper.calculateCheckpointLocation(player));
 				break;
 			case "resetToStart":
-				player.teleport(PlayerTeleport.calculateParkourStartLocation(player));
+				player.teleport(ParkourHelper.calculateParkourStartLocation(player));
 				break;
 			case "resetToSpawn":
 				player.teleport(player.getWorld().getSpawnLocation());

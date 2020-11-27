@@ -6,7 +6,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerRespawnEvent;
 
-import io.github.hiwiscifi.mc.plugins.parkour.utils.PlayerTeleport;
+import io.github.hiwiscifi.mc.plugins.parkour.utils.ParkourHelper;
 import io.github.hiwiscifi.mc.plugins.parkour.utils.US;
 
 public class Listener_PlayerRespawn implements Listener {
@@ -26,7 +26,7 @@ public class Listener_PlayerRespawn implements Listener {
 		//von Max für Hax <3
 		Player player = e.getPlayer();
 
-		Location respawnLocation = PlayerTeleport.calculateCheckpointLocation(player);
+		Location respawnLocation = ParkourHelper.calculateCheckpointLocation(player);
 
 		if(respawnLocation != null) {
 			e.setRespawnLocation(respawnLocation);
