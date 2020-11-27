@@ -41,6 +41,7 @@ public class Main extends JavaPlugin {
 		//TODO Remove
 		this.getCommand(US.getString(2)).setExecutor(new Command_test());
 		this.getCommand(US.getString(3)).setExecutor(new Command_parkour());
+		//TODO add teleport
 
 		System.out.println(US.OUT_PREFIX + US.getString(4) + US.THREE_DOTS);
 		this.getServer().getPluginManager().registerEvents(new Listener_PlayerJoin(), this);

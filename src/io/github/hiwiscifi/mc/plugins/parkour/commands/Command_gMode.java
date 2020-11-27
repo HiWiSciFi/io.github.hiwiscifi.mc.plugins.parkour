@@ -17,7 +17,7 @@ public class Command_gMode implements CommandExecutor{
 
 	public static Command_gMode getInstance() { return instance; }
 	private static Command_gMode instance;
-	
+
 	public Command_gMode() {
 		instance = this;
 	}
@@ -29,32 +29,33 @@ public class Command_gMode implements CommandExecutor{
 		}
 		Player player = (Player)sender;
 		PersistentDataContainer pdc = player.getPersistentDataContainer();
-		
+
 		NamespacedKey onParkourKey = new NamespacedKey(Main.getInstance(), "parkour_onParkour");
 
+		//TODO change world
 		if(!(player.getWorld().getName() == "world") || !((pdc.get(onParkourKey, PersistentDataType.INTEGER) % 2) == 1)) {
 			return false;
 		}
-		
+
 		switch (args[0].toLowerCase()) {
-			case "creative":
-				player.setGameMode(GameMode.CREATIVE);
-				return true;
-				
-			case "survival":
-				player.setGameMode(GameMode.SURVIVAL);
-				return true;
-				
-			case "adventure":
-				player.setGameMode(GameMode.ADVENTURE);
-				return true;
-				
-			case "spectator":
-				player.setGameMode(GameMode.CREATIVE);
-				return true;
-				
-			default:
-				return false;
+		case "creative":
+			player.setGameMode(GameMode.CREATIVE);
+			return true;
+
+		case "survival":
+			player.setGameMode(GameMode.SURVIVAL);
+			return true;
+
+		case "adventure":
+			player.setGameMode(GameMode.ADVENTURE);
+			return true;
+
+		case "spectator":
+			player.setGameMode(GameMode.CREATIVE);
+			return true;
+
+		default:
+			return false;
 		}
 	}
 }
