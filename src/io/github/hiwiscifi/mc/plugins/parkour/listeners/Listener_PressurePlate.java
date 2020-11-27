@@ -1,7 +1,5 @@
 package io.github.hiwiscifi.mc.plugins.parkour.listeners;
 
-//TODO game modes
-
 import java.util.ArrayList;
 import java.util.List;
 

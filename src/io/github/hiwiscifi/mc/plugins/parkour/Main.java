@@ -6,6 +6,7 @@ package io.github.hiwiscifi.mc.plugins.parkour;
 //TODO remove all sysoutsprints
 //TODO reset to deafault and abort in dirfrent class
 //TODO world change and gamemode change
+//TODO do tab completion
 
 import java.util.ArrayList;
 import java.util.List;
