@@ -37,6 +37,7 @@ public class Main extends JavaPlugin {
 
 		instance = this;
 
+		
 		System.out.println(US.OUT_PREFIX + US.getString(1) + US.THREE_DOTS);
 		//TODO Remove
 		this.getCommand(US.getString(2)).setExecutor(new Command_test());
