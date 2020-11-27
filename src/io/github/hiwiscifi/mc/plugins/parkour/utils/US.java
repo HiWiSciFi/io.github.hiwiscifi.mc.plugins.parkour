@@ -50,14 +50,14 @@ public class US {
 		stringCollection.put(31,	"Initializing test command");
 		stringCollection.put(32,	"You are in world");
 		stringCollection.put(33,	"Initializing item use event listener");
-		stringCollection.put(34,	"parkour_func");
+		stringCollection.put(34,	"func");
 		
 		
 		
 		stringCollection.put(38,	"Initializing player join event listener");
-		stringCollection.put(39,	"parkour_currentParkour");
-		stringCollection.put(40,	"parkour_onParkour");
-		stringCollection.put(41,	"parkour_currentCheckpoint");
+		stringCollection.put(39,	"currentParkour");
+		stringCollection.put(40,	"onParkour");
+		stringCollection.put(41,	"currentCheckpoint");
 		stringCollection.put(42,	"Initializing player respawn event listener");
 		stringCollection.put(43,	"respawning");
 		stringCollection.put(44,	"Initializing pressure plate activation event listener");

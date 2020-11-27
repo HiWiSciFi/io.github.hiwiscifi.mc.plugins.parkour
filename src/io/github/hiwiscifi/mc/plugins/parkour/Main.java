@@ -2,9 +2,7 @@ package io.github.hiwiscifi.mc.plugins.parkour;
 
 //BIG TODOS
 //TODO respawn checkpoint not with block pos
-//TODO remove parkour_
 //TODO inv bar
-//TODO rename key variables
 //TODO remove all sysoutsprints
 
 import java.util.ArrayList;
