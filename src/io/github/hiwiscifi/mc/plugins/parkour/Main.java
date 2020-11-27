@@ -14,6 +14,7 @@ import java.util.List;
 import org.bukkit.event.HandlerList;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import io.github.hiwiscifi.mc.plugins.parkour.commands.Command_gMode;
 import io.github.hiwiscifi.mc.plugins.parkour.commands.Command_parkour;
 import io.github.hiwiscifi.mc.plugins.parkour.commands.Command_test;
 import io.github.hiwiscifi.mc.plugins.parkour.listeners.Listener_ItemUse;
@@ -41,6 +42,8 @@ public class Main extends JavaPlugin {
 		//TODO Remove
 		this.getCommand(US.getString(2)).setExecutor(new Command_test());
 		this.getCommand(US.getString(3)).setExecutor(new Command_parkour());
+		this.getCommand("gMode").setExecutor(new Command_gMode());
+		//TODO us string
 		//TODO add teleport
 
 		System.out.println(US.OUT_PREFIX + US.getString(4) + US.THREE_DOTS);

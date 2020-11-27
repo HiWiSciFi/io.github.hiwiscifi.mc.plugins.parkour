@@ -22,6 +22,10 @@ commands:
         description: Do cool stuff
         usage: /parkour
         permission: io.github.hiwiscifi.mc.plugins.parkour.commands.parkour
+    gMode:
+        description: Set gameMode
+        usage: /gMode
+        permission: io.github.hiwiscifi.mc.plugins.parkour.commands.gMode
 
 ####  ##### ####  #    # ###  ####   ####  ###  ####  #   #  ####
 #   # #     #   # ##  ##  #  #      #       #  #    # ##  # #
