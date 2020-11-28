@@ -19,6 +19,7 @@ import io.github.hiwiscifi.mc.plugins.parkour.listeners.Listener_ItemUse;
 import io.github.hiwiscifi.mc.plugins.parkour.listeners.Listener_PlayerJoin;
 import io.github.hiwiscifi.mc.plugins.parkour.listeners.Listener_PlayerRespawn;
 import io.github.hiwiscifi.mc.plugins.parkour.listeners.Listener_PressurePlate;
+import io.github.hiwiscifi.mc.plugins.parkour.utils.Parkour;
 import io.github.hiwiscifi.mc.plugins.parkour.utils.US;
 
 public class Main extends JavaPlugin {
@@ -53,7 +54,7 @@ public class Main extends JavaPlugin {
 		System.out.println(US.OUT_PREFIX + US.getString(5) + US.THREE_DOTS);
 		List<String> parkourNames = Parkour.getParkourNames();
 		for (String name : parkourNames) {
-			parkours.add(Parkour.Load(name));
+			parkours.add(Parkour.load(name));
 		}
 
 		System.out.println(US.fillWithMinus(US.getString(6), 40));

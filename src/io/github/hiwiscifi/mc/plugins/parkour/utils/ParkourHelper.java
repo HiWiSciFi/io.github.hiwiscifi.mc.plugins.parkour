@@ -10,7 +10,6 @@ import org.bukkit.persistence.PersistentDataContainer;
 import org.bukkit.persistence.PersistentDataType;
 
 import io.github.hiwiscifi.mc.plugins.parkour.Main;
-import io.github.hiwiscifi.mc.plugins.parkour.Parkour;
 
 public class ParkourHelper {
 
@@ -44,7 +43,7 @@ public class ParkourHelper {
 			}
 
 			try {
-				return parkour.checkpoints.get(currentCheckpoint-1);
+				return parkour.checkpoints.get(currentCheckpoint-1).location;
 			} catch(IndexOutOfBoundsException e){
 				return null;
 			}
@@ -81,20 +80,20 @@ public class ParkourHelper {
 			return null;
 		}
 	}
-	
+
 	public static void startParkour(Player player, Parkour parkour) {
 		PersistentDataContainer pdc = player.getPersistentDataContainer();
 
 		NamespacedKey onParkourKey = new NamespacedKey(Main.getInstance(), US.getString(40));
 		NamespacedKey currentParkourKey = new NamespacedKey(Main.getInstance(), US.getString(39));
 		NamespacedKey currentCheckpointKey = new NamespacedKey(Main.getInstance(), US.getString(41));
-		
+
 		if(player.getGameMode() == GameMode.CREATIVE || player.getGameMode() == GameMode.SPECTATOR) {
 			return;
 		}else if(player.getGameMode() == GameMode.SURVIVAL) {
 			player.setGameMode(GameMode.ADVENTURE);
 		}
-		
+
 		pdc.set(currentCheckpointKey,PersistentDataType.INTEGER,0);
 		pdc.set(currentParkourKey, PersistentDataType.STRING, parkour.name);
 		pdc.set(onParkourKey, PersistentDataType.INTEGER, 1);
@@ -104,15 +103,15 @@ public class ParkourHelper {
 		if(parkour.checkpoints.size() == 0) {
 			finishParkour(player,parkour);
 		}
-		
-		//TODO start timer 
+
+		//TODO start timer
 	}
-	
+
 	public static void restartParkour(Player player, Parkour parkour) {
-		
+
 		//TODO reset timer
 	}
-	
+
 	public static void startCheckpoint(Player player, Parkour parkour, int checkpoint) {
 		NamespacedKey currentCheckpointKey = new NamespacedKey(Main.getInstance(), US.getString(41));
 
@@ -120,12 +119,12 @@ public class ParkourHelper {
 
 		pdc.set(currentCheckpointKey, PersistentDataType.INTEGER, checkpoint);
 		//TODO start checkpoint timer
-		
+
 	}
-	
+
 	public static void restartCheckpoint(Player player, Parkour parkour, int checkpoint) {
 		//TODO reset checkpoint timer
-		
+
 	}
 
 	public static void finishParkour(Player player, Parkour parkour) {
@@ -137,21 +136,21 @@ public class ParkourHelper {
 
 		System.out.println("completed");
 		//TODO broadcast
-		
+
 		//TODO ausgelagertes timer zeug
 	}
-	
+
 	public static void totalAbortion(Player player) {
 		PersistentDataContainer pdc = player.getPersistentDataContainer();
 
 		NamespacedKey onParkourKey = new NamespacedKey(Main.getInstance(), US.getString(40));
 		NamespacedKey currentParkourKey = new NamespacedKey(Main.getInstance(), US.getString(39));
 		NamespacedKey currentCheckpointKey = new NamespacedKey(Main.getInstance(), US.getString(41));
-		
+
 		pdc.set(currentCheckpointKey,PersistentDataType.INTEGER,0);
 		pdc.set(currentParkourKey, PersistentDataType.STRING, "");
 		pdc.set(onParkourKey, PersistentDataType.INTEGER, 0);
-		
+
 		//TODO abort timer
 	}
 }

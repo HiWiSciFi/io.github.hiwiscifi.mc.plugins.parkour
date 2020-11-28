@@ -1,4 +1,4 @@
-package io.github.hiwiscifi.mc.plugins.parkour.utils;
+package io.github.hiwiscifi.mc.plugins.parkour.utils.command;
 
 import org.bukkit.entity.Player;
 
