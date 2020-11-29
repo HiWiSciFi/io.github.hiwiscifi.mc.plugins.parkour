@@ -105,11 +105,14 @@ public class ParkourHelper {
 		}
 
 		//TODO start timer
+		parkour.startCheckpoint.perform();
 	}
 
 	public static void restartParkour(Player player, Parkour parkour) {
 
 		//TODO reset timer
+		parkour.startCheckpoint.perform();
+
 	}
 
 	public static void startCheckpoint(Player player, Parkour parkour, int checkpoint) {
@@ -120,10 +123,14 @@ public class ParkourHelper {
 		pdc.set(currentCheckpointKey, PersistentDataType.INTEGER, checkpoint);
 		//TODO start checkpoint timer
 
+		parkour.checkpoints.get(checkpoint-1).perform();
+
 	}
 
 	public static void restartCheckpoint(Player player, Parkour parkour, int checkpoint) {
 		//TODO reset checkpoint timer
+
+		parkour.checkpoints.get(checkpoint-1).perform();
 
 	}
 
