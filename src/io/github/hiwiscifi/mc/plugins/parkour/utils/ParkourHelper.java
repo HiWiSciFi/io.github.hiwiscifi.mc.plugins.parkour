@@ -105,13 +105,13 @@ public class ParkourHelper {
 		}
 
 		//TODO start timer
-		parkour.startCheckpoint.perform();
+		applyEffect(player, parkour.startCheckpoint);
 	}
 
 	public static void restartParkour(Player player, Parkour parkour) {
 
 		//TODO reset timer
-		parkour.startCheckpoint.perform();
+		applyEffect(player, parkour.startCheckpoint);
 
 	}
 
@@ -123,14 +123,14 @@ public class ParkourHelper {
 		pdc.set(currentCheckpointKey, PersistentDataType.INTEGER, checkpoint);
 		//TODO start checkpoint timer
 
-		parkour.checkpoints.get(checkpoint-1).perform();
+		applyEffect(player, parkour.checkpoints.get(checkpoint-1));
 
 	}
 
 	public static void restartCheckpoint(Player player, Parkour parkour, int checkpoint) {
 		//TODO reset checkpoint timer
 
-		parkour.checkpoints.get(checkpoint-1).perform();
+		applyEffect(player, parkour.checkpoints.get(checkpoint-1));
 
 	}
 
@@ -145,6 +145,10 @@ public class ParkourHelper {
 		//TODO broadcast
 
 		//TODO ausgelagertes timer zeug
+	}
+
+	public static void applyEffect(Player player, EffectPoint effectPoint) {
+
 	}
 
 	public static void totalAbortion(Player player) {
