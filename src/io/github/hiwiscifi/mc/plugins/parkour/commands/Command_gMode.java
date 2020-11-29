@@ -3,7 +3,6 @@ package io.github.hiwiscifi.mc.plugins.parkour.commands;
 //TODO do string us
 
 import org.bukkit.GameMode;
-import org.bukkit.NamespacedKey;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -11,7 +10,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.persistence.PersistentDataContainer;
 import org.bukkit.persistence.PersistentDataType;
 
-import io.github.hiwiscifi.mc.plugins.parkour.Main;
+import io.github.hiwiscifi.mc.plugins.parkour.utils.US;
 
 public class Command_gMode implements CommandExecutor{
 
@@ -30,10 +29,8 @@ public class Command_gMode implements CommandExecutor{
 		Player player = (Player)sender;
 		PersistentDataContainer pdc = player.getPersistentDataContainer();
 
-		NamespacedKey onParkourKey = new NamespacedKey(Main.getInstance(), "parkour_onParkour");
-
 		//TODO change world
-		if(!(player.getWorld().getName() == "world") || !((pdc.get(onParkourKey, PersistentDataType.INTEGER) % 2) == 1)) {
+		if(!(player.getWorld().getName() == "world") || !((pdc.get(US.onParkourKey, PersistentDataType.INTEGER) % 2) == 1)) {
 			return false;
 		}
 

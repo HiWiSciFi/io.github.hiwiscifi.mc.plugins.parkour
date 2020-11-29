@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.bukkit.Material;
-import org.bukkit.NamespacedKey;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -56,13 +55,9 @@ public class Listener_PressurePlate implements Listener {
 				Player player = e.getPlayer();
 				PersistentDataContainer pdc = player.getPersistentDataContainer();
 
-				NamespacedKey onParkourKey = new NamespacedKey(Main.getInstance(), US.getString(40));
-				NamespacedKey currentParkourKey = new NamespacedKey(Main.getInstance(), US.getString(39));
-				NamespacedKey currentCheckpointKey = new NamespacedKey(Main.getInstance(), US.getString(41));
-
-				boolean onParkour = pdc.get(onParkourKey, PersistentDataType.INTEGER)%2 == 1;
-				String currentParkour = pdc.get(currentParkourKey, PersistentDataType.STRING);
-				int currentCheckpoint = pdc.get(currentCheckpointKey, PersistentDataType.INTEGER);
+				boolean onParkour = pdc.get(US.onParkourKey, PersistentDataType.INTEGER)%2 == 1;
+				String currentParkour = pdc.get(US.currentParkourKey, PersistentDataType.STRING);
+				int currentCheckpoint = pdc.get(US.currentCheckpointKey, PersistentDataType.INTEGER);
 
 				if (onParkour) {
 					List<Parkour> parkours = Main.getInstance().parkours;
@@ -75,7 +70,7 @@ public class Listener_PressurePlate implements Listener {
 					}
 
 					if(parkour == null) {
-						pdc.set(onParkourKey, PersistentDataType.INTEGER, 0);
+						pdc.set(US.onParkourKey, PersistentDataType.INTEGER, 0);
 						return;
 					}
 

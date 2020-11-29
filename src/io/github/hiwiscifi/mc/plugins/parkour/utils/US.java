@@ -2,6 +2,10 @@ package io.github.hiwiscifi.mc.plugins.parkour.utils;
 
 import java.util.HashMap;
 
+import org.bukkit.NamespacedKey;
+
+import io.github.hiwiscifi.mc.plugins.parkour.Main;
+
 public class US {
 	
 	public final static String EMPTY = "";
@@ -12,8 +16,18 @@ public class US {
 	public final static String OUT_PREFIX = "[Parkour] ";
 	public final static String THREE_DOTS = "...";
 	
+	public static NamespacedKey onParkourKey;
+	public static NamespacedKey currentParkourKey;
+	public static NamespacedKey currentCheckpointKey;
+	
 	private static HashMap<Integer, String> stringCollection;
 	public static void initializeStringCollection() {
+		
+		onParkourKey = new NamespacedKey(Main.getInstance(), "onParkour");
+		currentParkourKey = new NamespacedKey(Main.getInstance(), "currentParkour");
+		currentCheckpointKey = new NamespacedKey(Main.getInstance(), "currentCheckpoint");
+				
+		
 		stringCollection = new HashMap<Integer, String>();
 		
 		stringCollection.put(0,		"Initializing Parkour plugin");
@@ -55,9 +69,9 @@ public class US {
 		
 		
 		stringCollection.put(38,	"Initializing player join event listener");
-		stringCollection.put(39,	"currentParkour");
-		stringCollection.put(40,	"onParkour");
-		stringCollection.put(41,	"currentCheckpoint");
+
+		
+		
 		stringCollection.put(42,	"Initializing player respawn event listener");
 		stringCollection.put(43,	"respawning");
 		stringCollection.put(44,	"Initializing pressure plate activation event listener");
