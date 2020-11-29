@@ -48,72 +48,79 @@ public class Listener_PressurePlate implements Listener {
 
 	@EventHandler
 	public void pressurePlatePress(PlayerInteractEvent e) {
-		if (e.getAction().equals(Action.PHYSICAL)) {
-			Block ablock = e.getClickedBlock();
-			if (supportedMaterials.contains(ablock.getType())) {
+		if (!e.getAction().equals(Action.PHYSICAL)) {
+			return;
+		}
 
-				Player player = e.getPlayer();
-				PersistentDataContainer pdc = player.getPersistentDataContainer();
+		Block ablock = e.getClickedBlock();
 
-				boolean onParkour = pdc.get(US.onParkourKey, PersistentDataType.INTEGER)%2 == 1;
-				String currentParkour = pdc.get(US.currentParkourKey, PersistentDataType.STRING);
-				int currentCheckpoint = pdc.get(US.currentCheckpointKey, PersistentDataType.INTEGER);
 
-				if (onParkour) {
-					List<Parkour> parkours = Main.getInstance().parkours;
-					Parkour parkour = null;
+		if (!supportedMaterials.contains(ablock.getType())) {
+			return;
+		}
 
-					for (int i = 0; i < parkours.size(); i++) {
-						if(parkours.get(i).name == currentParkour) {
-							parkour = parkours.get(i);
+		Player player = e.getPlayer();
+		PersistentDataContainer pdc = player.getPersistentDataContainer();
+
+		boolean onParkour = pdc.get(US.onParkourKey, PersistentDataType.INTEGER)%2 == 1;
+		String currentParkour = pdc.get(US.currentParkourKey, PersistentDataType.STRING);
+		int currentCheckpoint = pdc.get(US.currentCheckpointKey, PersistentDataType.INTEGER);
+
+
+		if (onParkour) {
+			List<Parkour> parkours = Main.getInstance().parkours;
+			Parkour parkour = null;
+
+			for (int i = 0; i < parkours.size(); i++) {
+				if(parkours.get(i).name == currentParkour) {
+					parkour = parkours.get(i);
+				}
+			}
+
+			if(parkour == null) {
+				pdc.set(US.onParkourKey, PersistentDataType.INTEGER, 0);
+				return;
+			}
+
+			if(!(parkour.checkpoints.size() > currentCheckpoint)) {
+				//Theoretically never reached
+				ParkourHelper.finishParkour(player,parkour);
+				return;
+			}
+
+			if (parkour.checkpoints.get(currentCheckpoint).location.distance(ablock.getLocation()) < 0.25d) {
+				if(parkour.checkpoints.size() == currentCheckpoint+1) {
+					ParkourHelper.finishParkour(player,parkour);
+					return;
+				}
+				ParkourHelper.startCheckpoint(player, parkour, currentCheckpoint + 1);
+			}else if (currentCheckpoint > 0 && parkour.checkpoints.get(currentCheckpoint-1).location.distance(ablock.getLocation()) < 0.25d) {
+				ParkourHelper.restartCheckpoint(player, parkour, currentCheckpoint);
+
+			} else {
+				for (int i = 0; i < parkour.checkpoints.get(currentCheckpoint-1).effectPoints.size(); i++) {
+					if (parkour.checkpoints.get(currentCheckpoint-1).effectPoints.get(i).location.distance(ablock.getLocation()) < 0.25d) {
+						ParkourHelper.applyEffect(player, parkour.checkpoints.get(currentCheckpoint-1).effectPoints.get(i));
+					}
+				}
+			}
+
+
+		} else {
+			for (Parkour parkour : Main.getInstance().parkours) {
+				if (parkour.startCheckpoint != null) {
+					if (parkour.startCheckpoint.location.distance(ablock.getLocation()) < 0.25d) {
+						if(!onParkour) {
+							ParkourHelper.startParkour(player, parkour);
 						}
-					}
-
-					if(parkour == null) {
-						pdc.set(US.onParkourKey, PersistentDataType.INTEGER, 0);
-						return;
-					}
-
-					if(!(parkour.checkpoints.size() > currentCheckpoint)) {
-						//Theoretically never reached
-						ParkourHelper.finishParkour(player,parkour);
-						return;
-					}
-
-					if (parkour.checkpoints.get(currentCheckpoint).location.distance(ablock.getLocation()) < 0.25d) {
-						if(parkour.checkpoints.size() == currentCheckpoint+1) {
-							ParkourHelper.finishParkour(player,parkour);
-							return;
-						}
-						ParkourHelper.startCheckpoint(player, parkour, currentCheckpoint + 1);
-					}else if (currentCheckpoint > 0 && parkour.checkpoints.get(currentCheckpoint-1).location.distance(ablock.getLocation()) < 0.25d) {
-						ParkourHelper.restartCheckpoint(player, parkour, currentCheckpoint);
-
-					} else {
-						for (int i = 0; i < parkour.checkpoints.get(currentCheckpoint-1).effectPoints.size(); i++) {
-							if (parkour.checkpoints.get(currentCheckpoint-1).effectPoints.get(i).location.distance(ablock.getLocation()) < 0.25d) {
-								ParkourHelper.applyEffect(player,parkour.checkpoints.get(currentCheckpoint-1).effectPoints.get(i));
-							}
-						}
-					}
-
-
-				} else {
-					for (Parkour parkour : Main.getInstance().parkours) {
-						if (parkour.startCheckpoint != null) {
-							if (parkour.startCheckpoint.location.distance(ablock.getLocation()) < 0.25d) {
-								if(!onParkour) {
-									ParkourHelper.startParkour(player, parkour);
-								}
-								else {
-									ParkourHelper.restartParkour(player, parkour);
-								}
-							}
+						else {
+							ParkourHelper.restartParkour(player, parkour);
 						}
 					}
 				}
 			}
 		}
+
 	}
 
 
