@@ -120,9 +120,5 @@ public class Listener_PressurePlate implements Listener {
 				}
 			}
 		}
-
 	}
-
-
-
 }
