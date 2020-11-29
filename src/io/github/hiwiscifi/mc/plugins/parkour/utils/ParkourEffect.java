@@ -1,7 +1,7 @@
 package io.github.hiwiscifi.mc.plugins.parkour.utils;
 
 public class ParkourEffect {
-	static enum Type{
+	static enum Type {
 		SPEED,
 		JUMP_BOOST,
 		TELEPORT
@@ -9,6 +9,6 @@ public class ParkourEffect {
 
 	public Type type;
 
-	//Public variable arguments
+	// TODO: Public variable arguments
 
 }

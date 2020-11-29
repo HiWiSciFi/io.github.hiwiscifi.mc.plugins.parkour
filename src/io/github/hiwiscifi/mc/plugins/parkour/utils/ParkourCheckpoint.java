@@ -6,7 +6,7 @@ import java.util.List;
 import org.bukkit.Location;
 
 
-public class ParkourCheckpoint extends EffectPoint{
+public class ParkourCheckpoint extends EffectPoint {
 
 	public List<EffectPoint> effectPoints = new ArrayList<EffectPoint>();
 
