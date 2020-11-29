@@ -33,7 +33,7 @@ public class Command_gMode implements CommandExecutor{
 		PersistentDataContainer pdc = player.getPersistentDataContainer();
 
 		//stop if player is not in the parkours world (cheating)
-		if(!(player.getWorld().getName() == "parkours") || !((pdc.get(US.onParkourKey, PersistentDataType.INTEGER) % 2) == 1)) {
+		if(!(player.getWorld().getName() == "parkours") || !(pdc.get(US.onParkourKey, PersistentDataType.INTEGER) == 1)) {
 			return false;
 		}
 

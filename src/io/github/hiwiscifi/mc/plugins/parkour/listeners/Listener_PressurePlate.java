@@ -62,7 +62,7 @@ public class Listener_PressurePlate implements Listener {
 		Player player = e.getPlayer();
 		PersistentDataContainer pdc = player.getPersistentDataContainer();
 
-		boolean onParkour = pdc.get(US.onParkourKey, PersistentDataType.INTEGER)%2 == 1;
+		boolean onParkour = pdc.get(US.onParkourKey, PersistentDataType.INTEGER) == 1;
 		String currentParkour = pdc.get(US.currentParkourKey, PersistentDataType.STRING);
 		int currentCheckpoint = pdc.get(US.currentCheckpointKey, PersistentDataType.INTEGER);
 

@@ -15,7 +15,7 @@ public class ParkourHelper {
 	public static Location calculateCheckpointLocation(Player player) {
 		PersistentDataContainer pdc = player.getPersistentDataContainer();
 
-		boolean onParcour = (pdc.get(US.onParkourKey, PersistentDataType.INTEGER) % 2) == 1;
+		boolean onParcour = pdc.get(US.onParkourKey, PersistentDataType.INTEGER) == 1;
 		String currentParkour = pdc.get(US.currentParkourKey, PersistentDataType.STRING);
 		int currentCheckpoint = pdc.get(US.currentCheckpointKey, PersistentDataType.INTEGER);
 
@@ -50,7 +50,7 @@ public class ParkourHelper {
 	public static Location calculateParkourStartLocation(Player player) {
 		PersistentDataContainer pdc = player.getPersistentDataContainer();
 
-		boolean onParcour = (pdc.get(US.onParkourKey, PersistentDataType.INTEGER) % 2) == 1;
+		boolean onParcour = pdc.get(US.onParkourKey, PersistentDataType.INTEGER) == 1;
 		String currentParkour = pdc.get(US.currentParkourKey, PersistentDataType.STRING);
 
 		if(onParcour) {
