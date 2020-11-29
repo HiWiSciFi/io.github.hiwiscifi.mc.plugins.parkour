@@ -90,14 +90,15 @@ public class ParkourHelper {
 		if(parkour.checkpoints.size() == 0) {
 			finishParkour(player,parkour);
 		}
-
-		//TODO start timer
+		
+		ParkourTimer.startParkourTimer(player);
+		
 		applyEffect(player, parkour.startCheckpoint);
 	}
 
 	public static void restartParkour(Player player, Parkour parkour) {
-
-		//TODO reset timer
+		
+		ParkourTimer.startParkourTimer(player);
 		applyEffect(player, parkour.startCheckpoint);
 
 	}
@@ -106,14 +107,14 @@ public class ParkourHelper {
 		PersistentDataContainer pdc = player.getPersistentDataContainer();
 
 		pdc.set(US.currentCheckpointKey, PersistentDataType.INTEGER, checkpoint);
-		//TODO start checkpoint timer
 
+		ParkourTimer.startCheckpointTimer(player);
 		applyEffect(player, parkour.checkpoints.get(checkpoint-1));
 
 	}
 
 	public static void restartCheckpoint(Player player, Parkour parkour, int checkpoint) {
-		//TODO reset checkpoint timer
+		ParkourTimer.startCheckpointTimer(player);
 
 		applyEffect(player, parkour.checkpoints.get(checkpoint-1));
 
@@ -138,9 +139,7 @@ public class ParkourHelper {
 		PersistentDataContainer pdc = player.getPersistentDataContainer();
 
 		pdc.set(US.currentCheckpointKey,PersistentDataType.INTEGER,0);
-		pdc.set(US.currentParkourKey, PersistentDataType.STRING, "");
+		pdc.set(US.currentParkourKey, PersistentDataType.STRING, US.EMPTY);
 		pdc.set(US.onParkourKey, PersistentDataType.INTEGER, 0);
-
-		//TODO abort timer
 	}
 }

@@ -20,12 +20,18 @@ public class US {
 	public static NamespacedKey currentParkourKey;
 	public static NamespacedKey currentCheckpointKey;
 	
+	public static NamespacedKey timerStartParkourTimeKey;
+	public static NamespacedKey timerStartCheckpointTimeKey;
+	
 	private static HashMap<Integer, String> stringCollection;
 	public static void initializeStringCollection() {
 		
 		onParkourKey = new NamespacedKey(Main.getInstance(), "onParkour");
 		currentParkourKey = new NamespacedKey(Main.getInstance(), "currentParkour");
 		currentCheckpointKey = new NamespacedKey(Main.getInstance(), "currentCheckpoint");
+		
+		timerStartParkourTimeKey = new NamespacedKey(Main.getInstance(), "timerStartParkourTime");
+		timerStartCheckpointTimeKey = new NamespacedKey(Main.getInstance(), "timerStartCheckpointTime");
 				
 		
 		stringCollection = new HashMap<Integer, String>();
