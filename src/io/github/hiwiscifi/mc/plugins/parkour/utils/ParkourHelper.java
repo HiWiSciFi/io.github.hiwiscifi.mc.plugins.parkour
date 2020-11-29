@@ -90,14 +90,14 @@ public class ParkourHelper {
 		if(parkour.checkpoints.size() == 0) {
 			finishParkour(player,parkour);
 		}
-		
+
 		ParkourTimer.startParkourTimer(player);
-		
+
 		applyEffect(player, parkour.startCheckpoint);
 	}
 
 	public static void restartParkour(Player player, Parkour parkour) {
-		
+
 		ParkourTimer.startParkourTimer(player);
 		applyEffect(player, parkour.startCheckpoint);
 
@@ -132,7 +132,7 @@ public class ParkourHelper {
 	}
 
 	public static void applyEffect(Player player, EffectPoint effectPoint) {
-
+		effectPoint.apply(player);
 	}
 
 	public static void totalAbortion(Player player) {
