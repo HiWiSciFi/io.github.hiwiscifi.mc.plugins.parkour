@@ -32,6 +32,5 @@ public class Listener_PlayerRespawn implements Listener {
 			e.setRespawnLocation(respawnLocation);
 			System.out.println(US.OUT_PREFIX + US.getString(43));
 		}
-
 	}
 }
