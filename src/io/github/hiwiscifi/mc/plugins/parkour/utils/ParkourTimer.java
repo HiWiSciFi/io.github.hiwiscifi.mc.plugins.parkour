@@ -51,8 +51,8 @@ public class ParkourTimer {
 	
 	
 	/** turns a long value in milliseconds into a string and splits it into hours, minutes, seconds and milliseconds
-	 * @param time
-	 * @return */
+	 * @param time the time to parse in milliseconds
+	 * @return the parsed value in the 0h 0m 0s 0ms format without the hours if they are not needed*/
 	public static String getTimeStringFromMs(long time) {
 		// 0h 00m 00s 000ms
 		long t = time;
