@@ -8,14 +8,17 @@ import org.bukkit.entity.Player;
 import org.bukkit.persistence.PersistentDataContainer;
 import org.bukkit.persistence.PersistentDataType;
 
+import com.destroystokyo.paper.Title;
+
 import io.github.hiwiscifi.mc.plugins.parkour.Main;
+import net.md_5.bungee.api.ChatColor;
 
 public class ParkourHelper {
 
 	public static Location calculateCheckpointLocation(Player player) {
 		PersistentDataContainer pdc = player.getPersistentDataContainer();
 
-		boolean onParcour = pdc.get(US.onParkourKey, PersistentDataType.INTEGER) == 1;
+		boolean onParkour = pdc.get(US.onParkourKey, PersistentDataType.INTEGER) == 1;
 		String currentParkour = pdc.get(US.currentParkourKey, PersistentDataType.STRING);
 		int currentCheckpoint = pdc.get(US.currentCheckpointKey, PersistentDataType.INTEGER);
 
@@ -23,7 +26,7 @@ public class ParkourHelper {
 			return calculateParkourStartLocation(player);
 		}
 
-		if(onParcour) {
+		if(onParkour) {
 			List<Parkour> parkours = Main.getInstance().parkours;
 			Parkour parkour = null;
 
@@ -124,10 +127,10 @@ public class ParkourHelper {
 		PersistentDataContainer pdc = player.getPersistentDataContainer();
 
 		pdc.set(US.onParkourKey, PersistentDataType.INTEGER, 0);
-
-		System.out.println("completed");
-		//TODO broadcast
-
+				
+		player.sendMessage(ChatColor.GREEN + "Pop that pussy like that pop that pussy like that");
+		//TODO Zeit ausgeben im Subtitle Hax
+		player.sendTitle("CONGRATULATIONS, YOU COMPLETED THE PARKOUR!", "Time: ", 10, 30, 20);
 		//TODO ausgelagertes timer zeug
 	}
 
