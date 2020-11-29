@@ -1,5 +1,7 @@
 package io.github.hiwiscifi.mc.plugins.parkour.utils;
 
+import java.util.concurrent.TimeUnit;
+
 import org.bukkit.entity.Player;
 import org.bukkit.persistence.PersistentDataContainer;
 import org.bukkit.persistence.PersistentDataType;
@@ -48,12 +50,27 @@ public class ParkourTimer {
 	}
 	
 	
-	/** turns a long value in milliseconds into a string and splits it into 
+	/** turns a long value in milliseconds into a string and splits it into hours, minutes, seconds and milliseconds
 	 * @param time
-	 * @return
-	 */
+	 * @return */
 	public static String getTimeStringFromMs(long time) {
+		// 0h 00m 00s 000ms
+		long t = time;
 		
-		return "Could not parse to String";
+		long hours = TimeUnit.MILLISECONDS.toHours(t);
+		t -= TimeUnit.HOURS.toMillis(t);
+		long minutes = TimeUnit.MILLISECONDS.toMinutes(t);
+		t -= TimeUnit.MINUTES.toMillis(t);
+		long seconds = TimeUnit.MILLISECONDS.toSeconds(t);
+		t -= TimeUnit.SECONDS.toMillis(t);
+		long milliseconds = t;
+		
+		String timeStr = US.EMPTY;
+		if (hours > 0) timeStr += hours + "h" + US.SPACE;
+		timeStr += minutes + "m" + US.SPACE;
+		timeStr += seconds + "s" + US.SPACE;
+		timeStr += milliseconds + "ms";
+		
+		return timeStr;
 	}
 }
