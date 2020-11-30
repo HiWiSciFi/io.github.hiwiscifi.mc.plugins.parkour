@@ -8,7 +8,7 @@ import org.bukkit.entity.Player;
 public abstract class ParkourEffect implements Cloneable, ConfigurationSerializable{
 
 	public ParkourEffect(String[] args) {
-
+		arguments = args;
 	}
 
 	public String[] arguments;
