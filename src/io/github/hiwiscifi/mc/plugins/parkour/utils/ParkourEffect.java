@@ -7,7 +7,7 @@ import org.bukkit.configuration.serialization.SerializableAs;
 public abstract class ParkourEffect implements Cloneable, ConfigurationSerializable{
 
 	public ParkourEffect(String[] args) {
-
+		arguments = args;
 	}
 
 	public String[] arguments;

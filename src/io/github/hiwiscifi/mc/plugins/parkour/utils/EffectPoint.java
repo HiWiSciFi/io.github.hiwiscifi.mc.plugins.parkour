@@ -39,15 +39,9 @@ public class EffectPoint implements Cloneable, ConfigurationSerializable{
 		switch(args[0].toLowerCase()) {
 		case "teleport":
 		case "tp":
-			effects.add(new TeleportEffect(removeFirstArgument(args)));
+			effects.add(new TeleportEffect(args));
 			break;
 		}
-	}
-
-	private String[] removeFirstArgument(String[] source) {
-		String[] destination = null;
-		System.arraycopy(source, 1, destination, 0, source.length-1);
-		return destination;
 	}
 
 
