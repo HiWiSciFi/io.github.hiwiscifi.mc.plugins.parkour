@@ -16,7 +16,7 @@ public class Listener_PlayerJoin implements Listener {
 	private static Listener_PlayerJoin instance;
 
 	public Listener_PlayerJoin() {
-		System.out.println(US.OUT_PREFIX + US.getString(38) + US.THREE_DOTS);
+		System.out.println(US.OUT_PREFIX + "Initializing player join event listener" + US.THREE_DOTS);
 		instance = this;
 	}
 
@@ -36,7 +36,7 @@ public class Listener_PlayerJoin implements Listener {
 		}
 		
 		if(!pdc.has(US.currentParkourKey, PersistentDataType.STRING)) {
-			pdc.set(US.currentParkourKey, PersistentDataType.STRING,"");
+			pdc.set(US.currentParkourKey, PersistentDataType.STRING, US.EMPTY);
 		}
 		
 		

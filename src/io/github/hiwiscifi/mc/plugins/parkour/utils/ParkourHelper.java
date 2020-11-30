@@ -91,7 +91,7 @@ public class ParkourHelper {
 		pdc.set(US.currentParkourKey, PersistentDataType.STRING, parkour.name);
 		pdc.set(US.onParkourKey, PersistentDataType.INTEGER, 1);
 
-		player.sendMessage(US.OUT_PREFIX + US.getString(45) + US.addSpace(parkour.name, true, true) + US.getString(3));
+		player.sendMessage(US.OUT_PREFIX + "You are now on the " + parkour.name + " parkour");
 		//TODO set item and check gamemode store those items and remove them after parkour is finished or aborted
 		if(parkour.checkpoints.size() == 0) {
 			finishParkour(player,parkour);

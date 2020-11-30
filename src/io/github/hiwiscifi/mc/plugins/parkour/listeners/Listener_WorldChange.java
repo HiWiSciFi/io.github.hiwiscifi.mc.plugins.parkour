@@ -14,7 +14,7 @@ public class Listener_WorldChange implements Listener {
 
 	public Listener_WorldChange() {
 		//TODO Change Text
-		System.out.println(US.OUT_PREFIX + US.getString(33) + US.THREE_DOTS);
+		System.out.println(US.OUT_PREFIX + "Initializing item use event listener" + US.THREE_DOTS);
 		instance = this;
 	}
 

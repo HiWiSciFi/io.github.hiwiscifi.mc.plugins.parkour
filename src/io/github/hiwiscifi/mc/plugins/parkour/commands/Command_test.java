@@ -13,7 +13,7 @@ public class Command_test implements CommandExecutor {
 	private static Command_test instance;
 	
 	public Command_test() {
-		System.out.println(US.OUT_PREFIX + US.getString(31) + US.THREE_DOTS);
+		System.out.println(US.OUT_PREFIX + "Initializing test command" + US.THREE_DOTS);
 		instance = this;
 	}
 	
@@ -21,7 +21,7 @@ public class Command_test implements CommandExecutor {
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 		if (sender instanceof Player) {
 			Player player = (Player) sender;
-			player.sendMessage(US.OUT_PREFIX + US.addSpace(US.getString(32), false, true) + US.inQuotes(player.getLocation().getWorld().getName()));
+			player.sendMessage(US.OUT_PREFIX + "You are in world " + US.inQuotes(player.getLocation().getWorld().getName()));
 			return true;
 		}
 		

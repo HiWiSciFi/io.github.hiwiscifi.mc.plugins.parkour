@@ -33,38 +33,38 @@ public class Main extends JavaPlugin {
 	public void onEnable() {
 		US.initializeStringCollection();
 
-		System.out.println(US.fillWithMinus(US.getString(0), 40));
+		System.out.println(US.fillWithMinus("Initializing Parkour plugin", 40));
 
 		instance = this;
 
-		System.out.println(US.OUT_PREFIX + US.getString(1) + US.THREE_DOTS);
+		System.out.println(US.OUT_PREFIX + "Registring commands" + US.THREE_DOTS);
 		//TODO Remove
-		this.getCommand(US.getString(2)).setExecutor(new Command_test());
-		this.getCommand(US.getString(3)).setExecutor(new Command_parkour());
+		this.getCommand("test").setExecutor(new Command_test());
+		this.getCommand("parkour").setExecutor(new Command_parkour());
 		this.getCommand("gMode").setExecutor(new Command_gMode());
 		//TODO us string
 		//TODO add teleport
 
-		System.out.println(US.OUT_PREFIX + US.getString(4) + US.THREE_DOTS);
+		System.out.println(US.OUT_PREFIX + "Registring events" + US.THREE_DOTS);
 		this.getServer().getPluginManager().registerEvents(new Listener_PlayerJoin(), this);
 		this.getServer().getPluginManager().registerEvents(new Listener_PressurePlate(), this);
 		this.getServer().getPluginManager().registerEvents(new Listener_ItemUse(), this);
 		this.getServer().getPluginManager().registerEvents(new Listener_PlayerRespawn(), this);
 
-		System.out.println(US.OUT_PREFIX + US.getString(5) + US.THREE_DOTS);
+		System.out.println(US.OUT_PREFIX + "Loading parkours from config" + US.THREE_DOTS);
 		List<String> parkourNames = Parkour.getParkourNames();
 		for (String name : parkourNames) {
 			parkours.add(Parkour.load(name));
 		}
 
-		System.out.println(US.fillWithMinus(US.getString(6), 40));
+		System.out.println(US.fillWithMinus("Parkour plugin initialized", 40));
 	}
 
 	@Override
 	public void onDisable() {
-		System.out.println(US.OUT_PREFIX + US.getString(7) + US.THREE_DOTS);
+		System.out.println(US.OUT_PREFIX + "Saving data to files" + US.THREE_DOTS);
 
-		System.out.println(US.OUT_PREFIX + US.getString(8) + US.THREE_DOTS);
+		System.out.println(US.OUT_PREFIX + "Preventing memory leaks" + US.THREE_DOTS);
 
 		instance = null;
 
@@ -74,6 +74,6 @@ public class Main extends JavaPlugin {
 		// run garbage collector
 		System.gc();
 
-		System.out.println(US.OUT_PREFIX + US.getString(9));
+		System.out.println(US.OUT_PREFIX + "Plugin disabled");
 	}
 }
