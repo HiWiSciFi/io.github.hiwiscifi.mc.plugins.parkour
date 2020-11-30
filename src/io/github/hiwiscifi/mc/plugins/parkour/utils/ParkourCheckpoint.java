@@ -1,6 +1,7 @@
 package io.github.hiwiscifi.mc.plugins.parkour.utils;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -18,8 +19,11 @@ public class ParkourCheckpoint extends EffectPoint implements Cloneable, Configu
 
 	@Override
 	public Map<String, Object> serialize() {
-		// TODO Auto-generated method stub
-		return null;
+
+		Map<String, Object> map = new HashMap<>();
+		map.put("location", location);
+
+		return map;
 	}
 
 	/**

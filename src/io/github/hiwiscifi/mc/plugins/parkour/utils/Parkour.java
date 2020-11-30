@@ -88,8 +88,8 @@ public class Parkour {
 	//TODO Do parkour checkpoint
 	public void save() {
 		Main.getInstance().getConfig().set("parkours." + name + ".startCheckpoint", startCheckpoint);
-		//Main.getInstance().getConfig().set("parkours." + name + ".startLocation", startLocation);
-		//Main.getInstance().getConfig().set("parkours." + name + ".checkpoints", checkpoints);
+		Main.getInstance().getConfig().set("parkours." + name + ".startLocation", startLocation);
+		Main.getInstance().getConfig().set("parkours." + name + ".checkpoints", checkpoints);
 		Main.getInstance().saveConfig();
 	}
 

@@ -2,6 +2,8 @@ package io.github.hiwiscifi.mc.plugins.parkour.utils.effects;
 
 import java.util.Map;
 
+import org.bukkit.entity.Player;
+
 import io.github.hiwiscifi.mc.plugins.parkour.utils.ParkourEffect;
 
 public class EffectEffect extends ParkourEffect{
@@ -12,7 +14,7 @@ public class EffectEffect extends ParkourEffect{
 	}
 
 	@Override
-	public void apply() {
+	public void apply(Player player) {
 		// TODO Auto-generated method stub
 
 	}
