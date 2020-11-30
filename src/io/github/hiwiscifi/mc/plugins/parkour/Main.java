@@ -8,6 +8,7 @@ package io.github.hiwiscifi.mc.plugins.parkour;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.bukkit.configuration.serialization.ConfigurationSerialization;
 import org.bukkit.event.HandlerList;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -18,7 +19,10 @@ import io.github.hiwiscifi.mc.plugins.parkour.listeners.Listener_ItemUse;
 import io.github.hiwiscifi.mc.plugins.parkour.listeners.Listener_PlayerJoin;
 import io.github.hiwiscifi.mc.plugins.parkour.listeners.Listener_PlayerRespawn;
 import io.github.hiwiscifi.mc.plugins.parkour.listeners.Listener_PressurePlate;
+import io.github.hiwiscifi.mc.plugins.parkour.utils.EffectPoint;
 import io.github.hiwiscifi.mc.plugins.parkour.utils.Parkour;
+import io.github.hiwiscifi.mc.plugins.parkour.utils.ParkourCheckpoint;
+import io.github.hiwiscifi.mc.plugins.parkour.utils.ParkourEffect;
 import io.github.hiwiscifi.mc.plugins.parkour.utils.US;
 
 public class Main extends JavaPlugin {
@@ -31,7 +35,7 @@ public class Main extends JavaPlugin {
 	@Override
 	public void onEnable() {
 		instance = this;
-		
+
 		US.initializeKeys();
 
 		System.out.println(US.fillWithMinus("Initializing Parkour plugin", 40));
@@ -48,6 +52,12 @@ public class Main extends JavaPlugin {
 		this.getServer().getPluginManager().registerEvents(new Listener_PressurePlate(), this);
 		this.getServer().getPluginManager().registerEvents(new Listener_ItemUse(), this);
 		this.getServer().getPluginManager().registerEvents(new Listener_PlayerRespawn(), this);
+
+		System.out.println(US.OUT_PREFIX + "Registring serialisables" + US.THREE_DOTS);
+		ConfigurationSerialization.registerClass(ParkourCheckpoint.class, "ParkourCheckpoint");
+		ConfigurationSerialization.registerClass(EffectPoint.class, "EffectPoint");
+		ConfigurationSerialization.registerClass(ParkourEffect.class, "ParkourEffect");
+
 
 		System.out.println(US.OUT_PREFIX + "Loading parkours from config" + US.THREE_DOTS);
 		List<String> parkourNames = Parkour.getParkourNames();

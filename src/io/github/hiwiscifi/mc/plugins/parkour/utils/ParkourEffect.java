@@ -1,6 +1,10 @@
 package io.github.hiwiscifi.mc.plugins.parkour.utils;
 
-public abstract class ParkourEffect {
+import org.bukkit.configuration.serialization.ConfigurationSerializable;
+import org.bukkit.configuration.serialization.SerializableAs;
+
+@ SerializableAs("Effect")
+public abstract class ParkourEffect implements Cloneable, ConfigurationSerializable{
 
 	public ParkourEffect(String[] args) {
 

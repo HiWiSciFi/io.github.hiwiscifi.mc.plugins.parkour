@@ -72,7 +72,7 @@ public class Parkour {
 			}
 
 			if (Main.getInstance().getConfig().contains("parkours." + name + ".startCheckpoint")) {
-				//parkour.startCheckpoint = Main.getInstance().getConfig().getLocation("parkours." + name + ".startCheckpoint");
+				//parkour.startCheckpoint = (ParkourCheckpoint) Main.getInstance().getConfig().get("parkours." + name + ".startCheckpoint");
 			}
 
 			if (Main.getInstance().getConfig().contains("parkours." + name + ".startLocation")) {
@@ -87,8 +87,8 @@ public class Parkour {
 
 	//TODO Do parkour checkpoint
 	public void save() {
-		//Main.getInstance().getConfig().set("parkours." + name + ".startCheckpoint", startCheckpoint);
-		Main.getInstance().getConfig().set("parkours." + name + ".startLocation", startLocation);
+		Main.getInstance().getConfig().set("parkours." + name + ".startCheckpoint", startCheckpoint);
+		//Main.getInstance().getConfig().set("parkours." + name + ".startLocation", startLocation);
 		//Main.getInstance().getConfig().set("parkours." + name + ".checkpoints", checkpoints);
 		Main.getInstance().saveConfig();
 	}
