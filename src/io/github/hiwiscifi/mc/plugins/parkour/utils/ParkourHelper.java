@@ -132,11 +132,18 @@ public class ParkourHelper {
 		PersistentDataContainer pdc = player.getPersistentDataContainer();
 
 		pdc.set(US.onParkourKey, PersistentDataType.INTEGER, 0);
+		
+
+		//https://en.wikipedia.org/wiki/Box-drawing_character
 				
-		player.sendMessage(ChatColor.GREEN + "Pop that pussy like that pop that pussy like that");
-		//TODO Zeit ausgeben im Subtitle Hax
+		long lastCheckpointTime = ParkourTimer.endCheckpointTimer(player);
+		long parkourTime = ParkourTimer.endParkourTimer(player);
+		
+		//TODO \n? ascii box drawing characters
+		player.sendMessage(ChatColor.GREEN + "=======Parkour completed=======");
+		player.sendMessage(ChatColor.GOLD + "Your time for the parkour was:" + ParkourTimer.getTimeStringFromMs(parkourTime));
+		player.sendMessage(ChatColor.AQUA /* got nauted*/+ "Your time for the last Checkpointwas:" + ParkourTimer.getTimeStringFromMs(lastCheckpointTime));
 		player.sendTitle("CONGRATULATIONS, YOU COMPLETED THE PARKOUR!", "Time: ", 10, 30, 20);
-		//TODO ausgelagertes timer zeug
 	}
 
 	public static void applyEffect(Player player, EffectPoint effectPoint) {
@@ -149,5 +156,10 @@ public class ParkourHelper {
 		pdc.set(US.currentCheckpointKey,PersistentDataType.INTEGER,0);
 		pdc.set(US.currentParkourKey, PersistentDataType.STRING, US.EMPTY);
 		pdc.set(US.onParkourKey, PersistentDataType.INTEGER, 0);
+		
+		
+		//stop timer without handeling output
+		ParkourTimer.endParkourTimer(player);
+		ParkourTimer.endCheckpointTimer(player);
 	}
 }
