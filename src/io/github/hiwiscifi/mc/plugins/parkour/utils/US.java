@@ -3,6 +3,7 @@ package io.github.hiwiscifi.mc.plugins.parkour.utils;
 import org.bukkit.NamespacedKey;
 
 import io.github.hiwiscifi.mc.plugins.parkour.Main;
+import net.md_5.bungee.api.ChatColor;
 
 public class US {
 	
@@ -17,7 +18,7 @@ public class US {
 	/** a minus character as a string */
 	public final static String MINUS = "-";
 	/** the general output prefix for the plugin */
-	public final static String OUT_PREFIX = "[Parkour] ";
+	public final static String OUT_PREFIX = ChatColor.AQUA + "[Parkour] " + ChatColor.WHITE;
 	/** three dots */
 	public final static String THREE_DOTS = "...";
 	
