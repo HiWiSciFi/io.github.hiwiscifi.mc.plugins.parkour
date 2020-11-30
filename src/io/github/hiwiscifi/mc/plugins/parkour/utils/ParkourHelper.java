@@ -148,7 +148,7 @@ public class ParkourHelper {
 		player.sendTitle(ChatColor.GREEN + "á�…" + ChatColor.GREEN + "CONGRATULATIONS, YOU COMPLETED THE PARKOUR!" + ChatColor.GREEN + "á�Š", ChatColor.GOLD + "Time: " + ParkourTimer.getTimeStringFromMs(parkourTime), 10, 30, 20);
 		player.sendMessage(ChatColor.GOLD + "Your time for the parkour was:" + US.SPACE + ParkourTimer.getTimeStringFromMs(parkourTime));
 		player.sendMessage(ChatColor.AQUA /* got nauted*/+ "Your time for the last Checkpoint was:" + US.SPACE + ParkourTimer.getTimeStringFromMs(lastCheckpointTime));
-		player.sendTitle("CONGRATULATIONS, YOU COMPLETED THE PARKOUR!", "Time: " + ParkourTimer.getTimeStringFromMs(lastCheckpointTime), 10, 30, 20);
+		player.sendTitle("CONGRATULATIONS, YOU COMPLETED THE PARKOUR!", "Time: " + ParkourTimer.getTimeStringFromMs(parkourTime), 10, 30, 20);
 	}
 
 	public static void applyEffect(Player player, EffectPoint effectPoint) {
