@@ -144,8 +144,8 @@ public class ParkourHelper {
 		//TODO pb tracker with pdc
 		player.sendMessage(ChatColor.GREEN + "=======Parkour completed=======");
 		player.sendMessage(ChatColor.GOLD + "Your time for the parkour was:" + ParkourTimer.getTimeStringFromMs(parkourTime));
-		player.sendMessage(ChatColor.AQUA /* got nauted*/+ "Your time for the last Checkpointwas:" + ParkourTimer.getTimeStringFromMs(lastCheckpointTime));
-		player.sendTitle("CONGRATULATIONS, YOU COMPLETED THE PARKOUR!", "Time: ", 10, 30, 20);
+		player.sendMessage(ChatColor.AQUA /* got norted*/+ "Your time for the last Checkpoint was:" + ParkourTimer.getTimeStringFromMs(lastCheckpointTime));
+		player.sendTitle(ChatColor.GREEN + "ᐅ" + ChatColor.GREEN + "CONGRATULATIONS, YOU COMPLETED THE PARKOUR!" + ChatColor.GREEN + "ᐊ", ChatColor.GOLD + "Time: " + ParkourTimer.getTimeStringFromMs(parkourTime), 10, 30, 20);
 	}
 
 	public static void applyEffect(Player player, EffectPoint effectPoint) {
