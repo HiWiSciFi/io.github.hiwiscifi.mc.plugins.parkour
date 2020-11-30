@@ -22,11 +22,9 @@ public class Listener_PlayerRespawn implements Listener {
 
 	@EventHandler
 	public void onRespawn(PlayerRespawnEvent e) {
-		//TODO remove coments
-		//von Max für Hax <3
 		Player player = e.getPlayer();
 
-		Location respawnLocation = ParkourHelper.calculateCheckpointLocation(player);
+		Location respawnLocation = ParkourHelper.calculateCheckpointLocation(player, true);
 
 		if(respawnLocation != null) {
 			e.setRespawnLocation(respawnLocation);

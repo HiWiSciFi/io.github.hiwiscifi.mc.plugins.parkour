@@ -14,8 +14,9 @@ import io.github.hiwiscifi.mc.plugins.parkour.Main;
 import net.md_5.bungee.api.ChatColor;
 
 public class ParkourHelper {
+	
 
-	public static Location calculateCheckpointLocation(Player player) {
+	public static Location calculateCheckpointLocation(Player player, boolean isReset) {
 		PersistentDataContainer pdc = player.getPersistentDataContainer();
 
 		boolean onParkour = pdc.get(US.onParkourKey, PersistentDataType.INTEGER) == 1;
@@ -40,6 +41,9 @@ public class ParkourHelper {
 			}
 
 			try {
+				if(isReset) {
+					//called if tihs is a reset
+				}
 				return parkour.checkpoints.get(currentCheckpoint-1).location;
 			} catch(IndexOutOfBoundsException e){
 				return null;
@@ -48,6 +52,7 @@ public class ParkourHelper {
 		} else {
 			return null;
 		}
+		
 	}
 
 	public static Location calculateParkourStartLocation(Player player) {

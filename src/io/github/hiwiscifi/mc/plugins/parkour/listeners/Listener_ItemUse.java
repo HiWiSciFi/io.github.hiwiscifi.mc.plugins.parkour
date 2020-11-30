@@ -48,7 +48,7 @@ public class Listener_ItemUse implements Listener{
 
 			switch(func) {
 			case "resetToCheckpoint":
-				player.teleport(ParkourHelper.calculateCheckpointLocation(player));
+				player.teleport(ParkourHelper.calculateCheckpointLocation(player, true));
 				break;
 			case "resetToStart":
 				player.teleport(ParkourHelper.calculateParkourStartLocation(player));
