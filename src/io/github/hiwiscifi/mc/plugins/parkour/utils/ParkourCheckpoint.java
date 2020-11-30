@@ -22,14 +22,15 @@ public class ParkourCheckpoint extends EffectPoint implements Cloneable, Configu
 
 		Map<String, Object> map = new HashMap<>();
 		map.put("location", location);
+		map.put("effects", effectPoints);
 
 		return map;
 	}
 
-	/**
-	 * 	public ParkourCheckpoint deserialise(Map<String, Object> map) {
-return
-
+	public ParkourCheckpoint deserialise(Map<String, Object> map) {
+		ParkourCheckpoint target = new ParkourCheckpoint((Location) map.get("location"));
+		System.out.println(target);
+		return target;
 	}
-	 */
+
 }

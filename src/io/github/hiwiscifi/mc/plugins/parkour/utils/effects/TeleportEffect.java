@@ -1,5 +1,6 @@
 package io.github.hiwiscifi.mc.plugins.parkour.utils.effects;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import org.bukkit.Location;
@@ -24,16 +25,9 @@ public class TeleportEffect extends ParkourEffect{
 
 	@Override
 	public Map<String, Object> serialize() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+		Map<String, Object> map = new HashMap<>();
 
-	public static TeleportEffect deserialize(Map<String, Object> map) {
-
-		//TODO implement
-		String args[] = null;
-
-		return new TeleportEffect(args);
+		return map;
 	}
 
 }

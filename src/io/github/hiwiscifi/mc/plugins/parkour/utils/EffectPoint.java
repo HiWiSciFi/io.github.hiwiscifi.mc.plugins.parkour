@@ -54,9 +54,10 @@ public class EffectPoint implements Cloneable, ConfigurationSerializable{
 
 		return null;
 	}
-
+	/*
 	public EffectPoint deserialise(Map<String, Object> map) {
 		System.out.println(map.toString());
 		return new EffectPoint((Location) map.get("location"), null);
 	}
+	 */
 }
