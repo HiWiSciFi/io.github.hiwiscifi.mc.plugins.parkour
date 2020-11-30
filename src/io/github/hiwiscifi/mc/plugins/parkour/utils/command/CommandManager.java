@@ -10,21 +10,22 @@ public abstract class CommandManager {
 
 	private ArrayList<SubCommand> subcommands = new ArrayList<>();
 
-	public CommandManager(){
+	public CommandManager() {
+		
 	}
 
 	public boolean perform(CommandSender sender, Command command, String label, String[] args) {
 
-		if (sender instanceof Player){
+		if (sender instanceof Player) {
 			Player player = (Player) sender;
 
-			if (args.length > 0){
+			if (args.length > 0) {
 				for (int i = 0; i < getSubcommands().size(); i++){
 					if (args[0].equalsIgnoreCase(getSubcommands().get(i).getName())){
 						getSubcommands().get(i).perform(player, args);
 					}
 				}
-			}else if(args.length == 0){
+			}else if(args.length == 0) {
 				//TODO add neutral
 				doHelp(player);
 			}
@@ -35,7 +36,7 @@ public abstract class CommandManager {
 		return true;
 	}
 
-	public ArrayList<SubCommand> getSubcommands(){
+	public ArrayList<SubCommand> getSubcommands() {
 		return subcommands;
 	}
 
