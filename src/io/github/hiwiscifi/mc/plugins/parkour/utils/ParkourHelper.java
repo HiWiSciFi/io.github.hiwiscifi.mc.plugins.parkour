@@ -2,11 +2,18 @@ package io.github.hiwiscifi.mc.plugins.parkour.utils;
 
 import java.util.List;
 
+import org.bukkit.Color;
+import org.bukkit.FireworkEffect;
 import org.bukkit.GameMode;
 import org.bukkit.Location;
+import org.bukkit.World;
+import org.bukkit.entity.EntityType;
+import org.bukkit.entity.Firework;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.meta.FireworkMeta;
 import org.bukkit.persistence.PersistentDataContainer;
 import org.bukkit.persistence.PersistentDataType;
+import org.bukkit.util.Vector;
 
 import io.github.hiwiscifi.mc.plugins.parkour.Main;
 import net.md_5.bungee.api.ChatColor;
@@ -158,20 +165,44 @@ public class ParkourHelper {
 
 		pdc.set(US.onParkourKey, PersistentDataType.INTEGER, 0);
 
-
 		//https://en.wikipedia.org/wiki/Box-drawing_character
 
 		long lastCheckpointTime = ParkourTimer.endCheckpointTimer(player);
 		long parkourTime = ParkourTimer.endParkourTimer(player);
-
-		//TODO \n? ascii box drawing characters
+		
+		spawnFireworks(player);
 		//TODO pb tracker with pdc
-		player.sendMessage(ChatColor.GREEN + "=======Parkour completed=======");
-		player.sendMessage(ChatColor.GOLD + "Your time for the parkour was:" + ParkourTimer.getTimeStringFromMs(parkourTime));
-		player.sendMessage(ChatColor.AQUA /* got norted*/+ "Your time for the last Checkpoint was:" + ParkourTimer.getTimeStringFromMs(lastCheckpointTime));
-		player.sendTitle(ChatColor.GREEN + "á�…" + ChatColor.GREEN + "CONGRATULATIONS!" + ChatColor.GREEN + "á�Š", ChatColor.GREEN + "You completed the parkour! " + ChatColor.GOLD + " Your Time: " + ChatColor.GOLD + ParkourTimer.getTimeStringFromMs(parkourTime), 10, 30, 20);
+		//TODO Return Leaderboard rank or personal best 		
+		player.sendMessage(ChatColor.GREEN.toString() + ChatColor.BOLD.toString() + ChatColor.MAGIC.toString() + "ooo " + ChatColor.GREEN.toString() + ChatColor.BOLD.toString() + "CONGRATULATIONS!" + ChatColor.GREEN.toString() + ChatColor.BOLD.toString() + ChatColor.MAGIC.toString() + " ooo");
+		player.sendMessage(ChatColor.GREEN + "Your time to complete the parkour was: " + ChatColor.GOLD + ChatColor.BOLD.toString() + ParkourTimer.getTimeStringFromMs(parkourTime));
+		player.sendMessage(ChatColor.AQUA /* got norted*/+ "Your time for the last Checkpoint was:" + ChatColor.GOLD + ChatColor.BOLD.toString() + ParkourTimer.getTimeStringFromMs(lastCheckpointTime));
+		player.sendTitle(ChatColor.GREEN + "ᐅ" + ChatColor.GREEN + ChatColor.BOLD.toString() + "CONGRATULATIONS!" + ChatColor.GREEN + "ᐊ", ChatColor.GOLD + " Your Time: " + ChatColor.GOLD + ParkourTimer.getTimeStringFromMs(parkourTime), 10, 30, 20);
 	}
+	
+	public static void spawnFireworks(Player player) {
+		
+		Location loc = player.getLocation();
+		int diameter = 5;
+		World w = player.getWorld();
 
+		for (int i = 0; i < 6; i++)
+		{
+		    Location newloc = loc.add(new Vector(Math.random()-0.5, 2, Math.random()-0.5).multiply(diameter));
+		    Firework fw = (Firework) w.spawnEntity(newloc, EntityType.FIREWORK);
+			FireworkMeta fwm = fw.getFireworkMeta();
+			fwm.setPower(2);
+			
+			if(i % 2 == 0) {
+				fwm.addEffect(FireworkEffect.builder().withColor(Color.LIME).flicker(true).build());
+			} else {
+				fwm.addEffect(FireworkEffect.builder().withColor(Color.YELLOW).flicker(true).build());
+			}
+			
+			fw.setFireworkMeta(fwm);
+			fw.detonate();
+		}
+	}
+	
 	/** apply an effect to a player
 	 * @param player the player to apply the effect to
 	 * @param effectPoint effect point to apply */
