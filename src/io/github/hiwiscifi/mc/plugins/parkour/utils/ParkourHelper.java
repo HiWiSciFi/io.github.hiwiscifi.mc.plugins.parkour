@@ -113,7 +113,10 @@ public class ParkourHelper {
 		PersistentDataContainer pdc = player.getPersistentDataContainer();
 
 		pdc.set(US.currentCheckpointKey, PersistentDataType.INTEGER, checkpoint);
-
+		
+		long timeSinceLastCheckpoint = ParkourTimer.endParkourTimer(player);
+		player.sendMessage(US.OUT_PREFIX + ChatColor.AQUA + "Your time for the last Checkpoint was:" + ParkourTimer.getTimeStringFromMs(timeSinceLastCheckpoint));
+		
 		ParkourTimer.startCheckpointTimer(player);
 		applyEffect(player, parkour.checkpoints.get(checkpoint-1));
 

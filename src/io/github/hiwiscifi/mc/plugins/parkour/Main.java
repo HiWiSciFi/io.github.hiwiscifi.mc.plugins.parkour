@@ -31,11 +31,11 @@ public class Main extends JavaPlugin {
 
 	@Override
 	public void onEnable() {
+		instance = this;
+		
 		US.initializeStringCollection();
 
 		System.out.println(US.fillWithMinus("Initializing Parkour plugin", 40));
-
-		instance = this;
 
 		System.out.println(US.OUT_PREFIX + "Registring commands" + US.THREE_DOTS);
 		//TODO Remove
