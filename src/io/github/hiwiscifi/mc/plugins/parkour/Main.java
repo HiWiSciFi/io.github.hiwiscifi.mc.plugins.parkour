@@ -27,9 +27,13 @@ import io.github.hiwiscifi.mc.plugins.parkour.utils.US;
 
 public class Main extends JavaPlugin {
 
+	/** get the singleton instance of this class
+	 * @return the only instance of this class */
 	public static Main getInstance() { return instance; }
+	/** private reference to the singleton instance of this class */
 	private static Main instance;
 
+	/** List of parkours that have been registered */
 	public List<Parkour> parkours = new ArrayList<Parkour>();
 
 	@Override
