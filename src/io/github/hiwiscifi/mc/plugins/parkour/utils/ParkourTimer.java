@@ -54,19 +54,16 @@ public class ParkourTimer {
 	 * @param time the time to parse in milliseconds
 	 * @return the parsed value in the 0h 0m 0s 0ms format without the hours if they are not needed*/
 	public static String getTimeStringFromMs(long time) {
-		// 0h 00m 00s 000ms
-		long t = time;
 		
-		long hours = TimeUnit.MILLISECONDS.toHours(t);
-		t -= TimeUnit.HOURS.toMillis(t);
-		long minutes = TimeUnit.MILLISECONDS.toMinutes(t);
-		t -= TimeUnit.MINUTES.toMillis(t);
-		long seconds = TimeUnit.MILLISECONDS.toSeconds(t);
-		t -= TimeUnit.SECONDS.toMillis(t);
-		long milliseconds = t;
+		// format: 0h 00m 00s 000ms
+		
+		long hours = TimeUnit.MILLISECONDS.toHours(time);
+		long minutes = TimeUnit.MILLISECONDS.toMinutes(time) % TimeUnit.HOURS.toMinutes(1);
+		long seconds = TimeUnit.MILLISECONDS.toSeconds(time) % TimeUnit.MINUTES.toSeconds(1);
+		long milliseconds = time % TimeUnit.SECONDS.toMillis(1);
 		
 		String timeStr = US.EMPTY;
-		if (hours > 0) timeStr += hours + "h" + US.SPACE;
+		if (hours > 0l) timeStr += hours + "h" + US.SPACE;
 		timeStr += minutes + "m" + US.SPACE;
 		timeStr += seconds + "s" + US.SPACE;
 		timeStr += milliseconds + "ms";

@@ -3,7 +3,6 @@ package io.github.hiwiscifi.mc.plugins.parkour;
 //BIG TODOS
 //TODO respawn checkpoint not with block pos
 //TODO inv bar
-//TODO remove all sysoutsprints
 //TODO do tab completion
 
 import java.util.ArrayList;
@@ -42,7 +41,6 @@ public class Main extends JavaPlugin {
 		this.getCommand("test").setExecutor(new Command_test());
 		this.getCommand("parkour").setExecutor(new Command_parkour());
 		this.getCommand("gMode").setExecutor(new Command_gMode());
-		//TODO us string
 		//TODO add teleport
 
 		System.out.println(US.OUT_PREFIX + "Registring events" + US.THREE_DOTS);
