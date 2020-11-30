@@ -1,7 +1,5 @@
 package io.github.hiwiscifi.mc.plugins.parkour.utils;
 
-import java.util.HashMap;
-
 import org.bukkit.NamespacedKey;
 
 import io.github.hiwiscifi.mc.plugins.parkour.Main;
