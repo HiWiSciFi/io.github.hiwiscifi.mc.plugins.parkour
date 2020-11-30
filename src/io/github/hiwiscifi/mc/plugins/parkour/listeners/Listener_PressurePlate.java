@@ -98,7 +98,7 @@ public class Listener_PressurePlate implements Listener {
 				ParkourHelper.restartCheckpoint(player, parkour, currentCheckpoint);
 
 			} else {
-				if(parkour.checkpoints.size() > 0) {
+				if(parkour.checkpoints.size() > 1) {
 					for (int i = 0; i < parkour.checkpoints.get(currentCheckpoint-1).effectPoints.size(); i++) {
 						if (parkour.checkpoints.get(currentCheckpoint-1).effectPoints.get(i).location.distance(ablock.getLocation()) < 0.25d) {
 							ParkourHelper.applyEffect(player, parkour.checkpoints.get(currentCheckpoint-1).effectPoints.get(i));
