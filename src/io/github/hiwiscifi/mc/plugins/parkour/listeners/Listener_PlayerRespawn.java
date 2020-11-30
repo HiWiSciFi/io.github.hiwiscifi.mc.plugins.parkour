@@ -16,7 +16,7 @@ public class Listener_PlayerRespawn implements Listener {
 
 	//TODO change naming
 	public Listener_PlayerRespawn() {
-		System.out.println(US.OUT_PREFIX + US.getString(42) + US.THREE_DOTS);
+		System.out.println(US.OUT_PREFIX + "Initializing player respawn event listener" + US.THREE_DOTS);
 		instance = this;
 	}
 
@@ -28,7 +28,7 @@ public class Listener_PlayerRespawn implements Listener {
 
 		if(respawnLocation != null) {
 			e.setRespawnLocation(respawnLocation);
-			System.out.println(US.OUT_PREFIX + US.getString(43));
+			System.out.println(US.OUT_PREFIX + "respawning");
 		}
 	}
 }

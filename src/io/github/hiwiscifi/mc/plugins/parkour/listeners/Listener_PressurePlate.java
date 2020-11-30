@@ -28,7 +28,7 @@ public class Listener_PressurePlate implements Listener {
 	private List<Material> supportedMaterials;
 
 	public Listener_PressurePlate() {
-		System.out.println(US.OUT_PREFIX + US.getString(44) + US.THREE_DOTS);
+		System.out.println(US.OUT_PREFIX + "Initializing pressure plate activation event listener" + US.THREE_DOTS);
 		instance = this;
 
 		supportedMaterials = new ArrayList<Material>();

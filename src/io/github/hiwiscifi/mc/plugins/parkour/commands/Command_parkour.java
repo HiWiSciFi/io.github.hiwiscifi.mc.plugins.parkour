@@ -15,7 +15,7 @@ public class Command_parkour implements CommandExecutor {
 	private static Command_parkour instance;
 
 	public Command_parkour() {
-		System.out.println(US.OUT_PREFIX + US.getString(14) + US.THREE_DOTS);
+		System.out.println(US.OUT_PREFIX + "Initializing parkour command" + US.THREE_DOTS);
 		instance = this;
 	}
 
@@ -37,18 +37,18 @@ public class Command_parkour implements CommandExecutor {
 
 		if (sender instanceof Player) {
 			Player player = (Player) sender;
-			if (args[0].equals(US.getString(15))) {
+			if (args[0].equals("create")) {
 				String parkourName = args[1];
-				player.sendMessage(US.OUT_PREFIX + US.addSpace(US.getString(16), false, true) + US.inQuotes(parkourName) + US.THREE_DOTS);
+				player.sendMessage(US.OUT_PREFIX + "Creating parkour " + US.inQuotes(parkourName) + US.THREE_DOTS);
 				Parkour p = new Parkour(parkourName, player.getLocation());
 				Main.getInstance().parkours.add(p);
 				p.save();
-				player.sendMessage(US.OUT_PREFIX + US.getString(18));
+				player.sendMessage(US.OUT_PREFIX + "Parkour created");
 			}
-			else if (args[0].equals(US.getString(19))) {
+			else if (args[0].equals("delete")) {
 				//TODO don't delete just hide
 				String parkourName = args[1];
-				player.sendMessage(US.OUT_PREFIX + US.addSpace(US.getString(20), false, true) + US.inQuotes(parkourName) + US.THREE_DOTS);
+				player.sendMessage(US.OUT_PREFIX + "Deleting parkour " + US.inQuotes(parkourName) + US.THREE_DOTS);
 				for (int i = 0; i < Main.getInstance().parkours.size(); i++) {
 					if (Main.getInstance().parkours.get(i).name.equals(parkourName)) {
 						Main.getInstance().parkours.get(i).delete();
@@ -56,32 +56,32 @@ public class Command_parkour implements CommandExecutor {
 						break;
 					}
 				}
-				player.sendMessage(US.OUT_PREFIX + US.getString(21));
+				player.sendMessage(US.OUT_PREFIX + "Parkour deleted");
 
 			}
-			else if (args[0].equals(US.getString(22))) {
-				player.sendMessage(US.OUT_PREFIX + US.getString(23));
+			else if (args[0].equals("list")) {
+				player.sendMessage(US.OUT_PREFIX + "List of registered parkours");
 				for (Parkour p : Main.getInstance().parkours) {
 					player.sendMessage(p.name);
 				}
 			}
-			else if (args[0].equals(US.getString(24))) {
-				if (args[1].equals(US.getString(25))) {
+			else if (args[0].equals("set")) {
+				if (args[1].equals("location")) {
 					String parkourName = args[2];
-					player.sendMessage(US.OUT_PREFIX + US.addSpace(US.getString(26), false, true) + US.inQuotes(parkourName) + US.THREE_DOTS);
+					player.sendMessage(US.OUT_PREFIX + "Setting start location for parkour " + US.inQuotes(parkourName) + US.THREE_DOTS);
 					for (Parkour parkour : Main.getInstance().parkours) {
 						if (parkour.name.equals(parkourName)) {
 							parkour.startLocation = player.getLocation();
 							parkour.save();
-							player.sendMessage(US.OUT_PREFIX + US.getString(27));
+							player.sendMessage(US.OUT_PREFIX + "New start location set!");
 							break;
 						}
 					}
 				}
 				//TODO edit name
 			}
-			else if (args[0].equals(US.getString(28))) {
-				if (args[1].equals(US.getString(29))) {
+			else if (args[0].equals("checkpoint")) {
+				if (args[1].equals("add")) {
 					String parkourName = args[2];
 					for (Parkour p : Main.getInstance().parkours) {
 						if (p.name.equals(parkourName)) {
@@ -90,7 +90,7 @@ public class Command_parkour implements CommandExecutor {
 					}
 					//TODO add in between
 				}
-				else if (args[1].equals(US.getString(30))) {
+				else if (args[1].equals("remove")) {
 					String parkourName = args[2];
 					for (Parkour p : Main.getInstance().parkours) {
 						if (p.name.equals(parkourName)) {

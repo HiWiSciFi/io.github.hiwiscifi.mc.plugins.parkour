@@ -63,7 +63,6 @@ public class Parkour {
 	}
 
 	//TODO no US and parkour checkpoint
-	@SuppressWarnings("unchecked")
 	public static Parkour load(String name) {
 		if (Main.getInstance().getConfig().contains("parkours." + name)) {
 			Parkour parkour = new Parkour(name);

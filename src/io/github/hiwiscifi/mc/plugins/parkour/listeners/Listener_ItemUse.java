@@ -21,7 +21,7 @@ public class Listener_ItemUse implements Listener{
 	private static Listener_ItemUse instance;
 
 	public Listener_ItemUse() {
-		System.out.println(US.OUT_PREFIX + US.getString(33) + US.THREE_DOTS);
+		System.out.println(US.OUT_PREFIX + "Initializing item use event listener" + US.THREE_DOTS);
 		instance = this;
 	}
 
@@ -42,7 +42,7 @@ public class Listener_ItemUse implements Listener{
 
 		PersistentDataContainer itemData = itemMeta.getPersistentDataContainer();
 		//TODO change name
-		NamespacedKey funcKey = new NamespacedKey(Main.getInstance(), US.getString(34));
+		NamespacedKey funcKey = new NamespacedKey(Main.getInstance(), "func");
 		if(itemData.has(funcKey, PersistentDataType.STRING)) {
 			String func = itemData.get(funcKey, PersistentDataType.STRING);
 
