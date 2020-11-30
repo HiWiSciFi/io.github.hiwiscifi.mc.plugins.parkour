@@ -8,7 +8,7 @@ import org.bukkit.entity.Player;
 
 public abstract class CommandManager {
 
-	private ArrayList<SubCommand> subcommands = new ArrayList<>();
+	private ArrayList<SubCommand> subcommands = new ArrayList<SubCommand>();
 
 	public CommandManager() {
 		
