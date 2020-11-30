@@ -33,7 +33,7 @@ public class Main extends JavaPlugin {
 	public void onEnable() {
 		instance = this;
 		
-		US.initializeStringCollection();
+		US.initializeKeys();
 
 		System.out.println(US.fillWithMinus("Initializing Parkour plugin", 40));
 
