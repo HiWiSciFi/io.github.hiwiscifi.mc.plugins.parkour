@@ -17,5 +17,6 @@ public abstract class SubCommand {
 	public abstract void perform(Player player, String args[]);
 
 	private void help() {
+		
 	}
 }

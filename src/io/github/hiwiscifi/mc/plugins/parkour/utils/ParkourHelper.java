@@ -8,8 +8,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.persistence.PersistentDataContainer;
 import org.bukkit.persistence.PersistentDataType;
 
-import com.destroystokyo.paper.Title;
-
 import io.github.hiwiscifi.mc.plugins.parkour.Main;
 import net.md_5.bungee.api.ChatColor;
 
