@@ -41,6 +41,7 @@ public class Main extends JavaPlugin {
 		instance = this;
 		
 		US.initializeKeys();
+		
 		System.out.println(US.fillWithMinus("Initializing Parkour plugin", 40));
 
 		System.out.println(US.OUT_PREFIX + "Registring commands" + US.THREE_DOTS);
