@@ -99,24 +99,22 @@ public class Listener_PressurePlate implements Listener {
 					ParkourHelper.restartCheckpoint(player, parkour, currentCheckpoint);
 
 				} else {
-					if(currentCheckpoint > 1) {
-						for (int i = 0; i < parkour.checkpoints.get(currentCheckpoint-1).effectPoints.size(); i++) {
-							if (parkour.checkpoints.get(currentCheckpoint-1).effectPoints.get(i).location.distance(ablock.getLocation()) < 0.25d) {
-								ParkourHelper.applyEffect(player, parkour.checkpoints.get(currentCheckpoint-1).effectPoints.get(i));
-							}
-						}
-					}
-					else {
-						for (int i = 0; i < parkour.startCheckpoint.effectPoints.size(); i++) {
-							if (parkour.startCheckpoint.effectPoints.get(i).location.distance(ablock.getLocation()) < 0.25d) {
-								ParkourHelper.applyEffect(player, parkour.startCheckpoint.effectPoints.get(i));
-							}
+					for (int i = 0; i < parkour.checkpoints.get(currentCheckpoint-1).effectPoints.size(); i++) {
+						if (parkour.checkpoints.get(currentCheckpoint-1).effectPoints.get(i).location.distance(ablock.getLocation()) < 0.25d) {
+							ParkourHelper.applyEffect(player, parkour.checkpoints.get(currentCheckpoint-1).effectPoints.get(i));
 						}
 					}
 				}
 			}
 			else if(currentCheckpoint == 0 && parkour.startCheckpoint.location.distance(ablock.getLocation()) < 0.25d) {
 				ParkourHelper.restartParkour(player, parkour);
+			}
+			else {
+				for (int i = 0; i < parkour.startCheckpoint.effectPoints.size(); i++) {
+					if (parkour.startCheckpoint.effectPoints.get(i).location.distance(ablock.getLocation()) < 0.25d) {
+						ParkourHelper.applyEffect(player, parkour.startCheckpoint.effectPoints.get(i));
+					}
+				}
 			}
 
 			ParkourHelper.restartParkour(player, parkour);
