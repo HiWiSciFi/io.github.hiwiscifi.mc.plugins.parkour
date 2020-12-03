@@ -7,10 +7,10 @@ import java.util.Map;
 
 import org.bukkit.Location;
 import org.bukkit.configuration.serialization.ConfigurationSerializable;
+import org.bukkit.configuration.serialization.SerializableAs;
 import org.bukkit.entity.Player;
 
-import io.github.hiwiscifi.mc.plugins.parkour.utils.effects.TeleportEffect;
-
+@SerializableAs("effectPoint")
 public class EffectPoint implements Cloneable, ConfigurationSerializable{
 
 	public List<ParkourEffect> effects = new ArrayList<ParkourEffect>();
@@ -27,37 +27,52 @@ public class EffectPoint implements Cloneable, ConfigurationSerializable{
 	}
 
 	public void apply(Player player) {
-
+		for (ParkourEffect effect : effects) {
+			effect.apply(player);
+		}
 	}
 
 	public void addEffect(String[] args) {
-		if(!(args.length > 0)) {
-			//TODO error
-		}
-
-		//TODO move to helper
-		switch(args[0].toLowerCase()) {
-		case "teleport":
-		case "tp":
-			effects.add(new TeleportEffect(args));
-			break;
-		}
+		effects.add(ParkourEffect.createEffect(args));
 	}
 
+	public void addEffect(ParkourEffect effect) {
+		effects.add(effect);
+	}
+
+	public void removeEffect(int i) {
+		effects.remove(i);
+	}
+
+	public String[] getTypes() {
+		List<String> types = new ArrayList<>();
+		for (ParkourEffect effect : effects) {
+			types.add(effect.type);
+		}
+		return (String[]) types.toArray();
+	}
 
 	@Override
 	public Map<String, Object> serialize() {
 
 		Map<String, Object> map = new HashMap<>();
 		map.put("location", location);
-		map.put("effects", effects);
+		map.put("effects",effects);
 
-		return null;
+		return map;
 	}
-	/*
-	public EffectPoint deserialise(Map<String, Object> map) {
-		System.out.println(map.toString());
-		return new EffectPoint((Location) map.get("location"), null);
+
+	@SuppressWarnings("unchecked")
+	public static EffectPoint deserialize(Map<String, Object> map) {
+		if(map == null) {
+			return null;
+		}
+
+		EffectPoint target = new ParkourCheckpoint((Location) map.get("location"));
+		if(map.containsKey("effects")) {
+			target.effects = (List<ParkourEffect>) map.get("effects");
+		}
+
+		return target;
 	}
-	 */
 }

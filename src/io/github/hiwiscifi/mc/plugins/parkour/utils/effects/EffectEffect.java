@@ -1,8 +1,5 @@
 package io.github.hiwiscifi.mc.plugins.parkour.utils.effects;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import org.bukkit.entity.Player;
 
 import io.github.hiwiscifi.mc.plugins.parkour.utils.ParkourEffect;
@@ -20,9 +17,5 @@ public class EffectEffect extends ParkourEffect{
 
 	}
 
-	@Override
-	public Map<String, Object> serialize() {
-		Map<String, Object> map = new HashMap<>();
-		return map;
-	}
+
 }

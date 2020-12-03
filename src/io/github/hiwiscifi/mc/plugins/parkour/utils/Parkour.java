@@ -63,34 +63,27 @@ public class Parkour {
 	}
 
 	//TODO no US and parkour checkpoint
+	@SuppressWarnings("unchecked")
 	public static Parkour load(String name) {
-		//	if (Main.getInstance().getConfig().contains("parkours." + name)) {
-		//		Parkour parkour = new Parkour(name);
-		//
-		//		//System.out.println(Main.getInstance().getConfig().contains("parkours.hi.checkpoints"));
-		//		System.out.println(Main.getInstance().getConfig().contains("parkours.hi.startLocation"));
-		//		System.out.println(Main.getInstance().getConfig().contains("parkours.hi.startCheckpoint"));
-		//		List<?> cdsfheckpoints = Main.getInstance().getConfig().getList("parkours." + name + ".checkpoints", parkour.checkpoints);
-		//		System.out.println(cdsfheckpoints.get(0).getClass());
-		//		//if (Main.getInstance().getConfig().contains("parkours." + name + ".checkpoints")) {
-		//
-		//
-		//
-		//
-		//
-		//		parkour.startCheckpoint = ParkourCheckpoint.deserialise((Map<String, Object>) Main.getInstance().getConfig().get("parkours." + name + ".startCheckpoint"));
-		//
-		//		System.out.println(parkour.startCheckpoint);
-		//
-		//		if (Main.getInstance().getConfig().contains("parkours." + name + ".startLocation")) {
-		//			parkour.startLocation = Main.getInstance().getConfig().getLocation("parkours." + name + ".startLocation");
-		//		}
-		//
-		//		return parkour;
-		//	} else {
-		//		return null;
-		//	}
-		return null;
+		if (Main.getInstance().getConfig().contains("parkours." + name)) {
+			Parkour parkour = new Parkour(name);
+
+			if (Main.getInstance().getConfig().contains("parkours." + name + ".checkpoints")) {
+				parkour.checkpoints = (List<ParkourCheckpoint>) Main.getInstance().getConfig().get("parkours." + name + ".checkpoints");
+			}
+
+			if (Main.getInstance().getConfig().contains("parkours." + name + ".startCheckpoint")) {
+				parkour.startCheckpoint = (ParkourCheckpoint) Main.getInstance().getConfig().get("parkours." + name + ".startCheckpoint");
+			}
+
+			if (Main.getInstance().getConfig().contains("parkours." + name + ".startLocation")) {
+				parkour.startLocation = Main.getInstance().getConfig().getLocation("parkours." + name + ".startLocation");
+			}
+
+			return parkour;
+		} else {
+			return null;
+		}
 
 	}
 

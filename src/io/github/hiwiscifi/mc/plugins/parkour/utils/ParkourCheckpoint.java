@@ -7,8 +7,9 @@ import java.util.Map;
 
 import org.bukkit.Location;
 import org.bukkit.configuration.serialization.ConfigurationSerializable;
+import org.bukkit.configuration.serialization.SerializableAs;
 
-
+@SerializableAs("checkpoint")
 public class ParkourCheckpoint extends EffectPoint implements Cloneable, ConfigurationSerializable{
 
 	public List<EffectPoint> effectPoints = new ArrayList<EffectPoint>();
@@ -22,14 +23,27 @@ public class ParkourCheckpoint extends EffectPoint implements Cloneable, Configu
 
 		Map<String, Object> map = new HashMap<>();
 		map.put("location", location);
-		map.put("effects", effectPoints);
+		map.put("effects",effects);
+		map.put("effectPoints",effectPoints);
 
 		return map;
 	}
 
+	@SuppressWarnings("unchecked")
 	public static ParkourCheckpoint deserialize(Map<String, Object> map) {
+		if(map == null) {
+			return null;
+		}
+
 		ParkourCheckpoint target = new ParkourCheckpoint((Location) map.get("location"));
-		System.out.println(target);
+
+		if(map.containsKey("effects")) {
+			target.effects = (List<ParkourEffect>) map.get("effects");
+		}
+		if(map.containsKey("effectPoints")) {
+			target.effectPoints = (List<EffectPoint>) map.get("effectPoints");
+		}
+
 		return target;
 	}
 
