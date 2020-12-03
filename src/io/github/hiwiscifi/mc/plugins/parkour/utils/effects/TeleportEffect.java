@@ -1,8 +1,5 @@
 package io.github.hiwiscifi.mc.plugins.parkour.utils.effects;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 
@@ -21,13 +18,6 @@ public class TeleportEffect extends ParkourEffect{
 		double z = Double.parseDouble(arguments[3]);
 		Location place = new Location(player.getWorld(), x, y, z);
 		player.teleport(place);
-	}
-
-	@Override
-	public Map<String, Object> serialize() {
-		Map<String, Object> map = new HashMap<>();
-
-		return map;
 	}
 
 }
