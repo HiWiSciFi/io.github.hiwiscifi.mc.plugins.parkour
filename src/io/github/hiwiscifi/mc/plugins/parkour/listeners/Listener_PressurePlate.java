@@ -117,9 +117,6 @@ public class Listener_PressurePlate implements Listener {
 				}
 			}
 
-			ParkourHelper.restartParkour(player, parkour);
-
-
 		} else {
 			for (Parkour parkour : Main.getInstance().parkours) {
 				if (parkour.startCheckpoint != null) {
