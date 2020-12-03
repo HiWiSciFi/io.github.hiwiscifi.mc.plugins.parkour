@@ -25,6 +25,7 @@ import io.github.hiwiscifi.mc.plugins.parkour.utils.Parkour;
 import io.github.hiwiscifi.mc.plugins.parkour.utils.ParkourCheckpoint;
 import io.github.hiwiscifi.mc.plugins.parkour.utils.ParkourEffect;
 import io.github.hiwiscifi.mc.plugins.parkour.utils.US;
+import io.github.hiwiscifi.mc.plugins.parkour.utils.WorldControl;
 
 public class Main extends JavaPlugin {
 
@@ -64,12 +65,14 @@ public class Main extends JavaPlugin {
 		ConfigurationSerialization.registerClass(EffectPoint.class, "EffectPoint");
 		ConfigurationSerialization.registerClass(ParkourEffect.class, "ParkourEffect");
 
-
 		System.out.println(US.OUT_PREFIX + "Loading parkours from config" + US.THREE_DOTS);
 		List<String> parkourNames = Parkour.getParkourNames();
 		for (String name : parkourNames) {
 			parkours.add(Parkour.load(name));
 		}
+		
+		System.out.println(US.OUT_PREFIX + "Loading list of enabled worlds from config" + US.THREE_DOTS);
+		WorldControl.loadWorlds();
 
 		System.out.println(US.fillWithMinus("Parkour plugin initialized", 40));
 	}

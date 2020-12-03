@@ -123,7 +123,6 @@ public class ParkourHelper {
 	 * @param player the player to start the parkour for
 	 * @param parkour the parkour to start */
 	public static void restartParkour(Player player, Parkour parkour) {
-
 		ParkourTimer.startParkourTimer(player);
 		applyEffect(player, parkour.startCheckpoint);
 
@@ -139,7 +138,7 @@ public class ParkourHelper {
 		pdc.set(US.currentCheckpointKey, PersistentDataType.INTEGER, checkpoint);
 
 		long timeSinceLastCheckpoint = ParkourTimer.endParkourTimer(player);
-		player.sendMessage(US.OUT_PREFIX + ChatColor.AQUA + "Your time for the last Checkpoint was:" + ParkourTimer.getTimeStringFromMs(timeSinceLastCheckpoint));
+		player.sendMessage(US.OUT_PREFIX + ChatColor.AQUA + "Your time for the last Checkpoint was: " + ParkourTimer.getTimeStringFromMs(timeSinceLastCheckpoint));
 
 		ParkourTimer.startCheckpointTimer(player);
 		applyEffect(player, parkour.checkpoints.get(checkpoint-1));

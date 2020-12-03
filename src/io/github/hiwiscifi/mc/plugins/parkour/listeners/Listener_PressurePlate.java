@@ -17,6 +17,7 @@ import io.github.hiwiscifi.mc.plugins.parkour.Main;
 import io.github.hiwiscifi.mc.plugins.parkour.utils.Parkour;
 import io.github.hiwiscifi.mc.plugins.parkour.utils.ParkourHelper;
 import io.github.hiwiscifi.mc.plugins.parkour.utils.US;
+import io.github.hiwiscifi.mc.plugins.parkour.utils.WorldControl;
 
 public class Listener_PressurePlate implements Listener {
 
@@ -48,6 +49,10 @@ public class Listener_PressurePlate implements Listener {
 
 	@EventHandler
 	public void pressurePlatePress(PlayerInteractEvent e) {
+		if (!WorldControl.enabled(e.getPlayer().getWorld())) {
+			return;
+		}
+		
 		if (!e.getAction().equals(Action.PHYSICAL)) {
 			return;
 		}
