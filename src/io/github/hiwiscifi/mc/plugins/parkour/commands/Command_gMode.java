@@ -11,6 +11,7 @@ import org.bukkit.persistence.PersistentDataContainer;
 import org.bukkit.persistence.PersistentDataType;
 
 import io.github.hiwiscifi.mc.plugins.parkour.utils.US;
+import io.github.hiwiscifi.mc.plugins.parkour.utils.WorldControl;
 
 public class Command_gMode implements CommandExecutor{
 
@@ -29,7 +30,13 @@ public class Command_gMode implements CommandExecutor{
 		if (!(sender instanceof Player) || !(args.length == 0)) {
 			return false;
 		}
+		
 		Player player = (Player)sender;
+		
+		if (!WorldControl.enabled(player.getWorld())) {
+			return false;
+		}
+		
 		PersistentDataContainer pdc = player.getPersistentDataContainer();
 
 		//stop if player is not in the parkours world (cheating)
