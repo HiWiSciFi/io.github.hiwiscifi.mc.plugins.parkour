@@ -112,10 +112,14 @@ public class Command_parkour implements CommandExecutor {
 			}
 			else if (args[0].equals("world")) {
 				if (args[1].equals("add")) {
+					player.sendMessage(US.OUT_PREFIX + "Adding your current world to set of parkour-enabled worlds" + US.THREE_DOTS);
 					WorldControl.addWorld(player.getWorld().getName());
+					player.sendMessage(US.OUT_PREFIX + "World added!");
 				}
 				else if (args[1].equals("remove")) {
+					player.sendMessage(US.OUT_PREFIX + "Removing your current world from the set of parkour-enabled worlds" + US.THREE_DOTS);
 					WorldControl.removeWorld(player.getWorld().getName());
+					player.sendMessage(US.OUT_PREFIX + "World removed!");
 				}
 			}
 			return true;
