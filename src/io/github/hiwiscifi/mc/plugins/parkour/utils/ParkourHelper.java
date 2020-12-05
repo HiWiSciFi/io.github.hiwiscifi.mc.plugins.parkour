@@ -168,18 +168,21 @@ public class ParkourHelper {
 
 		long lastCheckpointTime = ParkourTimer.endCheckpointTimer(player);
 		long parkourTime = ParkourTimer.endParkourTimer(player);
-		
+
 		spawnFireworks(player);
 		//TODO pb tracker with pdc
-		//TODO Return Leaderboard rank or personal best 		
+		//TODO Return Leaderboard rank or personal best
 		player.sendMessage(ChatColor.GREEN.toString() + ChatColor.BOLD.toString() + ChatColor.MAGIC.toString() + "ooo " + ChatColor.GREEN.toString() + ChatColor.BOLD.toString() + "CONGRATULATIONS!" + ChatColor.GREEN.toString() + ChatColor.BOLD.toString() + ChatColor.MAGIC.toString() + " ooo");
 		player.sendMessage(ChatColor.GREEN + "Your time to complete the parkour was: " + ChatColor.GOLD + ChatColor.BOLD.toString() + ParkourTimer.getTimeStringFromMs(parkourTime));
 		player.sendMessage(ChatColor.AQUA /* got norted*/+ "Your time for the last Checkpoint was:" + ChatColor.GOLD + ChatColor.BOLD.toString() + ParkourTimer.getTimeStringFromMs(lastCheckpointTime));
 		player.sendTitle(ChatColor.GREEN + "ᐅ" + ChatColor.GREEN + ChatColor.BOLD.toString() + "CONGRATULATIONS!" + ChatColor.GREEN + "ᐊ", ChatColor.GOLD + " Your Time: " + ChatColor.GOLD + ParkourTimer.getTimeStringFromMs(parkourTime), 10, 30, 20);
+		if(parkour.endTpBack) {
+			player.teleport(parkour.startLocation);
+		}
 	}
-	
+
 	public static void spawnFireworks(Player player) {
-		
+
 		Location loc = player.getLocation();
 		int diameter = 5;
 		World w = player.getWorld();
@@ -190,18 +193,18 @@ public class ParkourHelper {
 		    Firework fw = (Firework) w.spawnEntity(newloc, EntityType.FIREWORK);
 			FireworkMeta fwm = fw.getFireworkMeta();
 			fwm.setPower(2);
-			
+
 			if(i % 2 == 0) {
 				fwm.addEffect(FireworkEffect.builder().withColor(Color.LIME).flicker(true).build());
 			} else {
 				fwm.addEffect(FireworkEffect.builder().withColor(Color.YELLOW).flicker(true).build());
 			}
-			
+
 			fw.setFireworkMeta(fwm);
 			fw.detonate();
 		}
 	}
-	
+
 	/** apply an effect to a player
 	 * @param player the player to apply the effect to
 	 * @param effectPoint effect point to apply */

@@ -6,8 +6,11 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabExecutor;
 
-import io.github.hiwiscifi.mc.plugins.parkour.commands.parkourSubCommands.Create;
-import io.github.hiwiscifi.mc.plugins.parkour.commands.parkourSubCommands.Delete;
+import io.github.hiwiscifi.mc.plugins.parkour.commands.parkourSubCommands.SCCheckpoint;
+import io.github.hiwiscifi.mc.plugins.parkour.commands.parkourSubCommands.SCCreate;
+import io.github.hiwiscifi.mc.plugins.parkour.commands.parkourSubCommands.SCDelete;
+import io.github.hiwiscifi.mc.plugins.parkour.commands.parkourSubCommands.SCList;
+import io.github.hiwiscifi.mc.plugins.parkour.commands.parkourSubCommands.SCWorld;
 import io.github.hiwiscifi.mc.plugins.parkour.utils.US;
 import io.github.hiwiscifi.mc.plugins.parkour.utils.command.CommandManager;
 
@@ -20,13 +23,18 @@ public class Command_parkour extends CommandManager implements TabExecutor {
 	private static Command_parkour instance;
 
 	public Command_parkour() {
-		super("parkour");
+		super();
+		name = "parkour";
 		System.out.println(US.OUT_PREFIX + "Initializing parkour command" + US.THREE_DOTS);
 		instance = this;
 
 		//register subcomands
-		register(new Create());
-		register(new Delete());
+		register(new SCCreate());
+		register(new SCDelete());
+
+		register(new SCList());
+		register(new SCCheckpoint());
+		register(new SCWorld());
 
 	}
 

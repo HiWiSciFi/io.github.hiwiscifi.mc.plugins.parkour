@@ -13,31 +13,31 @@ import io.github.hiwiscifi.mc.plugins.parkour.utils.US;
 import io.github.hiwiscifi.mc.plugins.parkour.utils.WorldControl;
 import io.github.hiwiscifi.mc.plugins.parkour.utils.command.SubCommand;
 
-public class Create implements SubCommand {
+public class SCDelete implements SubCommand {
 
-	public static Create getInstance() {
+	public static SCDelete getInstance() {
 		return instance;
 	}
 
-	private static Create instance;
+	private static SCDelete instance;
 
-	public Create() {
+	public SCDelete() {
 		instance = this;
 	}
 
 	@Override
 	public String getName() {
-		return "create";
+		return "delete";
 	}
 
 	@Override
 	public String getDescription() {
-		return "creates a parkour and sets its start location";
+		return "deletes the parkour with the given name";
 	}
 
 	@Override
 	public String getSyntax() {
-		return "/parkour create <parkour>";
+		return "/parkour delete <parkour>";
 	}
 
 	@Override
@@ -57,18 +57,17 @@ public class Create implements SubCommand {
 			return false;
 		}
 
+		// TODO don't delete just hide
 		String parkourName = args[0];
-
-		if(Parkour.getParkourNames().contains(parkourName)) {
-			player.sendMessage(US.OUT_PREFIX + "Parkour " + US.inQuotes(parkourName) + " already exists" + US.THREE_DOTS);
-			return false;
+		player.sendMessage(US.OUT_PREFIX + "Deleting parkour " + US.inQuotes(parkourName) + US.THREE_DOTS);
+		for (int i = 0; i < Main.getInstance().parkours.size(); i++) {
+			if (Main.getInstance().parkours.get(i).name.equals(parkourName)) {
+				Main.getInstance().parkours.get(i).delete();
+				Main.getInstance().parkours.remove(i);
+				break;
+			}
 		}
-
-		player.sendMessage(US.OUT_PREFIX + "Creating parkour " + US.inQuotes(parkourName) + US.THREE_DOTS);
-		Parkour p = new Parkour(parkourName, player.getLocation());
-		Main.getInstance().parkours.add(p);
-		p.save();
-		player.sendMessage(US.OUT_PREFIX + "Parkour created");
+		player.sendMessage(US.OUT_PREFIX + "Parkour deleted");
 
 		return true;
 
@@ -76,7 +75,12 @@ public class Create implements SubCommand {
 
 	@Override
 	public List<String> tabcomplete(CommandSender sender, Command command, String alias, String[] args) {
-		return new ArrayList<String>();
+		List <String> result = new ArrayList<String>();
+
+		for (Parkour p : Main.getInstance().parkours) {
+			result.add(p.name);
+		}
+		return result;
 	}
 
 }

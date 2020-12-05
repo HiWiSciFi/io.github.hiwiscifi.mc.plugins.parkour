@@ -1,5 +1,6 @@
 package io.github.hiwiscifi.mc.plugins.parkour.commands.parkourSubCommands;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.bukkit.command.Command;
@@ -12,31 +13,31 @@ import io.github.hiwiscifi.mc.plugins.parkour.utils.US;
 import io.github.hiwiscifi.mc.plugins.parkour.utils.WorldControl;
 import io.github.hiwiscifi.mc.plugins.parkour.utils.command.SubCommand;
 
-public class Delete implements SubCommand {
+public class SCCreate implements SubCommand {
 
-	public static Delete getInstance() {
+	public static SCCreate getInstance() {
 		return instance;
 	}
 
-	private static Delete instance;
+	private static SCCreate instance;
 
-	public Delete() {
+	public SCCreate() {
 		instance = this;
 	}
 
 	@Override
 	public String getName() {
-		return "delete";
+		return "create";
 	}
 
 	@Override
 	public String getDescription() {
-		return "deletes the parkour with the given name";
+		return "creates a parkour and sets its start location";
 	}
 
 	@Override
 	public String getSyntax() {
-		return "/parkour delete <parkour>";
+		return "/parkour create <parkour>";
 	}
 
 	@Override
@@ -56,17 +57,18 @@ public class Delete implements SubCommand {
 			return false;
 		}
 
-		// TODO don't delete just hide
 		String parkourName = args[0];
-		player.sendMessage(US.OUT_PREFIX + "Deleting parkour " + US.inQuotes(parkourName) + US.THREE_DOTS);
-		for (int i = 0; i < Main.getInstance().parkours.size(); i++) {
-			if (Main.getInstance().parkours.get(i).name.equals(parkourName)) {
-				Main.getInstance().parkours.get(i).delete();
-				Main.getInstance().parkours.remove(i);
-				break;
-			}
+
+		if(Parkour.getParkourNames().contains(parkourName)) {
+			player.sendMessage(US.OUT_PREFIX + "Parkour " + US.inQuotes(parkourName) + " already exists" + US.THREE_DOTS);
+			return false;
 		}
-		player.sendMessage(US.OUT_PREFIX + "Parkour deleted");
+
+		player.sendMessage(US.OUT_PREFIX + "Creating parkour " + US.inQuotes(parkourName) + US.THREE_DOTS);
+		Parkour p = new Parkour(parkourName, player.getLocation());
+		Main.getInstance().parkours.add(p);
+		p.save();
+		player.sendMessage(US.OUT_PREFIX + "Parkour created");
 
 		return true;
 
@@ -74,8 +76,7 @@ public class Delete implements SubCommand {
 
 	@Override
 	public List<String> tabcomplete(CommandSender sender, Command command, String alias, String[] args) {
-		//TODO wie sicher ist das?
-		return Parkour.getParkourNames();
+		return new ArrayList<String>();
 	}
 
 }

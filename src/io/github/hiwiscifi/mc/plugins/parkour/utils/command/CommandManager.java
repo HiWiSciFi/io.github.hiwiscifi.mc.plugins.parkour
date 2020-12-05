@@ -17,8 +17,8 @@ public abstract class CommandManager {
 
 	private SubCommand neutral = null;
 
-	public CommandManager(String name) {
-		this.name = name;
+	public CommandManager() {
+
 	}
 
 	public void register(SubCommand subCommand) {

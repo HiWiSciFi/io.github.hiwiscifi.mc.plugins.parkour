@@ -17,6 +17,8 @@ public class Parkour {
 
 	public List<ParkourCheckpoint> checkpoints;
 
+	public boolean endTpBack = false;
+
 	public Parkour(String name) {
 		this.name = name;
 		checkpoints = new ArrayList<ParkourCheckpoint>();
@@ -80,6 +82,10 @@ public class Parkour {
 				parkour.startLocation = Main.getInstance().getConfig().getLocation("parkours." + name + ".startLocation");
 			}
 
+			if (Main.getInstance().getConfig().contains("parkours." + name + ".endTpBack")) {
+				parkour.endTpBack = Main.getInstance().getConfig().getBoolean("parkours." + name + ".endTpBack");
+			}
+
 			return parkour;
 		} else {
 			return null;
@@ -92,6 +98,7 @@ public class Parkour {
 		Main.getInstance().getConfig().set("parkours." + name + ".startCheckpoint", startCheckpoint);
 		Main.getInstance().getConfig().set("parkours." + name + ".startLocation", startLocation);
 		Main.getInstance().getConfig().set("parkours." + name + ".checkpoints", checkpoints);
+		Main.getInstance().getConfig().set("parkours." + name + ".endTpBack", endTpBack);
 		Main.getInstance().saveConfig();
 	}
 
