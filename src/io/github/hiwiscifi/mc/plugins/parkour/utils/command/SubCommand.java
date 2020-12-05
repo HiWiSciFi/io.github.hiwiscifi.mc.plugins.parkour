@@ -1,22 +1,23 @@
 package io.github.hiwiscifi.mc.plugins.parkour.utils.command;
 
-import org.bukkit.entity.Player;
+import java.util.List;
 
-public abstract class SubCommand {
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandSender;
+
+public interface SubCommand {
 
 	//name of the subcommand ex. /prank <subcommand> <-- that
-	public abstract String getName();
+	public String getName();
 
 	//ex. "This is a subcommand that let's a shark eat someone"
-	public abstract String getDescription();
+	public String getDescription();
 
 	//How to use command ex. /prank freeze <player>
-	public abstract String getSyntax();
+	public String getSyntax();
 
 	//code for the subcommand
-	public abstract void perform(Player player, String args[]);
+	public boolean perform(CommandSender sender, Command command, String alias, String[] args);
 
-	private void help() {
-		
-	}
+	public List<String> tabcomplete(CommandSender sender, Command command, String alias, String[] args);
 }

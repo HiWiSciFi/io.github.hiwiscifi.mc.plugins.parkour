@@ -1,25 +1,56 @@
 package io.github.hiwiscifi.mc.plugins.parkour.commands;
 
+import java.util.List;
+
 import org.bukkit.command.Command;
-import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
+import org.bukkit.command.TabExecutor;
 
-import io.github.hiwiscifi.mc.plugins.parkour.Main;
-import io.github.hiwiscifi.mc.plugins.parkour.utils.Parkour;
+import io.github.hiwiscifi.mc.plugins.parkour.commands.parkourSubCommands.Create;
+import io.github.hiwiscifi.mc.plugins.parkour.commands.parkourSubCommands.Delete;
 import io.github.hiwiscifi.mc.plugins.parkour.utils.US;
-import io.github.hiwiscifi.mc.plugins.parkour.utils.WorldControl;
+import io.github.hiwiscifi.mc.plugins.parkour.utils.command.CommandManager;
 
-public class Command_parkour implements CommandExecutor {
+public class Command_parkour extends CommandManager implements TabExecutor {
 
-	public static Command_parkour getInstance() { return instance; }
+	public static Command_parkour getInstance() {
+		return instance;
+	}
+
 	private static Command_parkour instance;
 
 	public Command_parkour() {
+		super("parkour");
 		System.out.println(US.OUT_PREFIX + "Initializing parkour command" + US.THREE_DOTS);
 		instance = this;
+
+		//register subcomands
+		register(new Create());
+		register(new Delete());
+
 	}
 
+	@Override
+	public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
+		return complete(sender, command, alias, args);
+	}
+
+	@Override
+	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+		return perform(sender, command, label, args);
+	}
+
+	@Override
+	public String getDescription() {
+		return "a genaral command to interact with the parkour plugin";
+	}
+
+	@Override
+	public String getSyntax() {
+		return "/parkour <subcommand> <arg1> ...";
+	}
+
+	/*
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 
@@ -47,10 +78,9 @@ public class Command_parkour implements CommandExecutor {
 					p.save();
 					player.sendMessage(US.OUT_PREFIX + "Parkour created");
 				}
-			}
-			else if (args[0].equals("delete")) {
+			} else if (args[0].equals("delete")) {
 				if (WorldControl.enabled(player.getWorld(), player)) {
-					//TODO don't delete just hide
+					// TODO don't delete just hide
 					String parkourName = args[1];
 					player.sendMessage(US.OUT_PREFIX + "Deleting parkour " + US.inQuotes(parkourName) + US.THREE_DOTS);
 					for (int i = 0; i < Main.getInstance().parkours.size(); i++) {
@@ -62,18 +92,17 @@ public class Command_parkour implements CommandExecutor {
 					}
 					player.sendMessage(US.OUT_PREFIX + "Parkour deleted");
 				}
-			}
-			else if (args[0].equals("list")) {
+			} else if (args[0].equals("list")) {
 				player.sendMessage(US.OUT_PREFIX + "List of registered parkours");
 				for (Parkour p : Main.getInstance().parkours) {
 					player.sendMessage(p.name);
 				}
-			}
-			else if (args[0].equals("set")) {
+			} else if (args[0].equals("set")) {
 				if (WorldControl.enabled(player.getWorld(), player)) {
 					if (args[1].equals("location")) {
 						String parkourName = args[2];
-						player.sendMessage(US.OUT_PREFIX + "Setting start location for parkour " + US.inQuotes(parkourName) + US.THREE_DOTS);
+						player.sendMessage(US.OUT_PREFIX + "Setting start location for parkour "
+								+ US.inQuotes(parkourName) + US.THREE_DOTS);
 						for (Parkour parkour : Main.getInstance().parkours) {
 							if (parkour.name.equals(parkourName)) {
 								parkour.startLocation = player.getLocation();
@@ -83,11 +112,10 @@ public class Command_parkour implements CommandExecutor {
 							}
 						}
 					}
-					//TODO edit name
+					// TODO edit name
 				}
-				
-			}
-			else if (args[0].equals("checkpoint")) {
+
+			} else if (args[0].equals("checkpoint")) {
 				if (WorldControl.enabled(player.getWorld(), player)) {
 					if (args[1].equals("add")) {
 						String parkourName = args[2];
@@ -96,9 +124,8 @@ public class Command_parkour implements CommandExecutor {
 								p.addCheckpoint(player.getLocation());
 							}
 						}
-						//TODO add in between
-					}
-					else if (args[1].equals("remove")) {
+						// TODO add in between
+					} else if (args[1].equals("remove")) {
 						String parkourName = args[2];
 						for (Parkour p : Main.getInstance().parkours) {
 							if (p.name.equals(parkourName)) {
@@ -106,11 +133,10 @@ public class Command_parkour implements CommandExecutor {
 							}
 						}
 					}
-					//TODO list
-					//TODO edit
+					// TODO list
+					// TODO edit
 				}
-			}
-			else if (args[0].equals("world")) {
+			} else if (args[0].equals("world")) {
 				if (args[1].equals("add")) {
 					player.sendMessage(US.OUT_PREFIX + "Adding your current world to set of parkour-enabled worlds" + US.THREE_DOTS);
 					WorldControl.addWorld(player.getWorld().getName());
@@ -126,4 +152,7 @@ public class Command_parkour implements CommandExecutor {
 		}
 		return false;
 	}
+	*/
+
+
 }

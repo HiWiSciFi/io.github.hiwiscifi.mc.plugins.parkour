@@ -41,9 +41,9 @@ public class Main extends JavaPlugin {
 	@Override
 	public void onEnable() {
 		instance = this;
-		
+
 		US.initializeKeys();
-		
+
 		System.out.println(US.fillWithMinus("Initializing Parkour plugin", 40));
 
 		System.out.println(US.OUT_PREFIX + "Registring commands" + US.THREE_DOTS);
@@ -70,7 +70,7 @@ public class Main extends JavaPlugin {
 		for (String name : parkourNames) {
 			parkours.add(Parkour.load(name));
 		}
-		
+
 		System.out.println(US.OUT_PREFIX + "Loading list of enabled worlds from config" + US.THREE_DOTS);
 		WorldControl.loadWorlds();
 
