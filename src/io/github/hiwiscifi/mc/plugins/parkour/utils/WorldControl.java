@@ -76,6 +76,15 @@ public class WorldControl {
 		enabledWorlds = (ArrayList<String>) Main.getInstance().getConfig().getStringList("enabledWorlds");
 	}
 	
+	/** get the list of parkour-enabled worlds
+	 * @return a list of the names of enabled worlds and an empty arraylist if no worlds are enabled */
+	public static List<String> getEnabledWorldNames() {
+		if (Main.getInstance().getConfig().contains("enabledWorlds")) {
+			return Main.getInstance().getConfig().getStringList("enabledWorlds");
+		}
+		return new ArrayList<String>();
+	}
+	
 	/** save list of enabled worlds to the config */
 	private static void saveWorlds() {
 		Main.getInstance().getConfig().set("enabledWorlds", enabledWorlds);

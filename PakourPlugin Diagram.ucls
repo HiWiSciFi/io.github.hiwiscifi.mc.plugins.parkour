@@ -1,168 +1,509 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <class-diagram version="1.2.4" icons="true" automaticImage="PNG" always-add-relationships="false" generalizations="true" 
   realizations="true" associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
-  <class id="1" language="java" name="io.github.hiwiscifi.mc.plugins.parkour.Main" 
+  <class id="1" language="java" name="io.github.hiwiscifi.mc.plugins.parkour.commands.Command_test" 
     project="io.github.hiwiscifi.mc.plugins.parkour" 
-    file="/io.github.hiwiscifi.mc.plugins.parkour/src/io/github/hiwiscifi/mc/plugins/parkour/Main.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="94" y="83"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="2" language="java" name="io.github.hiwiscifi.mc.plugins.parkour.utils.EffectPoint" 
-    project="io.github.hiwiscifi.mc.plugins.parkour" 
-    file="/io.github.hiwiscifi.mc.plugins.parkour/src/io/github/hiwiscifi/mc/plugins/parkour/utils/EffectPoint.java" 
+    file="/io.github.hiwiscifi.mc.plugins.parkour/src/io/github/hiwiscifi/mc/plugins/parkour/commands/Command_test.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="943" y="314"/>    
+    <position height="-1" width="-1" x="246" y="147"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="3" language="java" name="io.github.hiwiscifi.mc.plugins.parkour.utils.Parkour" 
-    project="io.github.hiwiscifi.mc.plugins.parkour" 
-    file="/io.github.hiwiscifi.mc.plugins.parkour/src/io/github/hiwiscifi/mc/plugins/parkour/utils/Parkour.java" 
-    binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="531" y="150"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="4" language="java" name="io.github.hiwiscifi.mc.plugins.parkour.utils.ParkourCheckpoint" 
-    project="io.github.hiwiscifi.mc.plugins.parkour" 
-    file="/io.github.hiwiscifi.mc.plugins.parkour/src/io/github/hiwiscifi/mc/plugins/parkour/utils/ParkourCheckpoint.java" 
-    binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="836" y="110"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="5" language="java" name="io.github.hiwiscifi.mc.plugins.parkour.utils.ParkourTimer" 
+  <class id="2" language="java" name="io.github.hiwiscifi.mc.plugins.parkour.utils.ParkourTimer" 
     project="io.github.hiwiscifi.mc.plugins.parkour" 
     file="/io.github.hiwiscifi.mc.plugins.parkour/src/io/github/hiwiscifi/mc/plugins/parkour/utils/ParkourTimer.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="397" y="522"/>    
+    <position height="-1" width="-1" x="129" y="419"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="6" language="java" name="io.github.hiwiscifi.mc.plugins.parkour.utils.US" 
-    project="io.github.hiwiscifi.mc.plugins.parkour" 
-    file="/io.github.hiwiscifi.mc.plugins.parkour/src/io/github/hiwiscifi/mc/plugins/parkour/utils/US.java" 
-    binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="149" y="391"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="7" language="java" name="io.github.hiwiscifi.mc.plugins.parkour.utils.command.CommandManager" 
-    project="io.github.hiwiscifi.mc.plugins.parkour" 
-    file="/io.github.hiwiscifi.mc.plugins.parkour/src/io/github/hiwiscifi/mc/plugins/parkour/utils/command/CommandManager.java" 
-    binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="172" y="687"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="8" language="java" name="io.github.hiwiscifi.mc.plugins.parkour.utils.command.SubCommand" 
+  <interface id="3" language="java" name="io.github.hiwiscifi.mc.plugins.parkour.utils.command.SubCommand" 
     project="io.github.hiwiscifi.mc.plugins.parkour" 
     file="/io.github.hiwiscifi.mc.plugins.parkour/src/io/github/hiwiscifi/mc/plugins/parkour/utils/command/SubCommand.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="619" y="696"/>    
+    <position height="153" width="351" x="3409" y="968"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
-  </class>  
-  <class id="9" language="java" name="io.github.hiwiscifi.mc.plugins.parkour.utils.effects.EffectEffect" 
+  </interface>  
+  <class id="4" language="java" name="io.github.hiwiscifi.mc.plugins.parkour.utils.effects.EffectEffect" 
     project="io.github.hiwiscifi.mc.plugins.parkour" 
     file="/io.github.hiwiscifi.mc.plugins.parkour/src/io/github/hiwiscifi/mc/plugins/parkour/utils/effects/EffectEffect.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="642" y="394"/>    
+    <position height="117" width="217" x="4067" y="1673"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="10" language="java" name="io.github.hiwiscifi.mc.plugins.parkour.utils.effects.TeleportEffect" 
+  <class id="5" language="java" name="io.github.hiwiscifi.mc.plugins.parkour.utils.EffectPoint" 
+    project="io.github.hiwiscifi.mc.plugins.parkour" 
+    file="/io.github.hiwiscifi.mc.plugins.parkour/src/io/github/hiwiscifi/mc/plugins/parkour/utils/EffectPoint.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="243" width="235" x="4268" y="1161"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="6" language="java" name="io.github.hiwiscifi.mc.plugins.parkour.utils.ParkourEffect" 
+    project="io.github.hiwiscifi.mc.plugins.parkour" 
+    file="/io.github.hiwiscifi.mc.plugins.parkour/src/io/github/hiwiscifi/mc/plugins/parkour/utils/ParkourEffect.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="189" width="249" x="4268" y="1444"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="7" language="java" name="io.github.hiwiscifi.mc.plugins.parkour.commands.parkourSubCommands.SCCreate" 
+    project="io.github.hiwiscifi.mc.plugins.parkour" 
+    file="/io.github.hiwiscifi.mc.plugins.parkour/src/io/github/hiwiscifi/mc/plugins/parkour/commands/parkourSubCommands/SCCreate.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="189" width="351" x="1825" y="667"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="8" language="java" name="io.github.hiwiscifi.mc.plugins.parkour.utils.command.CommandManager" 
+    project="io.github.hiwiscifi.mc.plugins.parkour" 
+    file="/io.github.hiwiscifi.mc.plugins.parkour/src/io/github/hiwiscifi/mc/plugins/parkour/utils/command/CommandManager.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="279" width="336" x="3812" y="276"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="9" language="java" name="io.github.hiwiscifi.mc.plugins.parkour.commands.parkourSubCommands.SCWorld" 
+    project="io.github.hiwiscifi.mc.plugins.parkour" 
+    file="/io.github.hiwiscifi.mc.plugins.parkour/src/io/github/hiwiscifi/mc/plugins/parkour/commands/parkourSubCommands/SCWorld.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="135" width="351" x="3018" y="667"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="10" language="java" name="io.github.hiwiscifi.mc.plugins.parkour.listeners.Listener_PressurePlate" 
+    project="io.github.hiwiscifi.mc.plugins.parkour" 
+    file="/io.github.hiwiscifi.mc.plugins.parkour/src/io/github/hiwiscifi/mc/plugins/parkour/listeners/Listener_PressurePlate.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="405" y="352"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="11" language="java" name="io.github.hiwiscifi.mc.plugins.parkour.utils.effects.TeleportEffect" 
     project="io.github.hiwiscifi.mc.plugins.parkour" 
     file="/io.github.hiwiscifi.mc.plugins.parkour/src/io/github/hiwiscifi/mc/plugins/parkour/utils/effects/TeleportEffect.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="641" y="504"/>    
+    <position height="171" width="217" x="4324" y="1673"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <association id="11">    
-    <end type="SOURCE" refId="3" navigable="false">      
-      <attribute id="12" name="startCheckpoint"/>      
-      <multiplicity id="13" minimum="0" maximum="1"/>    
+  <class id="12" language="java" name="io.github.hiwiscifi.mc.plugins.parkour.commands.Command_parkour" 
+    project="io.github.hiwiscifi.mc.plugins.parkour" 
+    file="/io.github.hiwiscifi.mc.plugins.parkour/src/io/github/hiwiscifi/mc/plugins/parkour/commands/Command_parkour.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="171" width="366" x="3852" y="667"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="13" language="java" name="io.github.hiwiscifi.mc.plugins.parkour.listeners.Listener_PlayerDamage" 
+    project="io.github.hiwiscifi.mc.plugins.parkour" 
+    file="/io.github.hiwiscifi.mc.plugins.parkour/src/io/github/hiwiscifi/mc/plugins/parkour/listeners/Listener_PlayerDamage.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="677" y="148"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="14" language="java" name="io.github.hiwiscifi.mc.plugins.parkour.commands.parkourSubCommands.SCDelete" 
+    project="io.github.hiwiscifi.mc.plugins.parkour" 
+    file="/io.github.hiwiscifi.mc.plugins.parkour/src/io/github/hiwiscifi/mc/plugins/parkour/commands/parkourSubCommands/SCDelete.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="189" width="351" x="2226" y="667"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="15" language="java" name="io.github.hiwiscifi.mc.plugins.parkour.listeners.Listener_PlayerRespawn" 
+    project="io.github.hiwiscifi.mc.plugins.parkour" 
+    file="/io.github.hiwiscifi.mc.plugins.parkour/src/io/github/hiwiscifi/mc/plugins/parkour/listeners/Listener_PlayerRespawn.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1260" y="135"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="16" language="java" name="io.github.hiwiscifi.mc.plugins.parkour.listeners.Listener_PlayerJoin" 
+    project="io.github.hiwiscifi.mc.plugins.parkour" 
+    file="/io.github.hiwiscifi.mc.plugins.parkour/src/io/github/hiwiscifi/mc/plugins/parkour/listeners/Listener_PlayerJoin.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1274" y="406"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="17" language="java" name="io.github.hiwiscifi.mc.plugins.parkour.commands.parkourSubCommands.SCList" 
+    project="io.github.hiwiscifi.mc.plugins.parkour" 
+    file="/io.github.hiwiscifi.mc.plugins.parkour/src/io/github/hiwiscifi/mc/plugins/parkour/commands/parkourSubCommands/SCList.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="171" width="351" x="2627" y="667"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="18" language="java" name="io.github.hiwiscifi.mc.plugins.parkour.commands.Command_gMode" 
+    project="io.github.hiwiscifi.mc.plugins.parkour" 
+    file="/io.github.hiwiscifi.mc.plugins.parkour/src/io/github/hiwiscifi/mc/plugins/parkour/commands/Command_gMode.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="135" width="366" x="1981" y="276"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="19" language="java" name="io.github.hiwiscifi.mc.plugins.parkour.listeners.Listener_WorldChange" 
+    project="io.github.hiwiscifi.mc.plugins.parkour" 
+    file="/io.github.hiwiscifi.mc.plugins.parkour/src/io/github/hiwiscifi/mc/plugins/parkour/listeners/Listener_WorldChange.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="117" width="262" x="2397" y="276"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="20" language="java" name="io.github.hiwiscifi.mc.plugins.parkour.utils.Parkour" 
+    project="io.github.hiwiscifi.mc.plugins.parkour" 
+    file="/io.github.hiwiscifi.mc.plugins.parkour/src/io/github/hiwiscifi/mc/plugins/parkour/utils/Parkour.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="261" width="183" x="4268" y="667"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="21" language="java" name="io.github.hiwiscifi.mc.plugins.parkour.utils.WorldControl" 
+    project="io.github.hiwiscifi.mc.plugins.parkour" 
+    file="/io.github.hiwiscifi.mc.plugins.parkour/src/io/github/hiwiscifi/mc/plugins/parkour/utils/WorldControl.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="243" width="183" x="2709" y="276"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="22" language="java" name="io.github.hiwiscifi.mc.plugins.parkour.utils.ParkourCheckpoint" 
+    project="io.github.hiwiscifi.mc.plugins.parkour" 
+    file="/io.github.hiwiscifi.mc.plugins.parkour/src/io/github/hiwiscifi/mc/plugins/parkour/utils/ParkourCheckpoint.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="117" width="273" x="4268" y="968"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="23" language="java" name="io.github.hiwiscifi.mc.plugins.parkour.utils.US" 
+    project="io.github.hiwiscifi.mc.plugins.parkour" 
+    file="/io.github.hiwiscifi.mc.plugins.parkour/src/io/github/hiwiscifi/mc/plugins/parkour/utils/US.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="351" width="254" x="2932" y="276"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="24" language="java" name="io.github.hiwiscifi.mc.plugins.parkour.utils.ParkourHelper" 
+    project="io.github.hiwiscifi.mc.plugins.parkour" 
+    file="/io.github.hiwiscifi.mc.plugins.parkour/src/io/github/hiwiscifi/mc/plugins/parkour/utils/ParkourHelper.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="261" width="285" x="3226" y="276"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="25" language="java" name="io.github.hiwiscifi.mc.plugins.parkour.Main" 
+    project="io.github.hiwiscifi.mc.plugins.parkour" 
+    file="/io.github.hiwiscifi.mc.plugins.parkour/src/io/github/hiwiscifi/mc/plugins/parkour/Main.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="135" width="163" x="4268" y="276"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="26" language="java" name="io.github.hiwiscifi.mc.plugins.parkour.commands.parkourSubCommands.SCCheckpoint" 
+    project="io.github.hiwiscifi.mc.plugins.parkour" 
+    file="/io.github.hiwiscifi.mc.plugins.parkour/src/io/github/hiwiscifi/mc/plugins/parkour/commands/parkourSubCommands/SCCheckpoint.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="153" width="351" x="3409" y="667"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="27" language="java" name="io.github.hiwiscifi.mc.plugins.parkour.listeners.Listener_ItemUse" 
+    project="io.github.hiwiscifi.mc.plugins.parkour" 
+    file="/io.github.hiwiscifi.mc.plugins.parkour/src/io/github/hiwiscifi/mc/plugins/parkour/listeners/Listener_ItemUse.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="117" width="211" x="3551" y="276"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <association id="28">    
+    <end type="SOURCE" refId="15" navigable="false">      
+      <attribute id="29" name="instance"/>      
+      <multiplicity id="30" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="4" navigable="true"/>    
+    <end type="TARGET" refId="15" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="14">    
-    <end type="SOURCE" refId="3" navigable="false">      
-      <attribute id="15" name="checkpoints"/>      
-      <multiplicity id="16" minimum="0" maximum="2147483647"/>    
+  <association id="31">    
+    <end type="SOURCE" refId="19" navigable="false">      
+      <attribute id="32" name="instance"/>      
+      <multiplicity id="33" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="4" navigable="true"/>    
+    <end type="TARGET" refId="19" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="17">    
-    <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="18" name="effectPoints"/>      
-      <multiplicity id="19" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="2" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="20">    
-    <end type="SOURCE" refId="7" navigable="false">      
-      <attribute id="21" name="subcommands"/>      
-      <multiplicity id="22" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="8" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="23">    
-    <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="24" name="instance"/>      
-      <multiplicity id="25" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="1" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="26">    
-    <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="27" name="parkours"/>      
-      <multiplicity id="28" minimum="0" maximum="2147483647"/>    
+  <association id="34">    
+    <bendpoint x="3821" y="667"/>    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="35" name="subCommands"/>      
+      <multiplicity id="36" minimum="0" maximum="2147483647"/>    
     </end>    
     <end type="TARGET" refId="3" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="29">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="2"/>  
+  <association id="37">    
+    <end type="SOURCE" refId="22" navigable="false">      
+      <attribute id="38" name="effectPoints"/>      
+      <multiplicity id="39" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="5" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="40">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="3"/>  
+  </realization>  
+  <generalization id="41">    
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="8"/>  
   </generalization>  
+  <realization id="42">    
+    <end type="SOURCE" refId="26"/>    
+    <end type="TARGET" refId="3"/>  
+  </realization>  
+  <association id="43">    
+    <end type="SOURCE" refId="25" navigable="false">      
+      <attribute id="44" name="parkours"/>      
+      <multiplicity id="45" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="20" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="46">    
+    <end type="SOURCE" refId="27" navigable="false">      
+      <attribute id="47" name="instance"/>      
+      <multiplicity id="48" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="27" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="49">    
+    <end type="SOURCE" refId="26" navigable="false">      
+      <attribute id="50" name="instance"/>      
+      <multiplicity id="51" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="26" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="52">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="3"/>  
+  </realization>  
+  <association id="53">    
+    <end type="SOURCE" refId="20" navigable="false">      
+      <attribute id="54" name="checkpoints"/>      
+      <multiplicity id="55" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="22" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="56">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="8"/>  
+  </generalization>  
+  <association id="57">    
+    <end type="SOURCE" refId="16" navigable="false">      
+      <attribute id="58" name="instance"/>      
+      <multiplicity id="59" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="16" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="60">    
+    <end type="SOURCE" refId="12" navigable="false">      
+      <attribute id="61" name="instance"/>      
+      <multiplicity id="62" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="12" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="63">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="6"/>  
+  </generalization>  
+  <association id="64">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="65" name="effects"/>      
+      <multiplicity id="66" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="6" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="67">    
+    <end type="SOURCE" refId="20" navigable="false">      
+      <attribute id="68" name="startCheckpoint"/>      
+      <multiplicity id="69" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="22" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="70">    
+    <end type="SOURCE" refId="25" navigable="false">      
+      <attribute id="71" name="instance"/>      
+      <multiplicity id="72" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="25" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="73">    
+    <end type="SOURCE" refId="14" navigable="false">      
+      <attribute id="74" name="instance"/>      
+      <multiplicity id="75" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="14" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="76">    
+    <end type="SOURCE" refId="26"/>    
+    <end type="TARGET" refId="8"/>  
+  </generalization>  
+  <realization id="77">    
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="3"/>  
+  </realization>  
+  <generalization id="78">    
+    <end type="SOURCE" refId="22"/>    
+    <end type="TARGET" refId="5"/>  
+  </generalization>  
+  <association id="79">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="80" name="instance"/>      
+      <multiplicity id="81" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="1" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="82">    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="83" name="instance"/>      
+      <multiplicity id="84" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="10" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="85">    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="86" name="instance"/>      
+      <multiplicity id="87" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="88">    
+    <end type="SOURCE" refId="18" navigable="false">      
+      <attribute id="89" name="instance"/>      
+      <multiplicity id="90" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="18" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="91">    
+    <bendpoint x="3800" y="667"/>    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="92" name="neutral"/>      
+      <multiplicity id="93" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="94">    
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="6"/>  
+  </generalization>  
+  <realization id="95">    
+    <end type="SOURCE" refId="17"/>    
+    <end type="TARGET" refId="3"/>  
+  </realization>  
+  <association id="96">    
+    <end type="SOURCE" refId="13" navigable="false">      
+      <attribute id="97" name="instance"/>      
+      <multiplicity id="98" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
     sort-features="false" accessors="true" visibility="true">    
     <attributes public="true" package="true" protected="true" private="true" static="true"/>    
