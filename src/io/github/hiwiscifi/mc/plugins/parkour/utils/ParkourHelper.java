@@ -53,9 +53,10 @@ public class ParkourHelper {
 					//called if tihs is a reset
 				}
 				Location loc = parkour.checkpoints.get(currentCheckpoint-1).location;
-				loc.setX(loc.getBlockX() + 0.5f);
-				loc.setY(loc.getBlockY() + 0.5f);
-				loc.setZ(loc.getBlockZ() + 0.5f);
+				Location l = loc;
+				l.setX(loc.getBlockX() + 0.5d);
+				l.setY(loc.getBlockY());
+				l.setZ(loc.getBlockZ() + 0.5d);
 				return loc;
 			} catch(IndexOutOfBoundsException e){
 				return null;
