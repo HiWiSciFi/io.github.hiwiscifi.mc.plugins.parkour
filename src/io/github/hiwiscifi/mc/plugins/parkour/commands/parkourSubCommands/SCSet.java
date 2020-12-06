@@ -8,15 +8,15 @@ import org.bukkit.command.CommandSender;
 import io.github.hiwiscifi.mc.plugins.parkour.utils.command.CommandManager;
 import io.github.hiwiscifi.mc.plugins.parkour.utils.command.SubCommand;
 
-public class SCCheckpoint extends CommandManager implements SubCommand{
+public class SCSet extends CommandManager implements SubCommand{
 
-	public static SCCheckpoint getInstance() {
+	public static SCSet getInstance() {
 		return instance;
 	}
 
-	private static SCCheckpoint instance;
+	private static SCSet instance;
 
-	public SCCheckpoint() {
+	public SCSet() {
 		super();
 		name = "checkpoint";
 
@@ -31,12 +31,12 @@ public class SCCheckpoint extends CommandManager implements SubCommand{
 
 	@Override
 	public String getDescription() {
-		return "With this subcommand you can do everything related to chekpoint";
+		return "resets atributes of a parkour";
 	}
 
 	@Override
 	public String getSyntax() {
-		return "/parkour checkpoint <subcommand> [arg1] ...";
+		return "/parkour set [arg1] ... <parkour>";
 	}
 
 }

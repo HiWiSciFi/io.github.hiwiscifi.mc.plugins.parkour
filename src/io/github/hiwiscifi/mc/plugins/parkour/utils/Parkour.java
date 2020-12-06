@@ -51,6 +51,10 @@ public class Parkour {
 		save();
 	}
 
+	public void removeCheckpoint(int i) {
+		save();
+	}
+
 	public static List<String> getParkourNames() {
 		if (Main.getInstance().getConfig().contains("parkours")) {
 			Set<String> keys = Main.getInstance().getConfig().getConfigurationSection("parkours").getKeys(false);

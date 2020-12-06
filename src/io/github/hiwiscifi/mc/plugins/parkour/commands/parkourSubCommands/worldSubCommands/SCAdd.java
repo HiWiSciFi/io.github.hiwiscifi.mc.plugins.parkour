@@ -1,52 +1,61 @@
-package io.github.hiwiscifi.mc.plugins.parkour.commands.parkourSubCommands;
+package io.github.hiwiscifi.mc.plugins.parkour.commands.parkourSubCommands.worldSubCommands;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import io.github.hiwiscifi.mc.plugins.parkour.Main;
-import io.github.hiwiscifi.mc.plugins.parkour.utils.Parkour;
 import io.github.hiwiscifi.mc.plugins.parkour.utils.US;
+import io.github.hiwiscifi.mc.plugins.parkour.utils.WorldControl;
 import io.github.hiwiscifi.mc.plugins.parkour.utils.command.SubCommand;
 
-public class SCList implements SubCommand{
+public class SCAdd implements SubCommand{
+
+	public static SCAdd getInstance() {
+		return instance;
+	}
+
+	private static SCAdd instance;
+
+	public SCAdd() {
+		instance = this;
+	}
 
 	@Override
 	public String getName() {
-		return "list";
+		return "add";
 	}
 
 	@Override
 	public String getDescription() {
-		return "lists the names of all existing parkours";
+		return "enables parkours in current world";
 	}
 
 	@Override
 	public String getSyntax() {
-		return "/parkour list";
+		return "/parkour world add";
 	}
 
 	@Override
 	public boolean perform(CommandSender sender, Command command, String alias, String[] args) {
+
 		if (!(sender instanceof Player)) {
 			return false;
 		}
 
 		Player player = (Player) sender;
 
-		player.sendMessage(US.OUT_PREFIX + "List of registered parkours");
-		for (Parkour p : Main.getInstance().parkours) {
-			player.sendMessage(p.name);
-		}
+		player.sendMessage(US.OUT_PREFIX + "Adding your current world to set of parkour-enabled worlds" + US.THREE_DOTS);
+		WorldControl.addWorld(player.getWorld().getName());
+		player.sendMessage(US.OUT_PREFIX + "World added!");
+
 		return true;
 	}
 
 	@Override
 	public List<String> tabcomplete(CommandSender sender, Command command, String alias, String[] args) {
-		return new ArrayList<String>();
+		return WorldControl.getEnabledWorldNames();
 	}
 
 }
