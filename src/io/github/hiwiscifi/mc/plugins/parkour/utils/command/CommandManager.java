@@ -34,6 +34,7 @@ public abstract class CommandManager {
 		boolean result = false;
 
 		if (args.length > 0) {
+
 			for (int i = 0; i < getSubcommands().size(); i++) {
 				if (args[0].equalsIgnoreCase(getSubcommands().get(i).getName())) {
 					if(!getSubcommands().get(i).perform(sender, command, label, cutFirst(args))) {

@@ -48,7 +48,7 @@ public class SCRemove implements SubCommand {
 
 		player.sendMessage(US.OUT_PREFIX + "Adding your current world to set of parkour-enabled worlds" + US.THREE_DOTS);
 		WorldControl.removeWorld(player.getWorld().getName());
-		player.sendMessage(US.OUT_PREFIX + "World added!");
+		player.sendMessage(US.OUT_PREFIX + "World removed!");
 
 		return true;
 	}
