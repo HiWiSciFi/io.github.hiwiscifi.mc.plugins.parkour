@@ -22,17 +22,24 @@ public class US {
 	/** three dots */
 	public final static String THREE_DOTS = "...";
 	
-	/** the key for the onParkour:Integer value in a player's persistentDataContainer */
+	public final static String itemVal_reset_checkpoint = "reset checkpoint";
+	public final static String itemVal_reset_start = "reset start";
+	public final static String itemVal_cancelParkour = "cancel parkour";
+	
+	/** the key for the onParkour:Integer value in a players persistentDataContainer */
 	public static NamespacedKey onParkourKey;
-	/** the key for the currentParkour:String value in a player's persistentDataContainer */
+	/** the key for the currentParkour:String value in a players persistentDataContainer */
 	public static NamespacedKey currentParkourKey;
-	/** the key for the currentCheckpoint:Integer value in a player's persistentDataContainer */
+	/** the key for the currentCheckpoint:Integer value in a players persistentDataContainer */
 	public static NamespacedKey currentCheckpointKey;
 	
-	/** the key for the timerStartParkourTime:Long value in a player's persistentDataContainer*/
+	/** the key for the timerStartParkourTime:Long value in a players persistentDataContainer */
 	public static NamespacedKey timerStartParkourTimeKey;
-	/** the key for the timerStartCheckpointTime:Long value in a player's persistentDataContainer*/
+	/** the key for the timerStartCheckpointTime:Long value in a players persistentDataContainer */
 	public static NamespacedKey timerStartCheckpointTimeKey;
+	
+	/** the key for the itemInteractionType:String value in an items persistantDataContainer */
+	public static NamespacedKey itemInteractionTypeKey;
 	
 	/** Initializes the NamespacedKeys for later use */
 	public static void initializeKeys() {
@@ -42,6 +49,8 @@ public class US {
 		
 		timerStartParkourTimeKey = new NamespacedKey(Main.getInstance(), "timerStartParkourTime");
 		timerStartCheckpointTimeKey = new NamespacedKey(Main.getInstance(), "timerStartCheckpointTime");
+		
+		itemInteractionTypeKey = new NamespacedKey(Main.getInstance(), "itemInteractionType");
 	}
 	
 	/** put a string into quotes

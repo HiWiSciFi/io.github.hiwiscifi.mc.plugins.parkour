@@ -118,6 +118,8 @@ public class ParkourHelper {
 			finishParkour(player,parkour);
 		}
 
+		ParkourItems.setPlayerInventory(player);
+		
 		ParkourTimer.startParkourTimer(player);
 
 		ParkourTimer.startCheckpointTimer(player);
