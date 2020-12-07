@@ -24,7 +24,7 @@ public class Listener_PlayerRespawn implements Listener {
 	public void onRespawn(PlayerRespawnEvent e) {
 		Player player = e.getPlayer();
 
-		Location respawnLocation = ParkourHelper.calculateCheckpointLocation(player, true);
+		Location respawnLocation = ParkourHelper.calculateCheckpointLocation(player);
 
 		if(respawnLocation != null) {
 			e.setRespawnLocation(respawnLocation);
