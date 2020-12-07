@@ -37,8 +37,6 @@ public class ParkourItems {
 			return;
 		}
 		
-		int currentCheckpoint = player.getPersistentDataContainer().get(US.currentCheckpointKey, PersistentDataType.INTEGER);
-		
 		switch(itemConfigString) {
 		case US.itemVal_reset_checkpoint:
 			player.setHealth(0d);
