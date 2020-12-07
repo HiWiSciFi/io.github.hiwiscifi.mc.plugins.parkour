@@ -24,7 +24,7 @@ public class ParkourHelper {
 	 * @param player the player to calculate the location for
 	 * @param isReset if it is a reset to a previous checkpoint
 	 * @return the location to teleport the player to */
-	public static Location calculateCheckpointLocation(Player player, boolean isReset) {
+	public static Location calculateCheckpointLocation(Player player) {
 		PersistentDataContainer pdc = player.getPersistentDataContainer();
 
 		boolean onParkour = pdc.get(US.onParkourKey, PersistentDataType.INTEGER) == 1;
@@ -49,9 +49,6 @@ public class ParkourHelper {
 			}
 
 			try {
-				if(isReset) {
-					//called if tihs is a reset
-				}
 				Location loc = parkour.checkpoints.get(currentCheckpoint-1).location;
 				Location l = loc;
 				l.setX(loc.getBlockX() + 0.5d);
