@@ -47,7 +47,7 @@ public class ParkourItems {
 			ParkourHelper.restartParkour(player, parkour);
 			break;
 		case US.itemVal_cancelParkour:
-			ParkourHelper.restartCheckpoint(player, parkour, 0);
+			if (player.isSneaking()) ParkourHelper.restartCheckpoint(player, parkour, 0);
 			ParkourHelper.totalAbortion(player);
 			break;
 		}
