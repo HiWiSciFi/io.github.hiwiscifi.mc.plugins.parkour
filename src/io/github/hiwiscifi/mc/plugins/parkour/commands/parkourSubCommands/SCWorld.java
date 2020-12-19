@@ -40,7 +40,7 @@ public class SCWorld extends CommandManager implements SubCommand {
 
 	@Override
 	public String getSyntax() {
-		return "/parkour world <subcommand>";
+		return "/parkour world <add|remove>";
 	}
 
 }

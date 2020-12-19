@@ -36,7 +36,7 @@ public class SCCheckpoint extends CommandManager implements SubCommand{
 
 	@Override
 	public String getSyntax() {
-		return "/parkour checkpoint <subcommand> [arg1] ...";
+		return "/parkour checkpoint <add|remove> <parkour name>";
 	}
 
 }
