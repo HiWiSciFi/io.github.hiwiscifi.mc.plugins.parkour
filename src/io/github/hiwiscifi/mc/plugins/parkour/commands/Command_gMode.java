@@ -35,7 +35,7 @@ public class Command_gMode implements TabExecutor{
 		}
 		Player player = (Player)sender;
 
-		if (!WorldControl.enabled(player.getWorld())) {
+		if (!WorldControl.enabled(player.getWorld(), player)) {
 			return false;
 		}
 
@@ -50,23 +50,26 @@ public class Command_gMode implements TabExecutor{
 		switch (args[0].toLowerCase()) {
 		case "creative":
 			player.setGameMode(GameMode.CREATIVE);
-			return true;
+			break;
 
 		case "survival":
 			player.setGameMode(GameMode.SURVIVAL);
-			return true;
+			break;
 
 		case "adventure":
 			player.setGameMode(GameMode.ADVENTURE);
-			return true;
+			break;
 
 		case "spectator":
 			player.setGameMode(GameMode.CREATIVE);
-			return true;
+			break;
 
 		default:
+			player.sendMessage(US.OUT_PREFIX + args[0].substring(0, 1).toUpperCase() + args[0].substring(1).toLowerCase() + " is not a valid gamemode!");
 			return false;
 		}
+		player.sendMessage(US.OUT_PREFIX + "Your gamemode has been set to " + args[0].substring(0, 1).toUpperCase() + args[0].substring(1).toLowerCase() + "!");
+		return true;
 	}
 
 	@Override
