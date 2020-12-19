@@ -18,7 +18,7 @@ public class SCSet extends CommandManager implements SubCommand{
 
 	public SCSet() {
 		super();
-		name = "checkpoint";
+		name = "set";
 
 		// TODO Auto-generated constructor stub
 		instance = this;

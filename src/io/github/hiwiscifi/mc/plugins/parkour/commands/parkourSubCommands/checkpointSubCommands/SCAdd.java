@@ -1,5 +1,6 @@
 package io.github.hiwiscifi.mc.plugins.parkour.commands.parkourSubCommands.checkpointSubCommands;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.bukkit.command.Command;
@@ -51,8 +52,12 @@ public class SCAdd implements SubCommand {
 
 	@Override
 	public List<String> tabcomplete(CommandSender sender, Command command, String alias, String[] args) {
-		// TODO Auto-generated method stub
-		return null;
+		List <String> result = new ArrayList<String>();
+
+		for (Parkour p : Main.getInstance().parkours) {
+			result.add(p.name);
+		}
+		return result;
 	}
 
 }
