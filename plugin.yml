@@ -20,11 +20,11 @@ commands:
         permission: io.github.hiwiscifi.mc.plugins.parkour.commands.test
     parkour:
         description: Do cool stuff
-        usage: /parkour
+        usage: /parkour <list | create | delete | checkpoint | world>
         permission: io.github.hiwiscifi.mc.plugins.parkour.commands.parkour
     gMode:
         description: Set gameMode
-        usage: /gMode
+        usage: /gMode <adventure | survival | creative | spectator>
         permission: io.github.hiwiscifi.mc.plugins.parkour.commands.gMode
 
 ####  ##### ####  #    # ###  ####   ####  ###  ####  #   #  ####
