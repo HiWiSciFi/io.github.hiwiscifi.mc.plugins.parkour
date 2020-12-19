@@ -5,6 +5,7 @@ import java.util.List;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 
+import io.github.hiwiscifi.mc.plugins.parkour.commands.parkourSubCommands.checkpointSubCommands.SCAdd;
 import io.github.hiwiscifi.mc.plugins.parkour.utils.command.CommandManager;
 import io.github.hiwiscifi.mc.plugins.parkour.utils.command.SubCommand;
 
@@ -19,9 +20,9 @@ public class SCCheckpoint extends CommandManager implements SubCommand{
 	public SCCheckpoint() {
 		super();
 		name = "checkpoint";
-
-		// TODO Auto-generated constructor stub
 		instance = this;
+
+		register(new SCAdd());
 	}
 
 	@Override
