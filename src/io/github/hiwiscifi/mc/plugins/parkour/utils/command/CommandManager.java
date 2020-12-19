@@ -102,7 +102,7 @@ public abstract class CommandManager {
 				}
 			}
 		}
-
+		//TODO addneutral
 		return strings;
 	}
 
