@@ -13,16 +13,6 @@ import io.github.hiwiscifi.mc.plugins.parkour.utils.command.SubCommand;
 
 public class SCRemove implements SubCommand {
 
-	public static SCRemove getInstance() {
-		return instance;
-	}
-
-	private static SCRemove instance;
-
-	public SCRemove() {
-		instance = this;
-	}
-
 	@Override
 	public String getName() {
 		return "remove";

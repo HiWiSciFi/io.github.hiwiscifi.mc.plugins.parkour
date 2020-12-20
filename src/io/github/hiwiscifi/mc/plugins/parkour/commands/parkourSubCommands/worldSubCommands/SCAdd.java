@@ -12,17 +12,7 @@ import io.github.hiwiscifi.mc.plugins.parkour.utils.command.SubCommand;
 
 public class SCAdd implements SubCommand{
 
-	public static SCAdd getInstance() {
-		return instance;
-	}
-
-	private static SCAdd instance;
-
-	public SCAdd() {
-		instance = this;
-	}
-
-	@Override
+		@Override
 	public String getName() {
 		return "add";
 	}

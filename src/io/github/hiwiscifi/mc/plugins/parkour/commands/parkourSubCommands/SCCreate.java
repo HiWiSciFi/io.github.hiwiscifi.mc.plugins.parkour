@@ -15,16 +15,6 @@ import io.github.hiwiscifi.mc.plugins.parkour.utils.command.SubCommand;
 
 public class SCCreate implements SubCommand {
 
-	public static SCCreate getInstance() {
-		return instance;
-	}
-
-	private static SCCreate instance;
-
-	public SCCreate() {
-		instance = this;
-	}
-
 	@Override
 	public String getName() {
 		return "create";

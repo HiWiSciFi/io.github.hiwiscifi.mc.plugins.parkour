@@ -15,16 +15,6 @@ import io.github.hiwiscifi.mc.plugins.parkour.utils.command.SubCommand;
 
 public class SCDelete implements SubCommand {
 
-	public static SCDelete getInstance() {
-		return instance;
-	}
-
-	private static SCDelete instance;
-
-	public SCDelete() {
-		instance = this;
-	}
-
 	@Override
 	public String getName() {
 		return "delete";

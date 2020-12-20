@@ -20,7 +20,8 @@ public class SCSet extends CommandManager implements SubCommand{
 		super();
 		name = "set";
 
-		// TODO Auto-generated constructor stub
+
+
 		instance = this;
 	}
 
