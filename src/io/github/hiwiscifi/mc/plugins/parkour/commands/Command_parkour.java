@@ -34,8 +34,8 @@ public class Command_parkour extends CommandManager implements TabExecutor {
 		register(new SCCreate());
 		register(new SCDelete());
 		register(new SCWorld());
-
 		register(new SCCheckpoint());
+
 		register(new SCSet());
 
 	}

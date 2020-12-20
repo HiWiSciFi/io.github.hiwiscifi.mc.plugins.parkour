@@ -15,7 +15,7 @@ import org.bukkit.persistence.PersistentDataType;
 
 import io.github.hiwiscifi.mc.plugins.parkour.Main;
 import io.github.hiwiscifi.mc.plugins.parkour.utils.Parkour;
-import io.github.hiwiscifi.mc.plugins.parkour.utils.ParkourHelper;
+import io.github.hiwiscifi.mc.plugins.parkour.utils.ParkourLogic;
 import io.github.hiwiscifi.mc.plugins.parkour.utils.US;
 import io.github.hiwiscifi.mc.plugins.parkour.utils.WorldControl;
 
@@ -89,35 +89,35 @@ public class Listener_PressurePlate implements Listener {
 
 			if(!(parkour.checkpoints.size() > currentCheckpoint)) {
 				//Theoretically never reached
-				ParkourHelper.finishParkour(player,parkour);
+				ParkourLogic.finishParkour(player,parkour);
 				return;
 			}
 
 			if (parkour.checkpoints.get(currentCheckpoint).location.distance(ablock.getLocation()) < 0.75d) {
 				if(parkour.checkpoints.size() == currentCheckpoint+1) {
-					ParkourHelper.finishParkour(player,parkour);
+					ParkourLogic.finishParkour(player,parkour);
 					return;
 				}
-				ParkourHelper.startCheckpoint(player, parkour, currentCheckpoint + 1);
+				ParkourLogic.startCheckpoint(player, parkour, currentCheckpoint + 1);
 			}else if (currentCheckpoint > 0) {
 				if (parkour.checkpoints.get(currentCheckpoint-1).location.distance(ablock.getLocation()) < 0.75d) {
-					ParkourHelper.restartCheckpoint(player, parkour, currentCheckpoint);
+					ParkourLogic.restartCheckpoint(player, parkour, currentCheckpoint);
 
 				} else {
 					for (int i = 0; i < parkour.checkpoints.get(currentCheckpoint-1).effectPoints.size(); i++) {
 						if (parkour.checkpoints.get(currentCheckpoint-1).effectPoints.get(i).location.distance(ablock.getLocation()) < 0.75d) {
-							ParkourHelper.applyEffect(player, parkour.checkpoints.get(currentCheckpoint-1).effectPoints.get(i));
+							ParkourLogic.applyEffect(player, parkour.checkpoints.get(currentCheckpoint-1).effectPoints.get(i));
 						}
 					}
 				}
 			}
 			else if(currentCheckpoint == 0 && parkour.startCheckpoint.location.distance(ablock.getLocation()) < 0.75d) {
-				ParkourHelper.restartParkour(player, parkour);
+				ParkourLogic.restartParkour(player, parkour);
 			}
 			else {
 				for (int i = 0; i < parkour.startCheckpoint.effectPoints.size(); i++) {
 					if (parkour.startCheckpoint.effectPoints.get(i).location.distance(ablock.getLocation()) < 0.75d) {
-						ParkourHelper.applyEffect(player, parkour.startCheckpoint.effectPoints.get(i));
+						ParkourLogic.applyEffect(player, parkour.startCheckpoint.effectPoints.get(i));
 					}
 				}
 			}
@@ -130,7 +130,7 @@ public class Listener_PressurePlate implements Listener {
 					System.out.println("   " + parkour.startCheckpoint.location);
 					System.out.println("    " + ablock.getLocation());
 					if (parkour.startCheckpoint.location.distance(ablock.getLocation()) < 0.75d) {
-							ParkourHelper.startParkour(player, parkour);
+							ParkourLogic.startParkour(player, parkour);
 							System.out.println("yas");
 					}
 					else {

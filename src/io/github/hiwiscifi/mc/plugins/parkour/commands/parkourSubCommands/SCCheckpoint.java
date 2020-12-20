@@ -23,6 +23,7 @@ public class SCCheckpoint extends CommandManager implements SubCommand{
 		instance = this;
 
 		register(new SCAdd());
+		//TODO add more
 	}
 
 	@Override

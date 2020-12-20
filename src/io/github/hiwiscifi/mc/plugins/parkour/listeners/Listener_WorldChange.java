@@ -5,7 +5,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerChangedWorldEvent;
 
-import io.github.hiwiscifi.mc.plugins.parkour.utils.ParkourHelper;
+import io.github.hiwiscifi.mc.plugins.parkour.utils.ParkourLogic;
 import io.github.hiwiscifi.mc.plugins.parkour.utils.US;
 import io.github.hiwiscifi.mc.plugins.parkour.utils.WorldControl;
 
@@ -26,7 +26,7 @@ public class Listener_WorldChange implements Listener {
 		World toWorld = player.getWorld();
 		
 		if (WorldControl.enabled(fromWorld) || WorldControl.enabled(toWorld)) {
-			ParkourHelper.totalAbortion(player);
+			ParkourLogic.totalAbortion(player);
 		}
 	}
 }
