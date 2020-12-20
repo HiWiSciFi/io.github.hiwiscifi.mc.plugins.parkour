@@ -47,6 +47,7 @@ public class ParkourItems {
 		case US.itemVal_cancelParkour:
 			if (player.isSneaking()) ParkourHelper.resetToStart(player);
 			ParkourLogic.totalAbortion(player);
+			player.sendMessage(US.OUT_PREFIX + "You are no longer on any parkour");
 			break;
 		}
 	}
