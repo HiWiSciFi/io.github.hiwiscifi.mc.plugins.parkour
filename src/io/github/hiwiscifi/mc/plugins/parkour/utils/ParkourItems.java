@@ -1,5 +1,6 @@
 package io.github.hiwiscifi.mc.plugins.parkour.utils;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.bukkit.Material;
@@ -10,6 +11,7 @@ import org.bukkit.persistence.PersistentDataContainer;
 import org.bukkit.persistence.PersistentDataType;
 
 import io.github.hiwiscifi.mc.plugins.parkour.Main;
+import net.md_5.bungee.api.ChatColor;
 
 public class ParkourItems {
 
@@ -61,6 +63,9 @@ public class ParkourItems {
 		ItemMeta resetCpItemMeta = resetCpItem.getItemMeta();
 		resetCpItemMeta.setDisplayName("reset to last Checkpoint");
 		resetCpItemMeta.getPersistentDataContainer().set(US.itemInteractionTypeKey, PersistentDataType.STRING, US.itemVal_reset_checkpoint);
+		List<String> resetCpItemLore = new ArrayList<String>();
+		resetCpItemLore.add(ChatColor.AQUA + "right-click to teleport back to the last checkpoint");
+		resetCpItemMeta.setLore(resetCpItemLore);
 		resetCpItem.setItemMeta(resetCpItemMeta);
 		player.getInventory().setItem(3, resetCpItem);
 
@@ -70,6 +75,9 @@ public class ParkourItems {
 		ItemMeta resetStartItemMeta = resetStartItem.getItemMeta();
 		resetStartItemMeta.setDisplayName("reset to parkour start");
 		resetStartItemMeta.getPersistentDataContainer().set(US.itemInteractionTypeKey, PersistentDataType.STRING, US.itemVal_reset_start);
+		List<String> resetStartItemLore = new ArrayList<String>();
+		resetStartItemLore.add(ChatColor.AQUA + "right-click to teleport back to the parkour start");
+		resetStartItemMeta.setLore(resetStartItemLore);
 		resetStartItem.setItemMeta(resetStartItemMeta);
 		player.getInventory().setItem(4, resetStartItem);
 
@@ -79,6 +87,10 @@ public class ParkourItems {
 		ItemMeta cancelParkourItemMeta = cancelParkourItem.getItemMeta();
 		cancelParkourItemMeta.setDisplayName("cancel parkour");
 		cancelParkourItemMeta.getPersistentDataContainer().set(US.itemInteractionTypeKey, PersistentDataType.STRING, US.itemVal_cancelParkour);
+		List<String> cancelParkourItemLore = new ArrayList<String>();
+		cancelParkourItemLore.add(ChatColor.AQUA + "right-click to cancel the current parkour to be able to start another one");
+		cancelParkourItemLore.add(ChatColor.DARK_PURPLE + "sneak while clicking to telport back to the start");
+		cancelParkourItemMeta.setLore(cancelParkourItemLore);
 		cancelParkourItem.setItemMeta(cancelParkourItemMeta);
 		player.getInventory().setItem(5, cancelParkourItem);
 
