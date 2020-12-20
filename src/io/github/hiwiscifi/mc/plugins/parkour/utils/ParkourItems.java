@@ -54,6 +54,8 @@ public class ParkourItems {
 		}
 	}
 
+	/** setup a players inventory to have only the interaction menu items
+	 * @param player the player whose inventory shall be set up*/
 	public static void setPlayerInventory(Player player) {
 		player.getInventory().clear();
 
