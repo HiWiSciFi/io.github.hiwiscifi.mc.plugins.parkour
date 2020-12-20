@@ -21,7 +21,14 @@ public class Command_test implements CommandExecutor {
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 		if (sender instanceof Player) {
 			Player player = (Player) sender;
-			player.sendMessage(US.OUT_PREFIX + "You are in world " + US.inQuotes(player.getLocation().getWorld().getName()));
+			player.sendMessage(US.OUT_PREFIX + "Your position is " +
+			player.getLocation().getBlockX() + ":" +
+			player.getLocation().getBlockY() + ":" +
+			player.getLocation().getBlockZ() + " " + 
+			player.getLocation().getX() + ":" + 
+			player.getLocation().getY() + ":" + 
+			player.getLocation().getZ() + " " +
+			player.getLocation().distance(player.getLocation().getBlock().getLocation()));
 			return true;
 		}
 		

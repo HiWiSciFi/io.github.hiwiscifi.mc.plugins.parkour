@@ -4,6 +4,7 @@ import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 
@@ -21,10 +22,14 @@ public class Listener_ItemUse implements Listener{
 	}
 
 	@EventHandler
-	public void onPlayerUse(PlayerInteractEvent event)
+	public void onPlayerUse(PlayerInteractEvent e)
 	{
-		Player player = event.getPlayer();
+		Player player = e.getPlayer();
 
+		if (!e.getAction().equals(Action.RIGHT_CLICK_AIR)) {
+			return;
+		}
+		
 		ItemStack item = player.getInventory().getItemInMainHand();
 
 		Material mat = item.getType();

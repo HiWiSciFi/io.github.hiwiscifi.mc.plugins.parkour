@@ -42,7 +42,8 @@ public class ParkourItems {
 			player.setHealth(0d);
 			break;
 		case US.itemVal_reset_start:
-			ParkourHelper.restartParkour(player, parkour);
+			ParkourHelper.startParkour(player, parkour);
+			player.setHealth(0d);
 			break;
 		case US.itemVal_cancelParkour:
 			if (player.isSneaking()) player.teleport(ParkourHelper.calculateParkourStartLocation(player));

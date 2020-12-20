@@ -50,7 +50,6 @@ public class ParkourHelper {
 
 		boolean onParkour = pdc.get(US.onParkourKey, PersistentDataType.INTEGER) == 1;
 		String currentParkour = pdc.get(US.currentParkourKey, PersistentDataType.STRING);
-		int currentCheckpoint = pdc.get(US.currentCheckpointKey, PersistentDataType.INTEGER);
 
 		if (!onParkour) {
 			return;

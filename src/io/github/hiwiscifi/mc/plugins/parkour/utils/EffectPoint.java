@@ -18,14 +18,7 @@ public class EffectPoint implements Cloneable, ConfigurationSerializable{
 	public Location location;
 
 	public EffectPoint(Location location) {
-		Location loc = new Location(
-				location.getWorld(),
-				location.getBlockX() + 0.5d,
-				location.getBlockY() + 0.5d,
-				location.getBlockZ() + 0.5d,
-				location.getYaw(),
-				location.getPitch());
-		this.location = loc;
+		this.location = location;
 	}
 
 	public EffectPoint(Location location, List<ParkourEffect> effects) {
