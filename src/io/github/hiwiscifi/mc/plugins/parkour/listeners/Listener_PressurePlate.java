@@ -52,7 +52,7 @@ public class Listener_PressurePlate implements Listener {
 		if (!WorldControl.enabled(e.getPlayer().getWorld())) {
 			return;
 		}
-		
+
 		if (!e.getAction().equals(Action.PHYSICAL)) {
 			return;
 		}
@@ -125,8 +125,16 @@ public class Listener_PressurePlate implements Listener {
 		} else {
 			for (Parkour parkour : Main.getInstance().parkours) {
 				if (parkour.startCheckpoint != null) {
+					System.out.println("start?");
+					System.out.println(parkour.startCheckpoint.location.distance(ablock.getLocation()));
+					System.out.println("   " + parkour.startCheckpoint.location);
+					System.out.println("    " + ablock.getLocation());
 					if (parkour.startCheckpoint.location.distance(ablock.getLocation()) < 0.75d) {
 							ParkourHelper.startParkour(player, parkour);
+							System.out.println("yas");
+					}
+					else {
+						System.out.println("nas");
 					}
 				}
 			}
