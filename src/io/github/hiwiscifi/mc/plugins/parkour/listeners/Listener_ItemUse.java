@@ -26,7 +26,7 @@ public class Listener_ItemUse implements Listener{
 	{
 		Player player = e.getPlayer();
 
-		if (!e.getAction().equals(Action.RIGHT_CLICK_AIR)) {
+		if (!e.getAction().equals(Action.RIGHT_CLICK_AIR) && !e.getAction().equals(Action.RIGHT_CLICK_BLOCK)) {
 			return;
 		}
 		
