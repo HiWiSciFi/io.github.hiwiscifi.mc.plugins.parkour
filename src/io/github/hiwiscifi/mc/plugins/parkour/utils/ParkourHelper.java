@@ -63,7 +63,7 @@ public class ParkourHelper {
 			return;
 		}
 
-		if (parkour.checkpoints.get(check) != null) {
+		if (parkour.checkpoints.get(check) == null) {
 			return;
 		}
 
