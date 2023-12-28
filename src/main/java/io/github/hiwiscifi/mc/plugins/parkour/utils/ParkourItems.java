@@ -66,11 +66,11 @@ public class ParkourItems {
 		ItemStack resetCpItem = new ItemStack(Material.HEAVY_WEIGHTED_PRESSURE_PLATE);
 		resetCpItem.setAmount(1);
 		ItemMeta resetCpItemMeta = resetCpItem.getItemMeta();
-		resetCpItemMeta.setDisplayName("reset to last Checkpoint");
+		resetCpItemMeta.displayName(Component.text("reset to last Checkpoint"));
 		resetCpItemMeta.getPersistentDataContainer().set(StringUtil.itemInteractionTypeKey, PersistentDataType.STRING, StringUtil.itemVal_reset_checkpoint);
-		List<String> resetCpItemLore = new ArrayList<>();
-		resetCpItemLore.add(StringUtil.AQUA + "right-click to teleport back to the last checkpoint");
-		resetCpItemMeta.setLore(resetCpItemLore);
+		List<Component> resetCpItemLore = new ArrayList<>();
+		resetCpItemLore.add(Component.text("right-click to teleport back to the last checkpoint", StringUtil.AQUA));
+		resetCpItemMeta.lore(resetCpItemLore);
 		resetCpItem.setItemMeta(resetCpItemMeta);
 		player.getInventory().setItem(3, resetCpItem);
 
@@ -78,11 +78,11 @@ public class ParkourItems {
 		ItemStack resetStartItem = new ItemStack(Material.OAK_DOOR);
 		resetStartItem.setAmount(1);
 		ItemMeta resetStartItemMeta = resetStartItem.getItemMeta();
-		resetStartItemMeta.setDisplayName("reset to parkour start");
+		resetStartItemMeta.displayName(Component.text("reset to parkour start"));
 		resetStartItemMeta.getPersistentDataContainer().set(StringUtil.itemInteractionTypeKey, PersistentDataType.STRING, StringUtil.itemVal_reset_start);
-		List<String> resetStartItemLore = new ArrayList<>();
-		resetStartItemLore.add(StringUtil.AQUA + "right-click to teleport back to the parkour start");
-		resetStartItemMeta.setLore(resetStartItemLore);
+		List<Component> resetStartItemLore = new ArrayList<>();
+		resetStartItemLore.add(Component.text("right-click to teleport back to the parkour start", StringUtil.AQUA));
+		resetStartItemMeta.lore(resetStartItemLore);
 		resetStartItem.setItemMeta(resetStartItemMeta);
 		player.getInventory().setItem(4, resetStartItem);
 
@@ -90,12 +90,12 @@ public class ParkourItems {
 		ItemStack cancelParkourItem = new ItemStack(Material.BLACK_BED);
 		cancelParkourItem.setAmount(1);
 		ItemMeta cancelParkourItemMeta = cancelParkourItem.getItemMeta();
-		cancelParkourItemMeta.setDisplayName("cancel parkour");
+		cancelParkourItemMeta.displayName(Component.text("cancel parkour"));
 		cancelParkourItemMeta.getPersistentDataContainer().set(StringUtil.itemInteractionTypeKey, PersistentDataType.STRING, StringUtil.itemVal_cancelParkour);
-		List<String> cancelParkourItemLore = new ArrayList<>();
-		cancelParkourItemLore.add(StringUtil.AQUA + "right-click to cancel the current parkour to be able to start another one");
-		cancelParkourItemLore.add(StringUtil.DARK_PURPLE + "sneak while clicking to teleport back to the start");
-		cancelParkourItemMeta.setLore(cancelParkourItemLore);
+		List<Component> cancelParkourItemLore = new ArrayList<>();
+		cancelParkourItemLore.add(Component.text("right-click to cancel the current parkour to be able to start another one", StringUtil.AQUA));
+		cancelParkourItemLore.add(Component.text("sneak while clicking to teleport back to the start", StringUtil.DARK_PURPLE));
+		cancelParkourItemMeta.lore(cancelParkourItemLore);
 		cancelParkourItem.setItemMeta(cancelParkourItemMeta);
 		player.getInventory().setItem(5, cancelParkourItem);
 
