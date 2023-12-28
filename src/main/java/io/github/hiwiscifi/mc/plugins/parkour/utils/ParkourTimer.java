@@ -12,7 +12,7 @@ public class ParkourTimer {
 	 * @param player the player to start the stopwatch for */
 	public static void startCheckpointTimer(Player player) {
 		PersistentDataContainer pdc = player.getPersistentDataContainer();
-		pdc.set(US.timerStartCheckpointTimeKey, PersistentDataType.LONG, System.currentTimeMillis());
+		pdc.set(StringUtil.timerStartCheckpointTimeKey, PersistentDataType.LONG, System.currentTimeMillis());
 	}
 
 	/** stop the stopwatch and read the time it took a given player to reach their last checkpoint
@@ -20,8 +20,8 @@ public class ParkourTimer {
 	 * @return the time that went by since the stopwatch got started. If it didn't get started it'll return Long.MAX_VALUE */
 	public static long endCheckpointTimer(Player player) {
 		PersistentDataContainer pdc = player.getPersistentDataContainer();
-		if (pdc.has(US.timerStartCheckpointTimeKey, PersistentDataType.LONG)) {
-			long startTime = pdc.get(US.timerStartCheckpointTimeKey, PersistentDataType.LONG);
+		if (pdc.has(StringUtil.timerStartCheckpointTimeKey, PersistentDataType.LONG)) {
+			long startTime = pdc.get(StringUtil.timerStartCheckpointTimeKey, PersistentDataType.LONG);
 			return System.currentTimeMillis() - startTime;
 		} else {
 			return Long.MAX_VALUE;
@@ -33,7 +33,7 @@ public class ParkourTimer {
 	 * @param player the player to start the stopwatch for */
 	public static void startParkourTimer(Player player) {
 		PersistentDataContainer pdc = player.getPersistentDataContainer();
-		pdc.set(US.timerStartParkourTimeKey, PersistentDataType.LONG, System.currentTimeMillis());
+		pdc.set(StringUtil.timerStartParkourTimeKey, PersistentDataType.LONG, System.currentTimeMillis());
 	}
 
 	/** stop the stopwatch and read the time it took a given player to reach their last checkpoint
@@ -41,8 +41,8 @@ public class ParkourTimer {
 	 * @return the time that went by since the stopwatch got started. If it didn't get started it'll return Long.MAX_VALUE */
 	public static long endParkourTimer(Player player) {
 		PersistentDataContainer pdc = player.getPersistentDataContainer();
-		if (pdc.has(US.timerStartParkourTimeKey, PersistentDataType.LONG)) {
-			long startTime = pdc.get(US.timerStartParkourTimeKey, PersistentDataType.LONG);
+		if (pdc.has(StringUtil.timerStartParkourTimeKey, PersistentDataType.LONG)) {
+			long startTime = pdc.get(StringUtil.timerStartParkourTimeKey, PersistentDataType.LONG);
 			return System.currentTimeMillis() - startTime;
 		} else {
 			return Long.MAX_VALUE;
@@ -62,10 +62,10 @@ public class ParkourTimer {
 		long seconds = TimeUnit.MILLISECONDS.toSeconds(time) % TimeUnit.MINUTES.toSeconds(1);
 		long milliseconds = time % TimeUnit.SECONDS.toMillis(1);
 
-		String timeStr = US.EMPTY;
-		if (hours > 0L) timeStr += hours + "h" + US.SPACE;
-		timeStr += minutes + "m" + US.SPACE;
-		timeStr += seconds + "s" + US.SPACE;
+		String timeStr = "";
+		if (hours > 0L) timeStr += hours + "h ";
+		timeStr += minutes + "m ";
+		timeStr += seconds + "s ";
 		timeStr += milliseconds + "ms";
 
 		return timeStr;

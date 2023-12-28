@@ -3,11 +3,11 @@ package io.github.hiwiscifi.mc.plugins.parkour.utils;
 import java.util.ArrayList;
 import java.util.List;
 
+import net.kyori.adventure.text.Component;
 import org.bukkit.World;
 import org.bukkit.entity.Player;
 
 import io.github.hiwiscifi.mc.plugins.parkour.Main;
-import net.md_5.bungee.api.ChatColor;
 
 public class WorldControl {
 
@@ -30,7 +30,9 @@ public class WorldControl {
 			return true;
 		}
 		if (player != null) {
-			player.sendMessage(US.OUT_PREFIX + ChatColor.RED + "Nah, not looking good pal - seems like you have to add this world first using " + ChatColor.AQUA + "/parkour world add");
+			player.sendMessage(StringUtil.OUT_PREFIX
+					.append(Component.text("Nah, not looking good pal - seems like you have to add this world first using ", StringUtil.RED))
+					.append(Component.text("/parkour world add", StringUtil.AQUA)));
 		}
 		return false;
 	}

@@ -1,8 +1,11 @@
 package io.github.hiwiscifi.mc.plugins.parkour.utils;
 
+import java.time.Duration;
 import java.util.List;
-import java.util.Objects;
 
+import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.format.TextDecoration;
+import net.kyori.adventure.title.Title;
 import org.bukkit.Color;
 import org.bukkit.FireworkEffect;
 import org.bukkit.GameMode;
@@ -17,7 +20,6 @@ import org.bukkit.persistence.PersistentDataType;
 import org.bukkit.util.Vector;
 
 import io.github.hiwiscifi.mc.plugins.parkour.Main;
-import net.md_5.bungee.api.ChatColor;
 
 public class ParkourLogic {
 
@@ -39,11 +41,15 @@ public class ParkourLogic {
 			player.setGameMode(GameMode.ADVENTURE);
 		}
 
-		pdc.set(US.currentCheckpointKey, PersistentDataType.INTEGER, 0);
-		pdc.set(US.currentParkourKey, PersistentDataType.STRING, parkour.name);
-		pdc.set(US.onParkourKey, PersistentDataType.INTEGER, 1);
+		pdc.set(StringUtil.currentCheckpointKey, PersistentDataType.INTEGER, 0);
+		pdc.set(StringUtil.currentParkourKey, PersistentDataType.STRING, parkour.name);
+		pdc.set(StringUtil.onParkourKey, PersistentDataType.INTEGER, 1);
 
-		player.sendMessage(US.OUT_PREFIX + "You are now on the " + parkour.name + " parkour");
+		player.sendMessage(StringUtil.OUT_PREFIX
+			.append(Component.text("You are now on the "))
+			.append(Component.text(parkour.name))
+			.append(Component.text(" parkour"))
+		);
 		// TODO set item and check gamemode store those items and remove them after
 		// parkour is finished or aborted
 		if (parkour.checkpoints.isEmpty()) {
@@ -80,15 +86,15 @@ public class ParkourLogic {
 	public static void startCheckpoint(Player player, Parkour parkour, int checkpoint) {
 		PersistentDataContainer pdc = player.getPersistentDataContainer();
 
-		pdc.set(US.currentCheckpointKey, PersistentDataType.INTEGER, checkpoint);
+		pdc.set(StringUtil.currentCheckpointKey, PersistentDataType.INTEGER, checkpoint);
 
 		long timeSinceLastCheckpoint = ParkourTimer.endParkourTimer(player);
-		player.sendMessage(US.OUT_PREFIX + ChatColor.AQUA + "Your time for the last Checkpoint was: "
-				+ ParkourTimer.getTimeStringFromMs(timeSinceLastCheckpoint));
+		player.sendMessage(StringUtil.OUT_PREFIX
+				.append(Component.text("Your time for the last Checkpoint was: "))
+				.append(Component.text(ParkourTimer.getTimeStringFromMs(timeSinceLastCheckpoint))));
 
 		ParkourTimer.startCheckpointTimer(player);
 		applyEffect(player, parkour.checkpoints.get(checkpoint - 1));
-
 	}
 
 	/**
@@ -114,7 +120,7 @@ public class ParkourLogic {
 	public static void finishParkour(Player player, Parkour parkour) {
 		PersistentDataContainer pdc = player.getPersistentDataContainer();
 
-		pdc.set(US.onParkourKey, PersistentDataType.INTEGER, 0);
+		pdc.set(StringUtil.onParkourKey, PersistentDataType.INTEGER, 0);
 
 		// https://en.wikipedia.org/wiki/Box-drawing_character
 
@@ -124,18 +130,39 @@ public class ParkourLogic {
 		spawnFireworks(player);
 		// TODO pb tracker with pdc
 		// TODO Return Leaderboard rank or personal best
-		player.sendMessage(ChatColor.GREEN + ChatColor.BOLD.toString() + ChatColor.MAGIC + "ooo "
-				+ ChatColor.GREEN + ChatColor.BOLD + "CONGRATULATIONS!"
-				+ ChatColor.GREEN + ChatColor.BOLD + ChatColor.MAGIC + " ooo");
-		player.sendMessage(ChatColor.GREEN + "Your time to complete the parkour was: " + ChatColor.GOLD
-				+ ChatColor.BOLD + ParkourTimer.getTimeStringFromMs(parkourTime));
-		player.sendMessage(ChatColor.AQUA /* got norted */ + "Your time for the last Checkpoint was:" + ChatColor.GOLD
-				+ ChatColor.BOLD + ParkourTimer.getTimeStringFromMs(lastCheckpointTime));
-		player.sendTitle(
-				ChatColor.GREEN + "\u1405" + ChatColor.GREEN + ChatColor.BOLD + "CONGRATULATIONS!"
-						+ ChatColor.GREEN + "\u140A",
-				ChatColor.GOLD + " Your Time: " + ChatColor.GOLD + ParkourTimer.getTimeStringFromMs(parkourTime), 10,
-				30, 20);
+		player.sendMessage(Component.text()
+			.append(Component.text("ooo ", StringUtil.GREEN).decoration(TextDecoration.BOLD, true).decoration(TextDecoration.OBFUSCATED, true))
+			.append(Component.text("CONGRATULATIONS!", StringUtil.GREEN).decoration(TextDecoration.BOLD, true))
+			.append(Component.text(" ooo", StringUtil.GREEN).decoration(TextDecoration.BOLD, true).decoration(TextDecoration.OBFUSCATED, true))
+		);
+
+		player.sendMessage(Component.text("Your time to complete the parkour was: ", StringUtil.GREEN)
+			.append(Component.text(ParkourTimer.getTimeStringFromMs(parkourTime), StringUtil.GOLD).decoration(TextDecoration.BOLD, true))
+		);
+
+		player.sendMessage(Component.text("Your time for the last Checkpoint was: ", StringUtil.AQUA)
+			.append(Component.text(ParkourTimer.getTimeStringFromMs(lastCheckpointTime), StringUtil.GOLD).decoration(TextDecoration.BOLD, true))
+		);
+
+		player.showTitle(Title.title(Component.text("Hello"), Component.text("World"),
+			Title.Times.times(Duration.ofSeconds(10), Duration.ofSeconds(30), Duration.ofSeconds(20))));
+
+		player.showTitle(Title.title(
+			Component.text()
+				.append(Component.text("ᐅ", StringUtil.GREEN))
+				.append(Component.text("CONGRATULATIONS!", StringUtil.GREEN).decoration(TextDecoration.BOLD, true))
+				.append(Component.text("ᐊ", StringUtil.GREEN))
+				.build(),
+			Component.text()
+				.append(Component.text("Your Time: ", StringUtil.GOLD))
+				.append(Component.text(ParkourTimer.getTimeStringFromMs(parkourTime), StringUtil.GOLD))
+				.build(),
+			Title.Times.times(
+				Duration.ofMillis(500),
+				Duration.ofMillis(1500),
+				Duration.ofMillis(1000))
+		));
+
 		if (parkour.endTpBack) {
 			player.teleport(parkour.startLocation);
 		}
@@ -182,9 +209,9 @@ public class ParkourLogic {
 	public static void totalAbortion(Player player) {
 		PersistentDataContainer pdc = player.getPersistentDataContainer();
 
-		pdc.set(US.currentCheckpointKey, PersistentDataType.INTEGER, 0);
-		pdc.set(US.currentParkourKey, PersistentDataType.STRING, US.EMPTY);
-		pdc.set(US.onParkourKey, PersistentDataType.INTEGER, 0);
+		pdc.set(StringUtil.currentCheckpointKey, PersistentDataType.INTEGER, 0);
+		pdc.set(StringUtil.currentParkourKey, PersistentDataType.STRING, "");
+		pdc.set(StringUtil.onParkourKey, PersistentDataType.INTEGER, 0);
 
 		// stop timer without handling output
 		ParkourTimer.endParkourTimer(player);
@@ -194,9 +221,9 @@ public class ParkourLogic {
 	public static void restartCheckpoint(Player player) {
 		PersistentDataContainer pdc = player.getPersistentDataContainer();
 
-		boolean onParkour = pdc.get(US.onParkourKey, PersistentDataType.INTEGER) == 1;
-		String currentParkour = pdc.get(US.currentParkourKey, PersistentDataType.STRING);
-		int currentCheckpoint = pdc.get(US.currentCheckpointKey, PersistentDataType.INTEGER);
+		boolean onParkour = pdc.get(StringUtil.onParkourKey, PersistentDataType.INTEGER) == 1;
+		String currentParkour = pdc.get(StringUtil.currentParkourKey, PersistentDataType.STRING);
+		int currentCheckpoint = pdc.get(StringUtil.currentCheckpointKey, PersistentDataType.INTEGER);
 
 		if(!onParkour) return;
 		List<Parkour> parkours = Main.getInstance().parkours;
@@ -209,7 +236,7 @@ public class ParkourLogic {
         }
 
 		if(parkour == null) {
-			pdc.set(US.onParkourKey, PersistentDataType.INTEGER, 0);
+			pdc.set(StringUtil.onParkourKey, PersistentDataType.INTEGER, 0);
 			return;
 		}
 

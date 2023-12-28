@@ -24,11 +24,11 @@ tasks {
     runServer {
         minecraftVersion("1.20.2")
     }
-}
 
-/*tasks.assemble {
-    dependsOn(reobfJar)
-}*/
+    compileJava {
+        options.encoding = "UTF-8"
+    }
+}
 
 tasks.test {
     useJUnitPlatform()

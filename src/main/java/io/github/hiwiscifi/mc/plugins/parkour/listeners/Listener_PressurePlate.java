@@ -16,7 +16,7 @@ import org.bukkit.persistence.PersistentDataType;
 import io.github.hiwiscifi.mc.plugins.parkour.Main;
 import io.github.hiwiscifi.mc.plugins.parkour.utils.Parkour;
 import io.github.hiwiscifi.mc.plugins.parkour.utils.ParkourLogic;
-import io.github.hiwiscifi.mc.plugins.parkour.utils.US;
+import io.github.hiwiscifi.mc.plugins.parkour.utils.StringUtil;
 import io.github.hiwiscifi.mc.plugins.parkour.utils.WorldControl;
 
 public class Listener_PressurePlate implements Listener {
@@ -29,7 +29,7 @@ public class Listener_PressurePlate implements Listener {
 	private final List<Material> supportedMaterials;
 
 	public Listener_PressurePlate() {
-		System.out.println(US.OUT_PREFIX + "Initializing pressure plate activation event listener" + US.THREE_DOTS);
+		System.out.println(StringUtil.OUT_PREFIX + "Initializing pressure plate activation event listener...");
 		instance = this;
 
 		supportedMaterials = new ArrayList<>(){{
@@ -70,9 +70,9 @@ public class Listener_PressurePlate implements Listener {
 		Player player = e.getPlayer();
 		PersistentDataContainer pdc = player.getPersistentDataContainer();
 
-		boolean onParkour = pdc.get(US.onParkourKey, PersistentDataType.INTEGER) == 1;
-		String currentParkour = pdc.get(US.currentParkourKey, PersistentDataType.STRING);
-		int currentCheckpoint = pdc.get(US.currentCheckpointKey, PersistentDataType.INTEGER);
+		boolean onParkour = pdc.get(StringUtil.onParkourKey, PersistentDataType.INTEGER) == 1;
+		String currentParkour = pdc.get(StringUtil.currentParkourKey, PersistentDataType.STRING);
+		int currentCheckpoint = pdc.get(StringUtil.currentCheckpointKey, PersistentDataType.INTEGER);
 
 
 		if (onParkour) {
@@ -86,7 +86,7 @@ public class Listener_PressurePlate implements Listener {
             }
 
 			if(parkour == null) {
-				pdc.set(US.onParkourKey, PersistentDataType.INTEGER, 0);
+				pdc.set(StringUtil.onParkourKey, PersistentDataType.INTEGER, 0);
 				return;
 			}
 

@@ -5,6 +5,7 @@ import java.util.List;
 
 //TODO do string us
 
+import net.kyori.adventure.text.Component;
 import org.bukkit.GameMode;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -13,7 +14,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.persistence.PersistentDataContainer;
 import org.bukkit.persistence.PersistentDataType;
 
-import io.github.hiwiscifi.mc.plugins.parkour.utils.US;
+import io.github.hiwiscifi.mc.plugins.parkour.utils.StringUtil;
 import io.github.hiwiscifi.mc.plugins.parkour.utils.WorldControl;
 import org.jetbrains.annotations.NotNull;
 
@@ -42,7 +43,7 @@ public class Command_gMode implements TabExecutor{
 		PersistentDataContainer pdc = player.getPersistentDataContainer();
 
 		//stop if player is not in the parkours world (cheating)
-		if(!(pdc.get(US.onParkourKey, PersistentDataType.INTEGER) == 0)) {
+		if(!(pdc.get(StringUtil.onParkourKey, PersistentDataType.INTEGER) == 0)) {
 			return false;
 		}
 
@@ -61,10 +62,19 @@ public class Command_gMode implements TabExecutor{
 				break;
 
             default:
-				player.sendMessage(US.OUT_PREFIX + args[0].substring(0, 1).toUpperCase() + args[0].substring(1).toLowerCase() + " is not a valid gamemode!");
+				player.sendMessage(StringUtil.OUT_PREFIX
+					.append(Component.text(args[0].substring(0, 1).toUpperCase()))
+					.append(Component.text(args[0].substring(1).toLowerCase()))
+					.append(Component.text(" is not a valid gamemode!", StringUtil.WHITE))
+				);
 				return false;
 		}
-		player.sendMessage(US.OUT_PREFIX + "Your gamemode has been set to " + args[0].substring(0, 1).toUpperCase() + args[0].substring(1).toLowerCase() + "!");
+		player.sendMessage(StringUtil.OUT_PREFIX
+			.append(Component.text("Your gamemode has been set to "))
+			.append(Component.text(args[0].substring(0, 1).toUpperCase()))
+			.append(Component.text(args[0].substring(1).toLowerCase()))
+			.append(Component.text("!"))
+		);
 		return true;
 	}
 

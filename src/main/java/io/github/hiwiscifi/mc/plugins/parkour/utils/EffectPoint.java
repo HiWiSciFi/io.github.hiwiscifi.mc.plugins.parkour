@@ -14,7 +14,7 @@ import org.jetbrains.annotations.NotNull;
 @SerializableAs("effectPoint")
 public class EffectPoint implements Cloneable, ConfigurationSerializable{
 
-	public List<ParkourEffect> effects = new ArrayList<ParkourEffect>();
+	public List<ParkourEffect> effects = new ArrayList<>();
 
 	public Location location;
 
@@ -50,7 +50,7 @@ public class EffectPoint implements Cloneable, ConfigurationSerializable{
 		for (ParkourEffect effect : effects) {
 			types.add(effect.type);
 		}
-		return (String[]) types.toArray();
+		return types.toArray(new String[0]);
 	}
 
 	@Override

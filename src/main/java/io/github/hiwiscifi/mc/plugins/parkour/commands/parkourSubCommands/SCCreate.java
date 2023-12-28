@@ -3,13 +3,14 @@ package io.github.hiwiscifi.mc.plugins.parkour.commands.parkourSubCommands;
 import java.util.ArrayList;
 import java.util.List;
 
+import net.kyori.adventure.text.Component;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 import io.github.hiwiscifi.mc.plugins.parkour.Main;
 import io.github.hiwiscifi.mc.plugins.parkour.utils.Parkour;
-import io.github.hiwiscifi.mc.plugins.parkour.utils.US;
+import io.github.hiwiscifi.mc.plugins.parkour.utils.StringUtil;
 import io.github.hiwiscifi.mc.plugins.parkour.utils.WorldControl;
 import io.github.hiwiscifi.mc.plugins.parkour.utils.command.SubCommand;
 
@@ -48,15 +49,25 @@ public class SCCreate implements SubCommand {
 		String parkourName = args[0];
 
 		if(Parkour.getParkourNames().contains(parkourName)) {
-			player.sendMessage(US.OUT_PREFIX + "Parkour " + US.inQuotes(parkourName) + " already exists" + US.THREE_DOTS);
+			player.sendMessage(StringUtil.OUT_PREFIX
+				.append(Component.text("Parkour "))
+				.append(StringUtil.inQuotes(Component.text(parkourName)))
+				.append(Component.text(" already exists..."))
+			);
 			return false;
 		}
 
-		player.sendMessage(US.OUT_PREFIX + "Creating parkour " + US.inQuotes(parkourName) + US.THREE_DOTS);
+		player.sendMessage(StringUtil.OUT_PREFIX
+			.append(Component.text("Creating parkour "))
+			.append(StringUtil.inQuotes(Component.text(parkourName)))
+			.append(Component.text("..."))
+		);
 		Parkour p = new Parkour(parkourName, player.getLocation());
 		Main.getInstance().parkours.add(p);
 		p.save();
-		player.sendMessage(US.OUT_PREFIX + "Parkour created");
+		player.sendMessage(StringUtil.OUT_PREFIX
+			.append(Component.text("Parkour created"))
+		);
 
 		return true;
 

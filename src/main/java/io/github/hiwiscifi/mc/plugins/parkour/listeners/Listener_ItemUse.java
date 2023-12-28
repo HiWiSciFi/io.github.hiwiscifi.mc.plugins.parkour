@@ -9,7 +9,7 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 
 import io.github.hiwiscifi.mc.plugins.parkour.utils.ParkourItems;
-import io.github.hiwiscifi.mc.plugins.parkour.utils.US;
+import io.github.hiwiscifi.mc.plugins.parkour.utils.StringUtil;
 
 public class Listener_ItemUse implements Listener{
 
@@ -17,7 +17,7 @@ public class Listener_ItemUse implements Listener{
 	private static Listener_ItemUse instance;
 
 	public Listener_ItemUse() {
-		System.out.println(US.OUT_PREFIX + "Initializing item use event listener" + US.THREE_DOTS);
+		System.out.println(StringUtil.OUT_PREFIX + "Initializing item use event listener...");
 		instance = this;
 	}
 
