@@ -32,19 +32,23 @@ public class Listener_PressurePlate implements Listener {
 		System.out.println(US.OUT_PREFIX + "Initializing pressure plate activation event listener" + US.THREE_DOTS);
 		instance = this;
 
-		supportedMaterials = new ArrayList<>();
-		supportedMaterials.add(Material.ACACIA_PRESSURE_PLATE);
-		supportedMaterials.add(Material.BIRCH_PRESSURE_PLATE);
-		supportedMaterials.add(Material.CRIMSON_PRESSURE_PLATE);
-		supportedMaterials.add(Material.DARK_OAK_PRESSURE_PLATE);
-		supportedMaterials.add(Material.HEAVY_WEIGHTED_PRESSURE_PLATE);
-		supportedMaterials.add(Material.JUNGLE_PRESSURE_PLATE);
-		supportedMaterials.add(Material.LIGHT_WEIGHTED_PRESSURE_PLATE);
-		supportedMaterials.add(Material.OAK_PRESSURE_PLATE);
-		supportedMaterials.add(Material.POLISHED_BLACKSTONE_PRESSURE_PLATE);
-		supportedMaterials.add(Material.SPRUCE_PRESSURE_PLATE);
-		supportedMaterials.add(Material.STONE_PRESSURE_PLATE);
-		supportedMaterials.add(Material.WARPED_PRESSURE_PLATE);
+		supportedMaterials = new ArrayList<>(){{
+			add(Material.OAK_PRESSURE_PLATE);
+			add(Material.SPRUCE_PRESSURE_PLATE);
+			add(Material.BIRCH_PRESSURE_PLATE);
+			add(Material.JUNGLE_PRESSURE_PLATE);
+			add(Material.ACACIA_PRESSURE_PLATE);
+			add(Material.DARK_OAK_PRESSURE_PLATE);
+			add(Material.MANGROVE_PRESSURE_PLATE);
+			add(Material.CHERRY_PRESSURE_PLATE);
+			add(Material.BAMBOO_PRESSURE_PLATE);
+			add(Material.CRIMSON_PRESSURE_PLATE);
+			add(Material.WARPED_PRESSURE_PLATE);
+			add(Material.STONE_PRESSURE_PLATE);
+			add(Material.POLISHED_BLACKSTONE_PRESSURE_PLATE);
+			add(Material.HEAVY_WEIGHTED_PRESSURE_PLATE);
+			add(Material.LIGHT_WEIGHTED_PRESSURE_PLATE);
+		}};
 	}
 
 	@EventHandler
