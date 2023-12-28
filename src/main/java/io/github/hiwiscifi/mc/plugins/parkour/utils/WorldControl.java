@@ -12,7 +12,7 @@ import net.md_5.bungee.api.ChatColor;
 public class WorldControl {
 
 	/** the list to save enabled parkours in */
-	private static List<String> enabledWorlds = new ArrayList<String>();
+	private static List<String> enabledWorlds = new ArrayList<>();
 
 	/** check if parkours are enabled in a certain world
 	 * @param worldName the name of the world to check for
@@ -36,14 +36,14 @@ public class WorldControl {
 	}
 
 	/** check if parkours are enabled in a certain world
-	 * @param worldName the world to check for
+	 * @param world the world to check for
 	 * @return true, if parkours are enabled */
 	public static boolean enabled(World world) {
 		return enabled(world, null);
 	}
 
 	/** check if parkours are enabled in a certain world
-	 * @param worldName the world to check for
+	 * @param world the world to check for
 	 * @param player an optional player to send an error message to if world is not enabled
 	 * @return true, if parkours are enabled */
 	public static boolean enabled(World world, Player player) {
@@ -73,7 +73,7 @@ public class WorldControl {
 
 	/** load list of enabled worlds from config file */
 	public static void loadWorlds() {
-		enabledWorlds = (ArrayList<String>) Main.getInstance().getConfig().getStringList("enabledWorlds");
+		enabledWorlds = Main.getInstance().getConfig().getStringList("enabledWorlds");
 	}
 
 	/** get the list of parkour-enabled worlds
@@ -82,7 +82,7 @@ public class WorldControl {
 		if (Main.getInstance().getConfig().contains("enabledWorlds")) {
 			return Main.getInstance().getConfig().getStringList("enabledWorlds");
 		}
-		return new ArrayList<String>();
+		return new ArrayList<>();
 	}
 
 	/** save list of enabled worlds to the config */

@@ -33,13 +33,11 @@ public class SCCreate implements SubCommand {
 	@Override
 	public boolean perform(CommandSender sender, Command command, String alias, String[] args) {
 
-		if (!(sender instanceof Player)) {
+		if (!(sender instanceof Player player)) {
 			return false;
 		}
 
-		Player player = (Player) sender;
-
-		if (!WorldControl.enabled(player.getWorld(), player)) {
+        if (!WorldControl.enabled(player.getWorld(), player)) {
 			return false;
 		}
 
@@ -66,7 +64,7 @@ public class SCCreate implements SubCommand {
 
 	@Override
 	public List<String> tabcomplete(CommandSender sender, Command command, String alias, String[] args) {
-		return new ArrayList<String>();
+		return new ArrayList<>();
 	}
 
 }

@@ -63,7 +63,7 @@ public class ParkourTimer {
 		long milliseconds = time % TimeUnit.SECONDS.toMillis(1);
 
 		String timeStr = US.EMPTY;
-		if (hours > 0l) timeStr += hours + "h" + US.SPACE;
+		if (hours > 0L) timeStr += hours + "h" + US.SPACE;
 		timeStr += minutes + "m" + US.SPACE;
 		timeStr += seconds + "s" + US.SPACE;
 		timeStr += milliseconds + "ms";

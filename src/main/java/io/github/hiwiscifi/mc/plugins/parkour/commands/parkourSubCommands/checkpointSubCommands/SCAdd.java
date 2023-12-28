@@ -31,13 +31,11 @@ public class SCAdd implements SubCommand {
 
 	@Override
 	public boolean perform(CommandSender sender, Command command, String alias, String[] args) {
-		if (!(sender instanceof Player) || (args.length == 0)) {
+		if (!(sender instanceof Player player) || (args.length == 0)) {
 			return false;
 		}
 
-		Player player = (Player)sender;
-
-		if (!WorldControl.enabled(player.getWorld())) {
+        if (!WorldControl.enabled(player.getWorld())) {
 			return false;
 		}
 
@@ -52,7 +50,7 @@ public class SCAdd implements SubCommand {
 
 	@Override
 	public List<String> tabcomplete(CommandSender sender, Command command, String alias, String[] args) {
-		List <String> result = new ArrayList<String>();
+		List <String> result = new ArrayList<>();
 
 		for (Parkour p : Main.getInstance().parkours) {
 			result.add(p.name);

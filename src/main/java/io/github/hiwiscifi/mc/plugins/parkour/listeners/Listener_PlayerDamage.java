@@ -11,7 +11,7 @@ import io.github.hiwiscifi.mc.plugins.parkour.utils.US;
 public class Listener_PlayerDamage implements Listener {
 
 	public Listener_PlayerDamage getInstance() { return instance; }
-	private Listener_PlayerDamage instance;
+	private final Listener_PlayerDamage instance;
 
 	public Listener_PlayerDamage() {
 		instance = this;
@@ -21,9 +21,8 @@ public class Listener_PlayerDamage implements Listener {
 	@EventHandler
 	public void onEntityDamaged(EntityDamageEvent e) {
 		if (e.getCause() == DamageCause.VOID) {
-			if (e.getEntity() instanceof Player) {
-				Player player = (Player)e.getEntity();
-				player.setHealth(0.0d);
+			if (e.getEntity() instanceof Player player) {
+                player.setHealth(0.0d);
 			}
 		}
 	}

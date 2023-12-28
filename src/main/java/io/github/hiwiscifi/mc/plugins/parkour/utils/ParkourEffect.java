@@ -9,6 +9,7 @@ import org.bukkit.entity.Player;
 
 import io.github.hiwiscifi.mc.plugins.parkour.utils.effects.EffectEffect;
 import io.github.hiwiscifi.mc.plugins.parkour.utils.effects.TeleportEffect;
+import org.jetbrains.annotations.NotNull;
 
 @ SerializableAs("effect")
 public abstract class ParkourEffect implements Cloneable, ConfigurationSerializable{
@@ -30,25 +31,25 @@ public abstract class ParkourEffect implements Cloneable, ConfigurationSerializa
 			//TODO show error
 			return null;
 		}
-		switch (args[0].toLowerCase()) {
-			case "tp":
-			case "teleport":
-				args[0] = "teleport";
-				return new TeleportEffect(args);
-			case "effect":
-			case "effekt":
-				args[0] = "effekt";
-				return new EffectEffect(args);
-			default:
-				return null;
-		}
+        return switch (args[0].toLowerCase()) {
+            case "tp", "teleport" -> {
+                args[0] = "teleport";
+                yield new TeleportEffect(args);
+            }
+            case "effect", "effekt" -> {
+                args[0] = "effekt";
+                yield new EffectEffect(args);
+            }
+            default -> null;
+        };
 	}
 
 	@Override
+	@NotNull
 	public Map<String, Object> serialize() {
 		Map<String, Object> map = new HashMap<>();
 		map.put("arguments", arguments);
-		return null;
+		return map;
 	}
 
 	public static ParkourEffect deserialize(Map<String, Object> map) {
@@ -57,7 +58,15 @@ public abstract class ParkourEffect implements Cloneable, ConfigurationSerializa
 		}
 
 
-		ParkourEffect effect = createEffect((String[]) map.get("arguments"));
-		return effect;
+        return createEffect((String[]) map.get("arguments"));
 	}
+
+    @Override
+    public ParkourEffect clone() {
+        try {
+            return (ParkourEffect) super.clone();
+        } catch (CloneNotSupportedException e) {
+            throw new AssertionError();
+        }
+    }
 }

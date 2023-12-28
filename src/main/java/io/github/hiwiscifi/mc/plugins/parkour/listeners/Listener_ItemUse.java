@@ -58,7 +58,7 @@ public class Listener_ItemUse implements Listener{
 				break;
 			case "resetToSpawn":
 				player.teleport(player.getWorld().getSpawnLocation() );
-				//TODO pluginworld speichern hilfe????
+				//TODO plugin world saving help????
 				break;
 			}
 		}*/

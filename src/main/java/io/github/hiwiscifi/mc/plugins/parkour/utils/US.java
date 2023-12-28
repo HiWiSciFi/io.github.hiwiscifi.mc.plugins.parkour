@@ -9,7 +9,7 @@ public class US {
 
 	/** an empty string */
 	public final static String EMPTY = "";
-	/** an dot character as a string */
+	/** a dot character as a string */
 	public final static String DOT = ".";
 	/** a quotation mark character as a string */
 	public final static String QUOTATION_MARK = "\"";
@@ -38,7 +38,7 @@ public class US {
 	/** the key for the timerStartCheckpointTime:Long value in a players persistentDataContainer */
 	public static NamespacedKey timerStartCheckpointTimeKey;
 
-	/** the key for the itemInteractionType:String value in an items persistantDataContainer */
+	/** the key for the itemInteractionType:String value in an items persistentDataContainer */
 	public static NamespacedKey itemInteractionTypeKey;
 
 	/** Initializes the NamespacedKeys for later use */
@@ -70,10 +70,8 @@ public class US {
 				desiredLength -= 1;
 			}
 			int toAdd = (desiredLength - string.length()) / 2;
-			String str = EMPTY;
-			for (int i = 0; i < toAdd; i++) {
-				str += MINUS;
-			}
+			StringBuilder str = new StringBuilder(EMPTY);
+            str.append(MINUS.repeat(Math.max(0, toAdd)));
 			return str + string + str;
 		}
 		return string;

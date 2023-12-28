@@ -15,6 +15,7 @@ import org.bukkit.persistence.PersistentDataType;
 
 import io.github.hiwiscifi.mc.plugins.parkour.utils.US;
 import io.github.hiwiscifi.mc.plugins.parkour.utils.WorldControl;
+import org.jetbrains.annotations.NotNull;
 
 public class Command_gMode implements TabExecutor{
 
@@ -28,14 +29,13 @@ public class Command_gMode implements TabExecutor{
 
 	//gets executed when Command is executed
 	@Override
-	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
+	public boolean onCommand(@NotNull CommandSender sender, @NotNull Command cmd, @NotNull String label, String[] args) {
 		//stop Sender is not a Player or no arguments are given (missing game Mode)
-		if (!(sender instanceof Player) || (args.length == 0)) {
+		if (!(sender instanceof Player player) || (args.length == 0)) {
 			return false;
 		}
-		Player player = (Player)sender;
 
-		if (!WorldControl.enabled(player.getWorld(), player)) {
+        if (!WorldControl.enabled(player.getWorld(), player)) {
 			return false;
 		}
 
@@ -48,7 +48,7 @@ public class Command_gMode implements TabExecutor{
 
 		// argument 1 is the wanted gamemode and the player gamemode is set to it
 		switch (args[0].toLowerCase()) {
-			case "creative":
+			case "creative", "spectator":
 				player.setGameMode(GameMode.CREATIVE);
 				break;
 
@@ -60,11 +60,7 @@ public class Command_gMode implements TabExecutor{
 				player.setGameMode(GameMode.ADVENTURE);
 				break;
 
-			case "spectator":
-				player.setGameMode(GameMode.CREATIVE);
-				break;
-
-			default:
+            default:
 				player.sendMessage(US.OUT_PREFIX + args[0].substring(0, 1).toUpperCase() + args[0].substring(1).toLowerCase() + " is not a valid gamemode!");
 				return false;
 		}
@@ -73,9 +69,9 @@ public class Command_gMode implements TabExecutor{
 	}
 
 	@Override
-	public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
+	public List<String> onTabComplete(@NotNull CommandSender sender, @NotNull Command command, @NotNull String alias, String[] args) {
 		if(args.length == 1) {
-			List<String> strings = new ArrayList<String>();
+			List<String> strings = new ArrayList<>();
 			strings.add("creative");
 			strings.add("survival");
 			strings.add("adventure");

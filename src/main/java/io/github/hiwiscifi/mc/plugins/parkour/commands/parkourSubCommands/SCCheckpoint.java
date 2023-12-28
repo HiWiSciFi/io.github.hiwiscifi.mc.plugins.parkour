@@ -33,7 +33,7 @@ public class SCCheckpoint extends CommandManager implements SubCommand{
 
 	@Override
 	public String getDescription() {
-		return "With this subcommand you can do everything related to chekpoint";
+		return "With this subcommand you can do everything related to checkpoint";
 	}
 
 	@Override

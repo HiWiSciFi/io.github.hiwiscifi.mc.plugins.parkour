@@ -30,13 +30,11 @@ public class SCAdd implements SubCommand{
 	@Override
 	public boolean perform(CommandSender sender, Command command, String alias, String[] args) {
 
-		if (!(sender instanceof Player)) {
+		if (!(sender instanceof Player player)) {
 			return false;
 		}
 
-		Player player = (Player) sender;
-
-		player.sendMessage(US.OUT_PREFIX + "Adding your current world to set of parkour-enabled worlds" + US.THREE_DOTS);
+        player.sendMessage(US.OUT_PREFIX + "Adding your current world to set of parkour-enabled worlds" + US.THREE_DOTS);
 		WorldControl.addWorld(player.getWorld().getName());
 		player.sendMessage(US.OUT_PREFIX + "World added!");
 

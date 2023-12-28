@@ -7,8 +7,10 @@ import io.github.hiwiscifi.mc.plugins.parkour.utils.ParkourEffect;
 
 public class TeleportEffect extends ParkourEffect{
 
-	private double x,y,z;
-	private boolean relativ = false;
+	private final double x;
+    private final double y;
+    private final double z;
+	private boolean relative = false;
 
 	public TeleportEffect(String[] args) {
 
@@ -19,14 +21,14 @@ public class TeleportEffect extends ParkourEffect{
 		z = Double.parseDouble(arguments[3]);
 
 		if (arguments.length >= 5) {
-			relativ = "true" == arguments[4];
+			relative = arguments[4].equals("true");
 		}
 	}
 
 	@Override
 	public void apply(Player player) {
 
-		if (!relativ) {
+		if (!relative) {
 			Location place = new Location(player.getWorld(), x, y, z);
 			player.teleport(place);
 		}

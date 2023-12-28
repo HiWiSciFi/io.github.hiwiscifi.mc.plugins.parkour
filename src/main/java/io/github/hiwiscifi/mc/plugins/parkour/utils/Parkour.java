@@ -21,7 +21,7 @@ public class Parkour {
 
 	public Parkour(String name) {
 		this.name = name;
-		checkpoints = new ArrayList<ParkourCheckpoint>();
+		checkpoints = new ArrayList<>();
 		startCheckpoint = null;
 		startLocation = null;
 	}
@@ -29,7 +29,7 @@ public class Parkour {
 	public Parkour(String name, Location startLocation) {
 		this.name = name;
 		this.startLocation = startLocation;
-		checkpoints = new ArrayList<ParkourCheckpoint>();
+		checkpoints = new ArrayList<>();
 		startCheckpoint = null;
 	}
 
@@ -46,7 +46,7 @@ public class Parkour {
 		save();
 	}
 
-	//TODO ad funktionality
+	//TODO add functionality
 	public void removeCheckpoint() {
 		save();
 	}
@@ -58,13 +58,9 @@ public class Parkour {
 	public static List<String> getParkourNames() {
 		if (Main.getInstance().getConfig().contains("parkours")) {
 			Set<String> keys = Main.getInstance().getConfig().getConfigurationSection("parkours").getKeys(false);
-			List<String> names = new ArrayList<String>();
-			for (String s : keys) {
-				names.add(s);
-			}
-			return names;
+            return new ArrayList<>(keys);
 		} else {
-			return new ArrayList<String>();
+			return new ArrayList<>();
 		}
 	}
 

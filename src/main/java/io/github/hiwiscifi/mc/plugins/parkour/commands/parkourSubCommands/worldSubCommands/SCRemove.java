@@ -30,13 +30,11 @@ public class SCRemove implements SubCommand {
 
 	@Override
 	public boolean perform(CommandSender sender, Command command, String alias, String[] args) {
-		if (!(sender instanceof Player)) {
+		if (!(sender instanceof Player player)) {
 			return false;
 		}
 
-		Player player = (Player) sender;
-
-		player.sendMessage(US.OUT_PREFIX + "Adding your current world to set of parkour-enabled worlds" + US.THREE_DOTS);
+        player.sendMessage(US.OUT_PREFIX + "Adding your current world to set of parkour-enabled worlds" + US.THREE_DOTS);
 		WorldControl.removeWorld(player.getWorld().getName());
 		player.sendMessage(US.OUT_PREFIX + "World removed!");
 
@@ -45,7 +43,7 @@ public class SCRemove implements SubCommand {
 
 	@Override
 	public List<String> tabcomplete(CommandSender sender, Command command, String alias, String[] args) {
-		return new ArrayList<String>();
+		return new ArrayList<>();
 	}
 
 }

@@ -31,7 +31,7 @@ public class ParkourHelper {
 
 	/** resets player to the n-th checkpoint of the parkour they are on
 	 * @param player to be reset
-	 * @param number of checkpoint to reset to*/
+	 * @param check of checkpoint to reset to*/
 	public static void resetToCheckpoint(Player player, int check) {
 		PersistentDataContainer pdc = player.getPersistentDataContainer();
 
@@ -44,11 +44,11 @@ public class ParkourHelper {
 		List<Parkour> parkours = Main.getInstance().parkours;
 		Parkour parkour = null;
 
-		for (int i = 0; i < parkours.size(); i++) {
-			if (parkours.get(i).name == currentParkour) {
-				parkour = parkours.get(i);
-			}
-		}
+        for (Parkour value : parkours) {
+            if (value.name.equals(currentParkour)) {
+                parkour = value;
+            }
+        }
 		if (parkour == null) {
 			return;
 		}
@@ -94,21 +94,20 @@ public class ParkourHelper {
 			List<Parkour> parkours = Main.getInstance().parkours;
 			Parkour parkour = null;
 
-			for (int i = 0; i < parkours.size(); i++) {
-				if (parkours.get(i).name == currentParkour) {
-					parkour = parkours.get(i);
-				}
-			}
+            for (Parkour value : parkours) {
+                if (value.name.equals(currentParkour)) {
+                    parkour = value;
+                }
+            }
 			if (parkour == null) {
 				return null;
 			}
 
 			try {
 				Location loc = parkour.checkpoints.get(currentCheckpoint - 1).location;
-				Location l = loc;
-				l.setX(loc.getBlockX() + 0.5d);
-				l.setY(loc.getBlockY());
-				l.setZ(loc.getBlockZ() + 0.5d);
+                loc.setX(loc.getBlockX() + 0.5d);
+				loc.setY(loc.getBlockY());
+				loc.setZ(loc.getBlockZ() + 0.5d);
 				return loc;
 			} catch (IndexOutOfBoundsException e) {
 				return null;
@@ -129,18 +128,18 @@ public class ParkourHelper {
 	public static Location calculateParkourStartLocation(Player player) {
 		PersistentDataContainer pdc = player.getPersistentDataContainer();
 
-		boolean onParcour = pdc.get(US.onParkourKey, PersistentDataType.INTEGER) == 1;
+		boolean onParkour = pdc.get(US.onParkourKey, PersistentDataType.INTEGER) == 1;
 		String currentParkour = pdc.get(US.currentParkourKey, PersistentDataType.STRING);
 
-		if (onParcour) {
+		if (onParkour) {
 			List<Parkour> parkours = Main.getInstance().parkours;
 			Parkour parkour = null;
 
-			for (int i = 0; i < parkours.size(); i++) {
-				if (parkours.get(i).name == currentParkour) {
-					parkour = parkours.get(i);
-				}
-			}
+            for (Parkour value : parkours) {
+                if (value.name.equals(currentParkour)) {
+                    parkour = value;
+                }
+            }
 			if (parkour == null) {
 				return null;
 			}

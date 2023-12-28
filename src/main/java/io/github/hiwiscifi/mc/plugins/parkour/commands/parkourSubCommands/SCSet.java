@@ -32,7 +32,7 @@ public class SCSet extends CommandManager implements SubCommand{
 
 	@Override
 	public String getDescription() {
-		return "resets atributes of a parkour";
+		return "resets attributes of a parkour";
 	}
 
 	@Override

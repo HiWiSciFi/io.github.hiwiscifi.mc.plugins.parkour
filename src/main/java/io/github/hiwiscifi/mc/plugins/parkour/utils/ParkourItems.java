@@ -29,11 +29,11 @@ public class ParkourItems {
 		String currentParkour = player.getPersistentDataContainer().get(US.currentParkourKey, PersistentDataType.STRING);
 		List<Parkour> parkours = Main.getInstance().parkours;
 		Parkour parkour = null;
-		for (int i = 0; i < parkours.size(); i++) {
-			if(parkours.get(i).name == currentParkour) {
-				parkour = parkours.get(i);
-			}
-		}
+        for (Parkour value : parkours) {
+            if (value.name.equals(currentParkour)) {
+                parkour = value;
+            }
+        }
 
 		if(parkour == null) {
 			return;
@@ -54,7 +54,7 @@ public class ParkourItems {
 		}
 	}
 
-	/** setup a players inventory to have only the interaction menu items
+	/** set up a players inventory to have only the interaction menu items
 	 * @param player the player whose inventory shall be set up*/
 	public static void setPlayerInventory(Player player) {
 		player.getInventory().clear();
@@ -65,7 +65,7 @@ public class ParkourItems {
 		ItemMeta resetCpItemMeta = resetCpItem.getItemMeta();
 		resetCpItemMeta.setDisplayName("reset to last Checkpoint");
 		resetCpItemMeta.getPersistentDataContainer().set(US.itemInteractionTypeKey, PersistentDataType.STRING, US.itemVal_reset_checkpoint);
-		List<String> resetCpItemLore = new ArrayList<String>();
+		List<String> resetCpItemLore = new ArrayList<>();
 		resetCpItemLore.add(ChatColor.AQUA + "right-click to teleport back to the last checkpoint");
 		resetCpItemMeta.setLore(resetCpItemLore);
 		resetCpItem.setItemMeta(resetCpItemMeta);
@@ -77,7 +77,7 @@ public class ParkourItems {
 		ItemMeta resetStartItemMeta = resetStartItem.getItemMeta();
 		resetStartItemMeta.setDisplayName("reset to parkour start");
 		resetStartItemMeta.getPersistentDataContainer().set(US.itemInteractionTypeKey, PersistentDataType.STRING, US.itemVal_reset_start);
-		List<String> resetStartItemLore = new ArrayList<String>();
+		List<String> resetStartItemLore = new ArrayList<>();
 		resetStartItemLore.add(ChatColor.AQUA + "right-click to teleport back to the parkour start");
 		resetStartItemMeta.setLore(resetStartItemLore);
 		resetStartItem.setItemMeta(resetStartItemMeta);
@@ -89,9 +89,9 @@ public class ParkourItems {
 		ItemMeta cancelParkourItemMeta = cancelParkourItem.getItemMeta();
 		cancelParkourItemMeta.setDisplayName("cancel parkour");
 		cancelParkourItemMeta.getPersistentDataContainer().set(US.itemInteractionTypeKey, PersistentDataType.STRING, US.itemVal_cancelParkour);
-		List<String> cancelParkourItemLore = new ArrayList<String>();
+		List<String> cancelParkourItemLore = new ArrayList<>();
 		cancelParkourItemLore.add(ChatColor.AQUA + "right-click to cancel the current parkour to be able to start another one");
-		cancelParkourItemLore.add(ChatColor.DARK_PURPLE + "sneak while clicking to telport back to the start");
+		cancelParkourItemLore.add(ChatColor.DARK_PURPLE + "sneak while clicking to teleport back to the start");
 		cancelParkourItemMeta.setLore(cancelParkourItemLore);
 		cancelParkourItem.setItemMeta(cancelParkourItemMeta);
 		player.getInventory().setItem(5, cancelParkourItem);

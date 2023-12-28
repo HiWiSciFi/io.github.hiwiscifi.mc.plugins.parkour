@@ -9,6 +9,7 @@ import org.bukkit.Location;
 import org.bukkit.configuration.serialization.ConfigurationSerializable;
 import org.bukkit.configuration.serialization.SerializableAs;
 import org.bukkit.entity.Player;
+import org.jetbrains.annotations.NotNull;
 
 @SerializableAs("effectPoint")
 public class EffectPoint implements Cloneable, ConfigurationSerializable{
@@ -53,6 +54,7 @@ public class EffectPoint implements Cloneable, ConfigurationSerializable{
 	}
 
 	@Override
+	@NotNull
 	public Map<String, Object> serialize() {
 
 		Map<String, Object> map = new HashMap<>();
@@ -75,4 +77,13 @@ public class EffectPoint implements Cloneable, ConfigurationSerializable{
 
 		return target;
 	}
+
+    @Override
+    public EffectPoint clone() {
+        try {
+            return (EffectPoint) super.clone();
+        } catch (CloneNotSupportedException e) {
+            throw new AssertionError();
+        }
+    }
 }

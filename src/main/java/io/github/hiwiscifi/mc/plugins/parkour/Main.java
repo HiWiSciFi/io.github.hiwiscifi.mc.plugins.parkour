@@ -36,7 +36,7 @@ public class Main extends JavaPlugin {
 	private static Main instance;
 
 	/** List of parkours that have been registered */
-	public List<Parkour> parkours = new ArrayList<Parkour>();
+	public List<Parkour> parkours = new ArrayList<>();
 
 	@Override
 	public void onEnable() {
@@ -46,21 +46,21 @@ public class Main extends JavaPlugin {
 
 		System.out.println(US.fillWithMinus("Initializing Parkour plugin", 40));
 
-		System.out.println(US.OUT_PREFIX + "Registring commands" + US.THREE_DOTS);
+		System.out.println(US.OUT_PREFIX + "Registering commands" + US.THREE_DOTS);
 		//TODO Remove
 		this.getCommand("test").setExecutor(new Command_test());
 		this.getCommand("parkour").setExecutor(new Command_parkour());
 		this.getCommand("gMode").setExecutor(new Command_gMode());
 		//TODO add teleport
 
-		System.out.println(US.OUT_PREFIX + "Registring events" + US.THREE_DOTS);
+		System.out.println(US.OUT_PREFIX + "Registering events" + US.THREE_DOTS);
 		this.getServer().getPluginManager().registerEvents(new Listener_PlayerJoin(), this);
 		this.getServer().getPluginManager().registerEvents(new Listener_PressurePlate(), this);
 		this.getServer().getPluginManager().registerEvents(new Listener_ItemUse(), this);
 		this.getServer().getPluginManager().registerEvents(new Listener_PlayerRespawn(), this);
 		this.getServer().getPluginManager().registerEvents(new Listener_PlayerDamage(), this);
 
-		System.out.println(US.OUT_PREFIX + "Registring serialisables" + US.THREE_DOTS);
+		System.out.println(US.OUT_PREFIX + "Registering serializables" + US.THREE_DOTS);
 		ConfigurationSerialization.registerClass(ParkourCheckpoint.class, "ParkourCheckpoint");
 		ConfigurationSerialization.registerClass(EffectPoint.class, "EffectPoint");
 		ConfigurationSerialization.registerClass(ParkourEffect.class, "ParkourEffect");

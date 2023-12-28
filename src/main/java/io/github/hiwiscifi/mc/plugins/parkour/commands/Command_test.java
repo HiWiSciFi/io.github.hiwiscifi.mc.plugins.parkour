@@ -19,9 +19,8 @@ public class Command_test implements CommandExecutor {
 
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
-		if (sender instanceof Player) {
-			Player player = (Player) sender;
-			player.sendMessage(US.OUT_PREFIX + "Your position is " +
+		if (sender instanceof Player player) {
+            player.sendMessage(US.OUT_PREFIX + "Your position is " +
 					player.getLocation().getBlockX() + ":" +
 					player.getLocation().getBlockY() + ":" +
 					player.getLocation().getBlockZ() + " " +

@@ -26,13 +26,13 @@ public class Listener_PressurePlate implements Listener {
 	}
 
 	private static Listener_PressurePlate instance;
-	private List<Material> supportedMaterials;
+	private final List<Material> supportedMaterials;
 
 	public Listener_PressurePlate() {
 		System.out.println(US.OUT_PREFIX + "Initializing pressure plate activation event listener" + US.THREE_DOTS);
 		instance = this;
 
-		supportedMaterials = new ArrayList<Material>();
+		supportedMaterials = new ArrayList<>();
 		supportedMaterials.add(Material.ACACIA_PRESSURE_PLATE);
 		supportedMaterials.add(Material.BIRCH_PRESSURE_PLATE);
 		supportedMaterials.add(Material.CRIMSON_PRESSURE_PLATE);
@@ -76,11 +76,11 @@ public class Listener_PressurePlate implements Listener {
 			List<Parkour> parkours = Main.getInstance().parkours;
 			Parkour parkour = null;
 
-			for (int i = 0; i < parkours.size(); i++) {
-				if(parkours.get(i).name == currentParkour) {
-					parkour = parkours.get(i);
-				}
-			}
+            for (Parkour value : parkours) {
+                if (value.name.equals(currentParkour)) {
+                    parkour = value;
+                }
+            }
 
 			if(parkour == null) {
 				pdc.set(US.onParkourKey, PersistentDataType.INTEGER, 0);
@@ -111,7 +111,7 @@ public class Listener_PressurePlate implements Listener {
 					}
 				}
 			}
-			else if(currentCheckpoint == 0 && parkour.startCheckpoint.location.distance(ablock.getLocation()) < 0.75d) {
+			else if(parkour.startCheckpoint.location.distance(ablock.getLocation()) < 0.75d) {
 				ParkourLogic.restartParkour(player, parkour);
 			}
 			else {

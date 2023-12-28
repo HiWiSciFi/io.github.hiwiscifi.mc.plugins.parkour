@@ -13,7 +13,7 @@ public abstract class CommandManager {
 
 	public String name = "noName";
 
-	private ArrayList<SubCommand> subCommands = new ArrayList<SubCommand>();
+	private final ArrayList<SubCommand> subCommands = new ArrayList<>();
 
 	private SubCommand neutral = null;
 
@@ -46,7 +46,7 @@ public abstract class CommandManager {
 					}
 				}
 			}
-		} else if (args.length == 0) {
+		} else {
 			if (neutral == null) {
 
 				if (sender instanceof Player) {
@@ -81,19 +81,17 @@ public abstract class CommandManager {
 			return null;
 		}
 
-		if (!(sender instanceof Player)) {
+		if (!(sender instanceof Player player)) {
 			return null;
 		}
 
-		Player player = (Player) sender;
-
-		List<String> strings = new ArrayList<String>();
+        List<String> strings = new ArrayList<>();
 
 		if (args.length == 1) {
 			for (int i = 0; i < getSubcommands().size(); i++) {
 				strings.add(getSubcommands().get(i).getName());
 			}
-		} else if (args.length > 1) {
+		} else {
 			for (int i = 0; i < getSubcommands().size(); i++) {
 				if (args[0].equalsIgnoreCase(getSubcommands().get(i).getName())) {
 					strings.addAll(
@@ -102,7 +100,7 @@ public abstract class CommandManager {
 				}
 			}
 		}
-		//TODO addneutral
+		//TODO add neutral
 		return strings;
 	}
 
@@ -124,7 +122,7 @@ public abstract class CommandManager {
 		return name;
 	}
 
-	// ex. "This is a s-ubcommand that let's a shark eat someone"
+	// ex. "This is a subcommand that lets a shark eat someone"
 	public abstract String getDescription();
 
 	// How to use command ex. /prank freeze <player>

@@ -52,7 +52,7 @@ public class Command_parkour extends CommandManager implements TabExecutor {
 
 	@Override
 	public String getDescription() {
-		return "a genaral command to interact with the parkour plugin";
+		return "a general command to interact with the parkour plugin";
 	}
 
 	@Override

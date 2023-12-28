@@ -8,17 +8,19 @@ import java.util.Map;
 import org.bukkit.Location;
 import org.bukkit.configuration.serialization.ConfigurationSerializable;
 import org.bukkit.configuration.serialization.SerializableAs;
+import org.jetbrains.annotations.NotNull;
 
 @SerializableAs("checkpoint")
 public class ParkourCheckpoint extends EffectPoint implements Cloneable, ConfigurationSerializable{
 
-	public List<EffectPoint> effectPoints = new ArrayList<EffectPoint>();
+	public List<EffectPoint> effectPoints = new ArrayList<>();
 
 	public ParkourCheckpoint(Location location) {
 		super(location);
 	}
 
 	@Override
+	@NotNull
 	public Map<String, Object> serialize() {
 
 		Map<String, Object> map = new HashMap<>();
@@ -47,4 +49,8 @@ public class ParkourCheckpoint extends EffectPoint implements Cloneable, Configu
 		return target;
 	}
 
+    @Override
+    public ParkourCheckpoint clone() {
+        return (ParkourCheckpoint) super.clone();
+    }
 }

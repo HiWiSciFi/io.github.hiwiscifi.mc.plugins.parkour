@@ -33,13 +33,11 @@ public class SCDelete implements SubCommand {
 	@Override
 	public boolean perform(CommandSender sender, Command command, String alias, String[] args) {
 
-		if (!(sender instanceof Player)) {
+		if (!(sender instanceof Player player)) {
 			return false;
 		}
 
-		Player player = (Player) sender;
-
-		if (!WorldControl.enabled(player.getWorld(), player)) {
+        if (!WorldControl.enabled(player.getWorld(), player)) {
 			return false;
 		}
 
@@ -65,7 +63,7 @@ public class SCDelete implements SubCommand {
 
 	@Override
 	public List<String> tabcomplete(CommandSender sender, Command command, String alias, String[] args) {
-		List <String> result = new ArrayList<String>();
+		List <String> result = new ArrayList<>();
 
 		for (Parkour p : Main.getInstance().parkours) {
 			result.add(p.name);

@@ -1,6 +1,7 @@
 package io.github.hiwiscifi.mc.plugins.parkour.utils;
 
 import java.util.List;
+import java.util.Objects;
 
 import org.bukkit.Color;
 import org.bukkit.FireworkEffect;
@@ -45,7 +46,7 @@ public class ParkourLogic {
 		player.sendMessage(US.OUT_PREFIX + "You are now on the " + parkour.name + " parkour");
 		// TODO set item and check gamemode store those items and remove them after
 		// parkour is finished or aborted
-		if (parkour.checkpoints.size() == 0) {
+		if (parkour.checkpoints.isEmpty()) {
 			finishParkour(player, parkour);
 		}
 
@@ -123,15 +124,15 @@ public class ParkourLogic {
 		spawnFireworks(player);
 		// TODO pb tracker with pdc
 		// TODO Return Leaderboard rank or personal best
-		player.sendMessage(ChatColor.GREEN.toString() + ChatColor.BOLD.toString() + ChatColor.MAGIC.toString() + "ooo "
-				+ ChatColor.GREEN.toString() + ChatColor.BOLD.toString() + "CONGRATULATIONS!"
-				+ ChatColor.GREEN.toString() + ChatColor.BOLD.toString() + ChatColor.MAGIC.toString() + " ooo");
+		player.sendMessage(ChatColor.GREEN + ChatColor.BOLD.toString() + ChatColor.MAGIC + "ooo "
+				+ ChatColor.GREEN + ChatColor.BOLD + "CONGRATULATIONS!"
+				+ ChatColor.GREEN + ChatColor.BOLD + ChatColor.MAGIC + " ooo");
 		player.sendMessage(ChatColor.GREEN + "Your time to complete the parkour was: " + ChatColor.GOLD
-				+ ChatColor.BOLD.toString() + ParkourTimer.getTimeStringFromMs(parkourTime));
+				+ ChatColor.BOLD + ParkourTimer.getTimeStringFromMs(parkourTime));
 		player.sendMessage(ChatColor.AQUA /* got norted */ + "Your time for the last Checkpoint was:" + ChatColor.GOLD
-				+ ChatColor.BOLD.toString() + ParkourTimer.getTimeStringFromMs(lastCheckpointTime));
+				+ ChatColor.BOLD + ParkourTimer.getTimeStringFromMs(lastCheckpointTime));
 		player.sendTitle(
-				ChatColor.GREEN + "\u1405" + ChatColor.GREEN + ChatColor.BOLD.toString() + "CONGRATULATIONS!"
+				ChatColor.GREEN + "\u1405" + ChatColor.GREEN + ChatColor.BOLD + "CONGRATULATIONS!"
 						+ ChatColor.GREEN + "\u140A",
 				ChatColor.GOLD + " Your Time: " + ChatColor.GOLD + ParkourTimer.getTimeStringFromMs(parkourTime), 10,
 				30, 20);
@@ -147,8 +148,8 @@ public class ParkourLogic {
 		World w = player.getWorld();
 
 		for (int i = 0; i < 6; i++) {
-			Location newloc = loc.add(new Vector(Math.random() - 0.5, 2, Math.random() - 0.5).multiply(diameter));
-			Firework fw = (Firework) w.spawnEntity(newloc, EntityType.FIREWORK);
+			Location newLocation = loc.add(new Vector(Math.random() - 0.5, 2, Math.random() - 0.5).multiply(diameter));
+			Firework fw = (Firework) w.spawnEntity(newLocation, EntityType.FIREWORK);
 			FireworkMeta fwm = fw.getFireworkMeta();
 			fwm.setPower(2);
 
@@ -174,7 +175,7 @@ public class ParkourLogic {
 	}
 
 	/**
-	 * cancel the any parkour for a given player
+	 * cancel any parkour for a given player
 	 *
 	 * @param player the player to cancel the parkour running for
 	 */
@@ -185,7 +186,7 @@ public class ParkourLogic {
 		pdc.set(US.currentParkourKey, PersistentDataType.STRING, US.EMPTY);
 		pdc.set(US.onParkourKey, PersistentDataType.INTEGER, 0);
 
-		// stop timer without handeling output
+		// stop timer without handling output
 		ParkourTimer.endParkourTimer(player);
 		ParkourTimer.endCheckpointTimer(player);
 	}
@@ -201,11 +202,11 @@ public class ParkourLogic {
 		List<Parkour> parkours = Main.getInstance().parkours;
 		Parkour parkour = null;
 
-		for (int i = 0; i < parkours.size(); i++) {
-			if(parkours.get(i).name == currentParkour) {
-				parkour = parkours.get(i);
-			}
-		}
+        for (Parkour value : parkours) {
+            if (value.name.equals(currentParkour)) {
+                parkour = value;
+            }
+        }
 
 		if(parkour == null) {
 			pdc.set(US.onParkourKey, PersistentDataType.INTEGER, 0);
