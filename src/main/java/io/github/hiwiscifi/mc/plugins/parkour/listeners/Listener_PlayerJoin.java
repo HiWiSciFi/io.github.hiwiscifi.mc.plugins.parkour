@@ -1,6 +1,7 @@
 package io.github.hiwiscifi.mc.plugins.parkour.listeners;
 
 
+import io.github.hiwiscifi.mc.plugins.parkour.Main;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -16,7 +17,7 @@ public class Listener_PlayerJoin implements Listener {
 	private static Listener_PlayerJoin instance;
 
 	public Listener_PlayerJoin() {
-		System.out.println(StringUtil.OUT_PREFIX + "Initializing player join event listener...");
+		Main.getInstance().getLogger().info("Initializing player join event listener...");
 		instance = this;
 	}
 

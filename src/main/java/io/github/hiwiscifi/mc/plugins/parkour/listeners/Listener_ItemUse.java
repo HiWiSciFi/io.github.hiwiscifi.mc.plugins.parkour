@@ -1,5 +1,6 @@
 package io.github.hiwiscifi.mc.plugins.parkour.listeners;
 
+import io.github.hiwiscifi.mc.plugins.parkour.Main;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -17,7 +18,7 @@ public class Listener_ItemUse implements Listener{
 	private static Listener_ItemUse instance;
 
 	public Listener_ItemUse() {
-		System.out.println(StringUtil.OUT_PREFIX + "Initializing item use event listener...");
+		Main.getInstance().getLogger().info("Initializing item use event listener...");
 		instance = this;
 	}
 

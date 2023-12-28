@@ -1,5 +1,6 @@
 package io.github.hiwiscifi.mc.plugins.parkour.listeners;
 
+import io.github.hiwiscifi.mc.plugins.parkour.Main;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -17,7 +18,7 @@ public class Listener_PlayerRespawn implements Listener {
 
 	//TODO change naming
 	public Listener_PlayerRespawn() {
-		System.out.println(StringUtil.OUT_PREFIX + "Initializing player respawn event listener...");
+		Main.getInstance().getLogger().info("Initializing player respawn event listener...");
 		instance = this;
 	}
 
@@ -30,7 +31,7 @@ public class Listener_PlayerRespawn implements Listener {
 		if(respawnLocation != null) {
 			e.setRespawnLocation(respawnLocation);
 			ParkourLogic.restartCheckpoint(player);
-			System.out.println(StringUtil.OUT_PREFIX + "respawning");
+			Main.getInstance().getLogger().info("respawning");
 		}
 	}
 }
