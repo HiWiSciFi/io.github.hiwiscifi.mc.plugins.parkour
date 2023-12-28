@@ -1,5 +1,6 @@
 package io.github.hiwiscifi.mc.plugins.parkour.commands;
 
+import io.github.hiwiscifi.mc.plugins.parkour.Main;
 import net.kyori.adventure.text.Component;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -15,7 +16,7 @@ public class Command_test implements CommandExecutor {
 	private static Command_test instance;
 
 	public Command_test() {
-		System.out.println(StringUtil.OUT_PREFIX + "Initializing test command...");
+		Main.getInstance().getLogger().info("Initializing test command...");
 		instance = this;
 	}
 

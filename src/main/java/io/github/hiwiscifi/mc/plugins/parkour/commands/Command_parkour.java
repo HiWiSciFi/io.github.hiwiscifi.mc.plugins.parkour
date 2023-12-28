@@ -2,6 +2,7 @@ package io.github.hiwiscifi.mc.plugins.parkour.commands;
 
 import java.util.List;
 
+import io.github.hiwiscifi.mc.plugins.parkour.Main;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabExecutor;
@@ -27,7 +28,7 @@ public class Command_parkour extends CommandManager implements TabExecutor {
 	public Command_parkour() {
 		super();
 		name = "parkour";
-		System.out.println(StringUtil.OUT_PREFIX + "Initializing parkour command...");
+		Main.getInstance().getLogger().info("Initializing parkour command...");
 		instance = this;
 
 		//register subcomands

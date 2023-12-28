@@ -44,44 +44,44 @@ public class Main extends JavaPlugin {
 
 		StringUtil.initializeKeys();
 
-		System.out.println(StringUtil.fillWithMinus("Initializing Parkour plugin", 40));
+		getLogger().info(StringUtil.fillWithMinus("Initializing Parkour plugin", 40));
 
-		System.out.println(StringUtil.OUT_PREFIX + "Registering commands...");
+		getLogger().info("Registering commands...");
 		//TODO Remove
 		this.getCommand("test").setExecutor(new Command_test());
 		this.getCommand("parkour").setExecutor(new Command_parkour());
 		this.getCommand("gMode").setExecutor(new Command_gMode());
 		//TODO add teleport
 
-		System.out.println(StringUtil.OUT_PREFIX + "Registering events...");
+		getLogger().info("Registering events...");
 		this.getServer().getPluginManager().registerEvents(new Listener_PlayerJoin(), this);
 		this.getServer().getPluginManager().registerEvents(new Listener_PressurePlate(), this);
 		this.getServer().getPluginManager().registerEvents(new Listener_ItemUse(), this);
 		this.getServer().getPluginManager().registerEvents(new Listener_PlayerRespawn(), this);
 		this.getServer().getPluginManager().registerEvents(new Listener_PlayerDamage(), this);
 
-		System.out.println(StringUtil.OUT_PREFIX + "Registering serializables...");
+		getLogger().info("Registering serializables...");
 		ConfigurationSerialization.registerClass(ParkourCheckpoint.class, "ParkourCheckpoint");
 		ConfigurationSerialization.registerClass(EffectPoint.class, "EffectPoint");
 		ConfigurationSerialization.registerClass(ParkourEffect.class, "ParkourEffect");
 
-		System.out.println(StringUtil.OUT_PREFIX + "Loading parkours from config...");
+		getLogger().info("Loading parkours from config...");
 		List<String> parkourNames = Parkour.getParkourNames();
 		for (String name : parkourNames) {
 			parkours.add(Parkour.load(name));
 		}
 
-		System.out.println(StringUtil.OUT_PREFIX + "Loading list of enabled worlds from config...");
+		getLogger().info("Loading list of enabled worlds from config...");
 		WorldControl.loadWorlds();
 
-		System.out.println(StringUtil.fillWithMinus("Parkour plugin initialized", 40));
+		getLogger().info(StringUtil.fillWithMinus("Parkour plugin initialized", 40));
 	}
 
 	@Override
 	public void onDisable() {
-		System.out.println(StringUtil.OUT_PREFIX + "Saving data to files...");
+		getLogger().info("Saving data to files...");
 
-		System.out.println(StringUtil.OUT_PREFIX + "Preventing memory leaks...");
+		getLogger().info("Preventing memory leaks...");
 
 		instance = null;
 
@@ -91,6 +91,6 @@ public class Main extends JavaPlugin {
 		// run garbage collector
 		System.gc();
 
-		System.out.println(StringUtil.OUT_PREFIX + "Plugin disabled");
+		getLogger().info("Plugin disabled");
 	}
 }

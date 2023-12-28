@@ -16,7 +16,7 @@ public class Listener_WorldChange implements Listener {
 	private static Listener_WorldChange instance;
 
 	public Listener_WorldChange() {
-		System.out.println(StringUtil.OUT_PREFIX + "Initializing world change event listener...");
+		Main.getInstance().getLogger().info("Initializing world change event listener...");
 		instance = this;
 	}
 
