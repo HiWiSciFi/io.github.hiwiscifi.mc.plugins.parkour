@@ -59,8 +59,7 @@ public class Listener_PressurePlate implements Listener {
 
 		Block ablock = e.getClickedBlock();
 
-
-		if (!supportedMaterials.contains(ablock.getType())) {
+		if (ablock == null || !supportedMaterials.contains(ablock.getType())) {
 			return;
 		}
 

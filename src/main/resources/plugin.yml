@@ -7,6 +7,7 @@ name: ParkourPlugin
 main: io.github.hiwiscifi.mc.plugins.parkour.Main
 version: 1.0.0
 
+api-version: 1.20
 description: A Parkour plugin
 authors: [HiWiSciFi, imurnaili, rednasthered, Scarf3]
 website: https://hiwiscifi.github.io
