@@ -1,5 +1,8 @@
 package io.github.hiwiscifi.mc.plugins.parkour.utils;
 
+import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.TextComponent;
+import net.kyori.adventure.text.format.TextColor;
 import org.bukkit.NamespacedKey;
 
 import io.github.hiwiscifi.mc.plugins.parkour.Main;
@@ -18,7 +21,7 @@ public class US {
 	/** a minus character as a string */
 	public final static String MINUS = "-";
 	/** the general output prefix for the plugin */
-	public final static String OUT_PREFIX = ChatColor.AQUA + "[Parkour] " + ChatColor.WHITE;
+	public final static TextComponent OUT_PREFIX = Component.text("[Parkour] ", TextColor.color(58, 255, 255));
 	/** three dots */
 	public final static String THREE_DOTS = "...";
 

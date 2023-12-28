@@ -83,7 +83,7 @@ public class ParkourLogic {
 		pdc.set(US.currentCheckpointKey, PersistentDataType.INTEGER, checkpoint);
 
 		long timeSinceLastCheckpoint = ParkourTimer.endParkourTimer(player);
-		player.sendMessage(US.OUT_PREFIX + ChatColor.AQUA + "Your time for the last Checkpoint was: "
+		player.sendMessage("[]" + ChatColor.AQUA + "Your time for the last Checkpoint was: "
 				+ ParkourTimer.getTimeStringFromMs(timeSinceLastCheckpoint));
 
 		ParkourTimer.startCheckpointTimer(player);
