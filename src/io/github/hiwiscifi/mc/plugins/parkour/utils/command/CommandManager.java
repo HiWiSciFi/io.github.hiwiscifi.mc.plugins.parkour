@@ -98,7 +98,7 @@ public abstract class CommandManager {
 				if (args[0].equalsIgnoreCase(getSubcommands().get(i).getName())) {
 					strings.addAll(
 							getSubcommands().get(i).tabcomplete(player, command, alias, cutFirst(args))
-							);
+					);
 				}
 			}
 		}

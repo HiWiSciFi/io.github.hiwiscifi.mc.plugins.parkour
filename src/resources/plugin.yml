@@ -1,0 +1,47 @@
+####   ###  ####  #   #  ####  #    # ####
+#   # #   # #   # #  #  #    # #    # #   #
+####  ##### ####  ###   #    # #    # ####
+#     #   # #   # #  #  #    # #    # #   #
+#     #   # #   # #   #  ####   ####  #   #
+name: ParkourPlugin
+main: io.github.hiwiscifi.mc.plugins.parkour.Main
+version: 1.0.0
+
+description: A Parkour plugin
+authors: [HiWiSciFi, imurnaili, rednasthered, Scarf3]
+website: https://hiwiscifi.github.io
+
+ ####  ####  #    # #    #  ###  #   # ####   ####
+#     #    # ##  ## ##  ## #   # ##  # #   # #
+#     #    # # ## # # ## # ##### # # # #   #  ####
+#     #    # #    # #    # #   # #  ## #   #      #
+ ####  ####  #    # #    # #   # #   # ####   ####
+commands:
+  test:
+    description: A test command
+    usage: /test
+    permission: io.github.hiwiscifi.mc.plugins.parkour.commands.test
+  parkour:
+    description: Do cool stuff
+    usage: /parkour <list | create | delete | checkpoint | world>
+    permission: io.github.hiwiscifi.mc.plugins.parkour.commands.parkour
+  gMode:
+    description: Set gameMode
+    usage: /gMode <adventure | survival | creative | spectator>
+    permission: io.github.hiwiscifi.mc.plugins.parkour.commands.gMode
+
+####  ##### ####  #    # ###  ####   ####  ###  ####  #   #  ####
+#   # #     #   # ##  ##  #  #      #       #  #    # ##  # #
+####  ####  ####  # ## #  #   ####   ####   #  #    # # # #  ####
+#     #     #   # #    #  #       #      #  #  #    # #  ##      #
+#     ##### #   # #    # ###  ####   ####  ###  ####  #   #  ####
+permissions:
+  io.github.hiwiscifi.mc.plugins.parkour.commands.test:
+    description: use the test command
+    default: true # true | op
+  io.github.hiwiscifi.mc.plugins.parkour.commands.parkour:
+    description: use the parkour command
+    default: op
+  io.github.hiwiscifi.mc.plugins.parkour.commands.gMode:
+    description: change gamemode using gmode command
+    default: op

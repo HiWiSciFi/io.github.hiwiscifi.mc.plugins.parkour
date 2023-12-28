@@ -29,7 +29,7 @@ public class Listener_ItemUse implements Listener{
 		if (!e.getAction().equals(Action.RIGHT_CLICK_AIR) && !e.getAction().equals(Action.RIGHT_CLICK_BLOCK)) {
 			return;
 		}
-		
+
 		ItemStack item = player.getInventory().getItemInMainHand();
 
 		Material mat = item.getType();
@@ -39,7 +39,7 @@ public class Listener_ItemUse implements Listener{
 		}*/
 
 		if (!mat.isAir()) ParkourItems.playerInteracted(player, item);
-		
+
 		/*
 		ItemMeta itemMeta = item.getItemMeta();
 

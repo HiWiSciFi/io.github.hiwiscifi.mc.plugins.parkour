@@ -126,7 +126,7 @@ public class Listener_PressurePlate implements Listener {
 			for (Parkour parkour : Main.getInstance().parkours) {
 				if (parkour.startCheckpoint != null) {
 					if (parkour.startCheckpoint.location.distance(ablock.getLocation()) < 0.75d) {
-							ParkourLogic.startParkour(player, parkour);
+						ParkourLogic.startParkour(player, parkour);
 					}
 				}
 			}

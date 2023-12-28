@@ -21,10 +21,10 @@ public class Listener_WorldChange implements Listener {
 
 	public void onWorldChange(PlayerChangedWorldEvent e) {
 		Player player = e.getPlayer();
-		
+
 		World fromWorld = e.getFrom();
 		World toWorld = player.getWorld();
-		
+
 		if (WorldControl.enabled(fromWorld) || WorldControl.enabled(toWorld)) {
 			ParkourLogic.totalAbortion(player);
 		}

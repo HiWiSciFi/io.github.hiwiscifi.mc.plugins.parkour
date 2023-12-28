@@ -131,8 +131,8 @@ public class ParkourLogic {
 		player.sendMessage(ChatColor.AQUA /* got norted */ + "Your time for the last Checkpoint was:" + ChatColor.GOLD
 				+ ChatColor.BOLD.toString() + ParkourTimer.getTimeStringFromMs(lastCheckpointTime));
 		player.sendTitle(
-				ChatColor.GREEN + "ᐅ" + ChatColor.GREEN + ChatColor.BOLD.toString() + "CONGRATULATIONS!"
-						+ ChatColor.GREEN + "ᐊ",
+				ChatColor.GREEN + "\u1405" + ChatColor.GREEN + ChatColor.BOLD.toString() + "CONGRATULATIONS!"
+						+ ChatColor.GREEN + "\u140A",
 				ChatColor.GOLD + " Your Time: " + ChatColor.GOLD + ParkourTimer.getTimeStringFromMs(parkourTime), 10,
 				30, 20);
 		if (parkour.endTpBack) {

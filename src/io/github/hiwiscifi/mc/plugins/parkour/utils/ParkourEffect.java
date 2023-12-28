@@ -31,16 +31,16 @@ public abstract class ParkourEffect implements Cloneable, ConfigurationSerializa
 			return null;
 		}
 		switch (args[0].toLowerCase()) {
-		case "tp":
-		case "teleport":
-			args[0] = "teleport";
-			return new TeleportEffect(args);
-		case "effect":
-		case "effekt":
-			args[0] = "effekt";
-			return new EffectEffect(args);
-		default:
-			return null;
+			case "tp":
+			case "teleport":
+				args[0] = "teleport";
+				return new TeleportEffect(args);
+			case "effect":
+			case "effekt":
+				args[0] = "effekt";
+				return new EffectEffect(args);
+			default:
+				return null;
 		}
 	}
 

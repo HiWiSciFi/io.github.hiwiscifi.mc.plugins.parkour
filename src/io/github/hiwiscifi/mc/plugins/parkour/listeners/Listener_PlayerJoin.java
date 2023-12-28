@@ -27,19 +27,19 @@ public class Listener_PlayerJoin implements Listener {
 		//event.setJoinMessage("Welcome, " + event.getPlayer().getName() + "!");
 		Player p = e.getPlayer();
 		PersistentDataContainer pdc = p.getPersistentDataContainer();
-		
+
 		if(!pdc.has(US.currentCheckpointKey, PersistentDataType.INTEGER))
 		{
 			pdc.set(US.currentCheckpointKey, PersistentDataType.INTEGER,0);
 			// 0 => startCheckpoint
 			// 1 => checkpoints(0)
 		}
-		
+
 		if(!pdc.has(US.currentParkourKey, PersistentDataType.STRING)) {
 			pdc.set(US.currentParkourKey, PersistentDataType.STRING, US.EMPTY);
 		}
-		
-		
+
+
 		pdc.set(US.onParkourKey, PersistentDataType.INTEGER,0);
 
 	}

@@ -40,17 +40,17 @@ public class ParkourItems {
 		}
 
 		switch(itemConfigString) {
-		case US.itemVal_reset_checkpoint:
-			ParkourHelper.resetToCheckpoint(player);
-			break;
-		case US.itemVal_reset_start:
-			ParkourHelper.resetToStart(player);
-			break;
-		case US.itemVal_cancelParkour:
-			if (player.isSneaking()) ParkourHelper.resetToStart(player);
-			ParkourLogic.totalAbortion(player);
-			player.sendMessage(US.OUT_PREFIX + "You are no longer on any parkour");
-			break;
+			case US.itemVal_reset_checkpoint:
+				ParkourHelper.resetToCheckpoint(player);
+				break;
+			case US.itemVal_reset_start:
+				ParkourHelper.resetToStart(player);
+				break;
+			case US.itemVal_cancelParkour:
+				if (player.isSneaking()) ParkourHelper.resetToStart(player);
+				ParkourLogic.totalAbortion(player);
+				player.sendMessage(US.OUT_PREFIX + "You are no longer on any parkour");
+				break;
 		}
 	}
 

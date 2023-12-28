@@ -48,25 +48,25 @@ public class Command_gMode implements TabExecutor{
 
 		// argument 1 is the wanted gamemode and the player gamemode is set to it
 		switch (args[0].toLowerCase()) {
-		case "creative":
-			player.setGameMode(GameMode.CREATIVE);
-			break;
+			case "creative":
+				player.setGameMode(GameMode.CREATIVE);
+				break;
 
-		case "survival":
-			player.setGameMode(GameMode.SURVIVAL);
-			break;
+			case "survival":
+				player.setGameMode(GameMode.SURVIVAL);
+				break;
 
-		case "adventure":
-			player.setGameMode(GameMode.ADVENTURE);
-			break;
+			case "adventure":
+				player.setGameMode(GameMode.ADVENTURE);
+				break;
 
-		case "spectator":
-			player.setGameMode(GameMode.CREATIVE);
-			break;
+			case "spectator":
+				player.setGameMode(GameMode.CREATIVE);
+				break;
 
-		default:
-			player.sendMessage(US.OUT_PREFIX + args[0].substring(0, 1).toUpperCase() + args[0].substring(1).toLowerCase() + " is not a valid gamemode!");
-			return false;
+			default:
+				player.sendMessage(US.OUT_PREFIX + args[0].substring(0, 1).toUpperCase() + args[0].substring(1).toLowerCase() + " is not a valid gamemode!");
+				return false;
 		}
 		player.sendMessage(US.OUT_PREFIX + "Your gamemode has been set to " + args[0].substring(0, 1).toUpperCase() + args[0].substring(1).toLowerCase() + "!");
 		return true;
@@ -74,14 +74,14 @@ public class Command_gMode implements TabExecutor{
 
 	@Override
 	public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
-			if(args.length == 1) {
-				List<String> strings = new ArrayList<String>();
-					strings.add("creative");
-					strings.add("survival");
-					strings.add("adventure");
-					strings.add("spectator");
-					return strings;
-			}
-			return null;
+		if(args.length == 1) {
+			List<String> strings = new ArrayList<String>();
+			strings.add("creative");
+			strings.add("survival");
+			strings.add("adventure");
+			strings.add("spectator");
+			return strings;
+		}
+		return null;
 	}
 }
