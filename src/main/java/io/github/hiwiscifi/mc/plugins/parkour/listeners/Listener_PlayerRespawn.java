@@ -8,7 +8,7 @@ import org.bukkit.event.player.PlayerRespawnEvent;
 
 import io.github.hiwiscifi.mc.plugins.parkour.utils.ParkourHelper;
 import io.github.hiwiscifi.mc.plugins.parkour.utils.ParkourLogic;
-import io.github.hiwiscifi.mc.plugins.parkour.utils.US;
+import io.github.hiwiscifi.mc.plugins.parkour.utils.StringUtil;
 
 public class Listener_PlayerRespawn implements Listener {
 
@@ -17,7 +17,7 @@ public class Listener_PlayerRespawn implements Listener {
 
 	//TODO change naming
 	public Listener_PlayerRespawn() {
-		System.out.println(US.OUT_PREFIX + "Initializing player respawn event listener" + US.THREE_DOTS);
+		System.out.println(StringUtil.OUT_PREFIX + "Initializing player respawn event listener...");
 		instance = this;
 	}
 
@@ -30,7 +30,7 @@ public class Listener_PlayerRespawn implements Listener {
 		if(respawnLocation != null) {
 			e.setRespawnLocation(respawnLocation);
 			ParkourLogic.restartCheckpoint(player);
-			System.out.println(US.OUT_PREFIX + "respawning");
+			System.out.println(StringUtil.OUT_PREFIX + "respawning");
 		}
 	}
 }

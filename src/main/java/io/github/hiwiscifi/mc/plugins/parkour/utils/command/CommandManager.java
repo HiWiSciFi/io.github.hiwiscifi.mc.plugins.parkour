@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import net.kyori.adventure.text.Component;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -39,7 +40,10 @@ public abstract class CommandManager {
 				if (args[0].equalsIgnoreCase(getSubcommands().get(i).getName())) {
 					if(!getSubcommands().get(i).perform(sender, command, label, cutFirst(args))) {
 						if(sender instanceof Player) {
-							sender.sendMessage(getSubcommands().get(i).getSyntax() + " - " + getSubcommands().get(i).getDescription());
+							sender.sendMessage(Component.text(getSubcommands().get(i).getSyntax())
+								.append(Component.text(" - "))
+								.append(Component.text(getSubcommands().get(i).getDescription()))
+							);
 						}
 					} else {
 						result = true;
@@ -57,7 +61,10 @@ public abstract class CommandManager {
 			} else {
 				if(!neutral.perform(sender, command, label, cutFirst(args))) {
 					if(sender instanceof Player) {
-						sender.sendMessage(neutral.getSyntax() + " - " + neutral.getDescription());
+						sender.sendMessage(Component.text(neutral.getSyntax())
+							.append(Component.text(" - "))
+							.append(Component.text(neutral.getDescription()))
+						);
 					}
 				} else {
 					result = true;
@@ -110,11 +117,14 @@ public abstract class CommandManager {
 	}
 
 	public void doHelp(Player player) {
-		player.sendMessage("--------------------------------");
+		player.sendMessage(Component.text("--------------------------------"));
 		for (int i = 0; i < getSubcommands().size(); i++) {
-			player.sendMessage(getSubcommands().get(i).getSyntax() + " - " + getSubcommands().get(i).getDescription());
+			player.sendMessage(Component.text(getSubcommands().get(i).getSyntax())
+				.append(Component.text(" - "))
+				.append(Component.text(getSubcommands().get(i).getDescription()))
+			);
 		}
-		player.sendMessage("--------------------------------");
+		player.sendMessage(Component.text("--------------------------------"));
 	}
 
 	// name of the subcommand ex. /prank <subcommand> <-- that

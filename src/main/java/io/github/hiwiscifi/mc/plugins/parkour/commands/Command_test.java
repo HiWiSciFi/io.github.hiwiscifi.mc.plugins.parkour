@@ -1,11 +1,13 @@
 package io.github.hiwiscifi.mc.plugins.parkour.commands;
 
+import net.kyori.adventure.text.Component;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import io.github.hiwiscifi.mc.plugins.parkour.utils.US;
+import io.github.hiwiscifi.mc.plugins.parkour.utils.StringUtil;
+import org.jetbrains.annotations.NotNull;
 
 public class Command_test implements CommandExecutor {
 
@@ -13,21 +15,23 @@ public class Command_test implements CommandExecutor {
 	private static Command_test instance;
 
 	public Command_test() {
-		System.out.println(US.OUT_PREFIX + "Initializing test command" + US.THREE_DOTS);
+		System.out.println(StringUtil.OUT_PREFIX + "Initializing test command...");
 		instance = this;
 	}
 
 	@Override
-	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
+	public boolean onCommand(@NotNull CommandSender sender, @NotNull Command cmd, @NotNull String label, String[] args) {
 		if (sender instanceof Player player) {
-            player.sendMessage(US.OUT_PREFIX + "Your position is " +
-					player.getLocation().getBlockX() + ":" +
-					player.getLocation().getBlockY() + ":" +
-					player.getLocation().getBlockZ() + " " +
-					player.getLocation().getX() + ":" +
-					player.getLocation().getY() + ":" +
-					player.getLocation().getZ() + " " +
-					player.getLocation().distance(player.getLocation().getBlock().getLocation()));
+			player.sendMessage(StringUtil.OUT_PREFIX
+				.append(Component.text("Your position is "))
+				.append(Component.text(player.getLocation().getBlockX())).append(Component.text(":"))
+				.append(Component.text(player.getLocation().getBlockY())).append(Component.text(":"))
+				.append(Component.text(player.getLocation().getBlockZ())).append(Component.text(" "))
+				.append(Component.text(player.getLocation().getX())).append(Component.text(":"))
+				.append(Component.text(player.getLocation().getY())).append(Component.text(":"))
+				.append(Component.text(player.getLocation().getZ())).append(Component.text(" "))
+				.append(Component.text(player.getLocation().distance(player.getLocation().getBlock().getLocation())))
+			);
 			return true;
 		}
 

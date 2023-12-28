@@ -3,13 +3,14 @@ package io.github.hiwiscifi.mc.plugins.parkour.commands.parkourSubCommands;
 import java.util.ArrayList;
 import java.util.List;
 
+import net.kyori.adventure.text.Component;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 import io.github.hiwiscifi.mc.plugins.parkour.Main;
 import io.github.hiwiscifi.mc.plugins.parkour.utils.Parkour;
-import io.github.hiwiscifi.mc.plugins.parkour.utils.US;
+import io.github.hiwiscifi.mc.plugins.parkour.utils.StringUtil;
 import io.github.hiwiscifi.mc.plugins.parkour.utils.command.SubCommand;
 
 public class SCList implements SubCommand{
@@ -35,9 +36,11 @@ public class SCList implements SubCommand{
 			return false;
 		}
 
-        player.sendMessage(US.OUT_PREFIX + "List of registered parkours");
+		player.sendMessage(StringUtil.OUT_PREFIX
+			.append(Component.text("List of registered parkours"))
+		);
 		for (Parkour p : Main.getInstance().parkours) {
-			player.sendMessage(p.name);
+			player.sendMessage(Component.text(p.name));
 		}
 		return true;
 	}

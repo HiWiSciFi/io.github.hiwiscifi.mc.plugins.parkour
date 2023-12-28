@@ -3,11 +3,12 @@ package io.github.hiwiscifi.mc.plugins.parkour.commands.parkourSubCommands.world
 import java.util.ArrayList;
 import java.util.List;
 
+import net.kyori.adventure.text.Component;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import io.github.hiwiscifi.mc.plugins.parkour.utils.US;
+import io.github.hiwiscifi.mc.plugins.parkour.utils.StringUtil;
 import io.github.hiwiscifi.mc.plugins.parkour.utils.WorldControl;
 import io.github.hiwiscifi.mc.plugins.parkour.utils.command.SubCommand;
 
@@ -34,9 +35,13 @@ public class SCRemove implements SubCommand {
 			return false;
 		}
 
-        player.sendMessage(US.OUT_PREFIX + "Adding your current world to set of parkour-enabled worlds" + US.THREE_DOTS);
+		player.sendMessage(StringUtil.OUT_PREFIX
+			.append(Component.text("Removing your current world from the set of parkour-enabled worlds..."))
+		);
 		WorldControl.removeWorld(player.getWorld().getName());
-		player.sendMessage(US.OUT_PREFIX + "World removed!");
+		player.sendMessage(StringUtil.OUT_PREFIX
+			.append(Component.text("World removed!"))
+		);
 
 		return true;
 	}

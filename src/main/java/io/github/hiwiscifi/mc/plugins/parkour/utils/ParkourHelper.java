@@ -35,8 +35,8 @@ public class ParkourHelper {
 	public static void resetToCheckpoint(Player player, int check) {
 		PersistentDataContainer pdc = player.getPersistentDataContainer();
 
-		boolean onParkour = pdc.get(US.onParkourKey, PersistentDataType.INTEGER) == 1;
-		String currentParkour = pdc.get(US.currentParkourKey, PersistentDataType.STRING);
+		boolean onParkour = pdc.get(StringUtil.onParkourKey, PersistentDataType.INTEGER) == 1;
+		String currentParkour = pdc.get(StringUtil.currentParkourKey, PersistentDataType.STRING);
 
 		if (!onParkour) {
 			return;
@@ -68,7 +68,7 @@ public class ParkourHelper {
 		}
 
 
-		pdc.set(US.currentCheckpointKey, PersistentDataType.INTEGER, check);
+		pdc.set(StringUtil.currentCheckpointKey, PersistentDataType.INTEGER, check);
 		resetToCheckpoint(player);
 
 	}
@@ -82,9 +82,9 @@ public class ParkourHelper {
 	public static Location calculateCheckpointLocation(Player player) {
 		PersistentDataContainer pdc = player.getPersistentDataContainer();
 
-		boolean onParkour = pdc.get(US.onParkourKey, PersistentDataType.INTEGER) == 1;
-		String currentParkour = pdc.get(US.currentParkourKey, PersistentDataType.STRING);
-		int currentCheckpoint = pdc.get(US.currentCheckpointKey, PersistentDataType.INTEGER);
+		boolean onParkour = pdc.get(StringUtil.onParkourKey, PersistentDataType.INTEGER) == 1;
+		String currentParkour = pdc.get(StringUtil.currentParkourKey, PersistentDataType.STRING);
+		int currentCheckpoint = pdc.get(StringUtil.currentCheckpointKey, PersistentDataType.INTEGER);
 
 		if (currentCheckpoint == 0) {
 			return calculateParkourStartLocation(player);
@@ -128,8 +128,8 @@ public class ParkourHelper {
 	public static Location calculateParkourStartLocation(Player player) {
 		PersistentDataContainer pdc = player.getPersistentDataContainer();
 
-		boolean onParkour = pdc.get(US.onParkourKey, PersistentDataType.INTEGER) == 1;
-		String currentParkour = pdc.get(US.currentParkourKey, PersistentDataType.STRING);
+		boolean onParkour = pdc.get(StringUtil.onParkourKey, PersistentDataType.INTEGER) == 1;
+		String currentParkour = pdc.get(StringUtil.currentParkourKey, PersistentDataType.STRING);
 
 		if (onParkour) {
 			List<Parkour> parkours = Main.getInstance().parkours;

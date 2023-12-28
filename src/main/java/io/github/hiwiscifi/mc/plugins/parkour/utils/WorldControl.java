@@ -4,12 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import net.kyori.adventure.text.Component;
-import net.kyori.adventure.text.TextComponent;
-import net.kyori.adventure.text.format.NamedTextColor;
 import org.bukkit.World;
 import org.bukkit.entity.Player;
-import net.kyori.adventure.text.format.TextColor;
-import org.bukkit.ChatColor;
 
 import io.github.hiwiscifi.mc.plugins.parkour.Main;
 
@@ -34,11 +30,9 @@ public class WorldControl {
 			return true;
 		}
 		if (player != null) {
-			player.sendMessage(Component.text()
-					.color(TextColor.color(255, 0, 0))
-					.append(US.OUT_PREFIX)
-					.append(Component.text("Nah, not looking good pal - seems like you have to add this world first using "))
-					.append(Component.text("/parkour world add", TextColor.color(58, 255, 255))));
+			player.sendMessage(StringUtil.OUT_PREFIX
+					.append(Component.text("Nah, not looking good pal - seems like you have to add this world first using ", StringUtil.RED))
+					.append(Component.text("/parkour world add", StringUtil.AQUA)));
 		}
 		return false;
 	}

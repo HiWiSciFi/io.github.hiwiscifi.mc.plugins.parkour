@@ -2,11 +2,12 @@ package io.github.hiwiscifi.mc.plugins.parkour.commands.parkourSubCommands.world
 
 import java.util.List;
 
+import net.kyori.adventure.text.Component;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import io.github.hiwiscifi.mc.plugins.parkour.utils.US;
+import io.github.hiwiscifi.mc.plugins.parkour.utils.StringUtil;
 import io.github.hiwiscifi.mc.plugins.parkour.utils.WorldControl;
 import io.github.hiwiscifi.mc.plugins.parkour.utils.command.SubCommand;
 
@@ -34,9 +35,13 @@ public class SCAdd implements SubCommand{
 			return false;
 		}
 
-        player.sendMessage(US.OUT_PREFIX + "Adding your current world to set of parkour-enabled worlds" + US.THREE_DOTS);
+		player.sendMessage(StringUtil.OUT_PREFIX
+			.append(Component.text("Adding your current world to set of parkour-enabled worlds..."))
+		);
 		WorldControl.addWorld(player.getWorld().getName());
-		player.sendMessage(US.OUT_PREFIX + "World added!");
+		player.sendMessage(StringUtil.OUT_PREFIX
+			.append(Component.text("World added!"))
+		);
 
 		return true;
 	}

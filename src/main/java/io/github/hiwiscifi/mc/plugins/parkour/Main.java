@@ -24,7 +24,7 @@ import io.github.hiwiscifi.mc.plugins.parkour.utils.EffectPoint;
 import io.github.hiwiscifi.mc.plugins.parkour.utils.Parkour;
 import io.github.hiwiscifi.mc.plugins.parkour.utils.ParkourCheckpoint;
 import io.github.hiwiscifi.mc.plugins.parkour.utils.ParkourEffect;
-import io.github.hiwiscifi.mc.plugins.parkour.utils.US;
+import io.github.hiwiscifi.mc.plugins.parkour.utils.StringUtil;
 import io.github.hiwiscifi.mc.plugins.parkour.utils.WorldControl;
 
 public class Main extends JavaPlugin {
@@ -42,46 +42,46 @@ public class Main extends JavaPlugin {
 	public void onEnable() {
 		instance = this;
 
-		US.initializeKeys();
+		StringUtil.initializeKeys();
 
-		System.out.println(US.fillWithMinus("Initializing Parkour plugin", 40));
+		System.out.println(StringUtil.fillWithMinus("Initializing Parkour plugin", 40));
 
-		System.out.println(US.OUT_PREFIX + "Registering commands" + US.THREE_DOTS);
+		System.out.println(StringUtil.OUT_PREFIX + "Registering commands...");
 		//TODO Remove
 		this.getCommand("test").setExecutor(new Command_test());
 		this.getCommand("parkour").setExecutor(new Command_parkour());
 		this.getCommand("gMode").setExecutor(new Command_gMode());
 		//TODO add teleport
 
-		System.out.println(US.OUT_PREFIX + "Registering events" + US.THREE_DOTS);
+		System.out.println(StringUtil.OUT_PREFIX + "Registering events...");
 		this.getServer().getPluginManager().registerEvents(new Listener_PlayerJoin(), this);
 		this.getServer().getPluginManager().registerEvents(new Listener_PressurePlate(), this);
 		this.getServer().getPluginManager().registerEvents(new Listener_ItemUse(), this);
 		this.getServer().getPluginManager().registerEvents(new Listener_PlayerRespawn(), this);
 		this.getServer().getPluginManager().registerEvents(new Listener_PlayerDamage(), this);
 
-		System.out.println(US.OUT_PREFIX + "Registering serializables" + US.THREE_DOTS);
+		System.out.println(StringUtil.OUT_PREFIX + "Registering serializables...");
 		ConfigurationSerialization.registerClass(ParkourCheckpoint.class, "ParkourCheckpoint");
 		ConfigurationSerialization.registerClass(EffectPoint.class, "EffectPoint");
 		ConfigurationSerialization.registerClass(ParkourEffect.class, "ParkourEffect");
 
-		System.out.println(US.OUT_PREFIX + "Loading parkours from config" + US.THREE_DOTS);
+		System.out.println(StringUtil.OUT_PREFIX + "Loading parkours from config...");
 		List<String> parkourNames = Parkour.getParkourNames();
 		for (String name : parkourNames) {
 			parkours.add(Parkour.load(name));
 		}
 
-		System.out.println(US.OUT_PREFIX + "Loading list of enabled worlds from config" + US.THREE_DOTS);
+		System.out.println(StringUtil.OUT_PREFIX + "Loading list of enabled worlds from config...");
 		WorldControl.loadWorlds();
 
-		System.out.println(US.fillWithMinus("Parkour plugin initialized", 40));
+		System.out.println(StringUtil.fillWithMinus("Parkour plugin initialized", 40));
 	}
 
 	@Override
 	public void onDisable() {
-		System.out.println(US.OUT_PREFIX + "Saving data to files" + US.THREE_DOTS);
+		System.out.println(StringUtil.OUT_PREFIX + "Saving data to files...");
 
-		System.out.println(US.OUT_PREFIX + "Preventing memory leaks" + US.THREE_DOTS);
+		System.out.println(StringUtil.OUT_PREFIX + "Preventing memory leaks...");
 
 		instance = null;
 
@@ -91,6 +91,6 @@ public class Main extends JavaPlugin {
 		// run garbage collector
 		System.gc();
 
-		System.out.println(US.OUT_PREFIX + "Plugin disabled");
+		System.out.println(StringUtil.OUT_PREFIX + "Plugin disabled");
 	}
 }

@@ -6,24 +6,28 @@ import net.kyori.adventure.text.format.TextColor;
 import org.bukkit.NamespacedKey;
 
 import io.github.hiwiscifi.mc.plugins.parkour.Main;
-import net.md_5.bungee.api.ChatColor;
 
-public class US {
+public class StringUtil {
 
-	/** an empty string */
-	public final static String EMPTY = "";
-	/** a dot character as a string */
-	public final static String DOT = ".";
-	/** a quotation mark character as a string */
-	public final static String QUOTATION_MARK = "\"";
-	/** a space character as a string */
-	public final static String SPACE = " ";
-	/** a minus character as a string */
-	public final static String MINUS = "-";
-	/** the general output prefix for the plugin */
-	public final static TextComponent OUT_PREFIX = Component.text("[Parkour] ", TextColor.color(58, 255, 255));
-	/** three dots */
-	public final static String THREE_DOTS = "...";
+	public final static TextColor BLACK        = TextColor.color( 0,   0,   0   );
+	public final static TextColor DARK_BLUE    = TextColor.color( 0,   0,   170 );
+	public final static TextColor DARK_GREEN   = TextColor.color( 0,   170, 0   );
+	public final static TextColor DARK_AQUA    = TextColor.color( 0,   170, 170 );
+	public final static TextColor DARK_RED     = TextColor.color( 170, 0,   0   );
+	public final static TextColor DARK_PURPLE  = TextColor.color( 170, 0,   170 );
+	public final static TextColor GOLD         = TextColor.color( 255, 170, 0   );
+	public final static TextColor GRAY         = TextColor.color( 170, 170, 170 );
+	public final static TextColor DARK_GRAY    = TextColor.color( 58,  58,  58  );
+	public final static TextColor BLUE         = TextColor.color( 58,  58,  255 );
+	public final static TextColor GREEN        = TextColor.color( 58,  255, 58  );
+	public final static TextColor AQUA         = TextColor.color( 58,  255, 255 );
+	public final static TextColor RED          = TextColor.color( 255, 58,  58  );
+	public final static TextColor LIGHT_PURPLE = TextColor.color( 255, 58,  255 );
+	public final static TextColor YELLOW       = TextColor.color( 255, 255, 58  );
+	public final static TextColor WHITE        = TextColor.color( 255, 255, 255 );
+
+	public final static TextComponent EMPTY = Component.text("");
+	public final static TextComponent OUT_PREFIX = Component.text().color(WHITE).append(Component.text("[Parkour] ", AQUA)).build();
 
 	public final static String itemVal_reset_checkpoint = "reset checkpoint";
 	public final static String itemVal_reset_start = "reset start";
@@ -57,26 +61,26 @@ public class US {
 	}
 
 	/** put a string into quotes
-	 * @param string the string to put quotes around
+	 * @param content the string to put quotes around
 	 * @return the original string in quotes */
-	public static String inQuotes(String string) {
-		return QUOTATION_MARK + string + QUOTATION_MARK;
+	public static TextComponent inQuotes(TextComponent content) {
+		return Component.text().content("\"").append(content).append(Component.text("\"")).build();
 	}
 
 	/** Fills up a string to a set length with minuses on both sides
-	 * @param string the string to fill up
+	 * @param content the string to fill up
 	 * @param desiredLength the desired final length of the string
 	 * @return the string with added minuses */
-	public static String fillWithMinus(String string, int desiredLength) {
-		if (desiredLength - string.length() > 1) {
-			if ((desiredLength - string.length()) % 2 != 0) {
+	public static String fillWithMinus(String content, int desiredLength) {
+		if (desiredLength - content.length() > 1) {
+			if ((desiredLength - content.length()) % 2 != 0) {
 				desiredLength -= 1;
 			}
-			int toAdd = (desiredLength - string.length()) / 2;
-			StringBuilder str = new StringBuilder(EMPTY);
-            str.append(MINUS.repeat(Math.max(0, toAdd)));
-			return str + string + str;
+			int toAdd = (desiredLength - content.length()) / 2;
+			StringBuilder str = new StringBuilder();
+            str.append("-".repeat(Math.max(0, toAdd)));
+			return str + content + str;
 		}
-		return string;
+		return content;
 	}
 }

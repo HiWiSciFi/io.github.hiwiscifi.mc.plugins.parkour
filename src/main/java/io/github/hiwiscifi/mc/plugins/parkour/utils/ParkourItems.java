@@ -3,6 +3,7 @@ package io.github.hiwiscifi.mc.plugins.parkour.utils;
 import java.util.ArrayList;
 import java.util.List;
 
+import net.kyori.adventure.text.Component;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
@@ -21,12 +22,12 @@ public class ParkourItems {
 	public static void playerInteracted(Player player, ItemStack item) {
 		PersistentDataContainer pdc = item.getItemMeta().getPersistentDataContainer();
 
-		if (!pdc.has(US.itemInteractionTypeKey, PersistentDataType.STRING)) { return; }
-		if (player.getPersistentDataContainer().get(US.onParkourKey, PersistentDataType.INTEGER) != 1) { return; }
-		String itemConfigString = pdc.get(US.itemInteractionTypeKey, PersistentDataType.STRING);
+		if (!pdc.has(StringUtil.itemInteractionTypeKey, PersistentDataType.STRING)) { return; }
+		if (player.getPersistentDataContainer().get(StringUtil.onParkourKey, PersistentDataType.INTEGER) != 1) { return; }
+		String itemConfigString = pdc.get(StringUtil.itemInteractionTypeKey, PersistentDataType.STRING);
 
 		// get current parkour
-		String currentParkour = player.getPersistentDataContainer().get(US.currentParkourKey, PersistentDataType.STRING);
+		String currentParkour = player.getPersistentDataContainer().get(StringUtil.currentParkourKey, PersistentDataType.STRING);
 		List<Parkour> parkours = Main.getInstance().parkours;
 		Parkour parkour = null;
         for (Parkour value : parkours) {
@@ -40,16 +41,18 @@ public class ParkourItems {
 		}
 
 		switch(itemConfigString) {
-			case US.itemVal_reset_checkpoint:
+			case StringUtil.itemVal_reset_checkpoint:
 				ParkourHelper.resetToCheckpoint(player);
 				break;
-			case US.itemVal_reset_start:
+			case StringUtil.itemVal_reset_start:
 				ParkourHelper.resetToStart(player);
 				break;
-			case US.itemVal_cancelParkour:
+			case StringUtil.itemVal_cancelParkour:
 				if (player.isSneaking()) ParkourHelper.resetToStart(player);
 				ParkourLogic.totalAbortion(player);
-				player.sendMessage(US.OUT_PREFIX + "You are no longer on any parkour");
+				player.sendMessage(StringUtil.OUT_PREFIX
+					.append(Component.text("You are no longer on any parkour"))
+				);
 				break;
 		}
 	}
@@ -64,9 +67,9 @@ public class ParkourItems {
 		resetCpItem.setAmount(1);
 		ItemMeta resetCpItemMeta = resetCpItem.getItemMeta();
 		resetCpItemMeta.setDisplayName("reset to last Checkpoint");
-		resetCpItemMeta.getPersistentDataContainer().set(US.itemInteractionTypeKey, PersistentDataType.STRING, US.itemVal_reset_checkpoint);
+		resetCpItemMeta.getPersistentDataContainer().set(StringUtil.itemInteractionTypeKey, PersistentDataType.STRING, StringUtil.itemVal_reset_checkpoint);
 		List<String> resetCpItemLore = new ArrayList<>();
-		resetCpItemLore.add(ChatColor.AQUA + "right-click to teleport back to the last checkpoint");
+		resetCpItemLore.add(StringUtil.AQUA + "right-click to teleport back to the last checkpoint");
 		resetCpItemMeta.setLore(resetCpItemLore);
 		resetCpItem.setItemMeta(resetCpItemMeta);
 		player.getInventory().setItem(3, resetCpItem);
@@ -76,9 +79,9 @@ public class ParkourItems {
 		resetStartItem.setAmount(1);
 		ItemMeta resetStartItemMeta = resetStartItem.getItemMeta();
 		resetStartItemMeta.setDisplayName("reset to parkour start");
-		resetStartItemMeta.getPersistentDataContainer().set(US.itemInteractionTypeKey, PersistentDataType.STRING, US.itemVal_reset_start);
+		resetStartItemMeta.getPersistentDataContainer().set(StringUtil.itemInteractionTypeKey, PersistentDataType.STRING, StringUtil.itemVal_reset_start);
 		List<String> resetStartItemLore = new ArrayList<>();
-		resetStartItemLore.add(ChatColor.AQUA + "right-click to teleport back to the parkour start");
+		resetStartItemLore.add(StringUtil.AQUA + "right-click to teleport back to the parkour start");
 		resetStartItemMeta.setLore(resetStartItemLore);
 		resetStartItem.setItemMeta(resetStartItemMeta);
 		player.getInventory().setItem(4, resetStartItem);
@@ -88,10 +91,10 @@ public class ParkourItems {
 		cancelParkourItem.setAmount(1);
 		ItemMeta cancelParkourItemMeta = cancelParkourItem.getItemMeta();
 		cancelParkourItemMeta.setDisplayName("cancel parkour");
-		cancelParkourItemMeta.getPersistentDataContainer().set(US.itemInteractionTypeKey, PersistentDataType.STRING, US.itemVal_cancelParkour);
+		cancelParkourItemMeta.getPersistentDataContainer().set(StringUtil.itemInteractionTypeKey, PersistentDataType.STRING, StringUtil.itemVal_cancelParkour);
 		List<String> cancelParkourItemLore = new ArrayList<>();
-		cancelParkourItemLore.add(ChatColor.AQUA + "right-click to cancel the current parkour to be able to start another one");
-		cancelParkourItemLore.add(ChatColor.DARK_PURPLE + "sneak while clicking to teleport back to the start");
+		cancelParkourItemLore.add(StringUtil.AQUA + "right-click to cancel the current parkour to be able to start another one");
+		cancelParkourItemLore.add(StringUtil.DARK_PURPLE + "sneak while clicking to teleport back to the start");
 		cancelParkourItemMeta.setLore(cancelParkourItemLore);
 		cancelParkourItem.setItemMeta(cancelParkourItemMeta);
 		player.getInventory().setItem(5, cancelParkourItem);

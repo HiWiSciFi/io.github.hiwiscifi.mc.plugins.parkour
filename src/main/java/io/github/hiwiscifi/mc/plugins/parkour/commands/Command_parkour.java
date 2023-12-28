@@ -12,8 +12,9 @@ import io.github.hiwiscifi.mc.plugins.parkour.commands.parkourSubCommands.SCDele
 import io.github.hiwiscifi.mc.plugins.parkour.commands.parkourSubCommands.SCList;
 import io.github.hiwiscifi.mc.plugins.parkour.commands.parkourSubCommands.SCSet;
 import io.github.hiwiscifi.mc.plugins.parkour.commands.parkourSubCommands.SCWorld;
-import io.github.hiwiscifi.mc.plugins.parkour.utils.US;
+import io.github.hiwiscifi.mc.plugins.parkour.utils.StringUtil;
 import io.github.hiwiscifi.mc.plugins.parkour.utils.command.CommandManager;
+import org.jetbrains.annotations.NotNull;
 
 public class Command_parkour extends CommandManager implements TabExecutor {
 
@@ -26,7 +27,7 @@ public class Command_parkour extends CommandManager implements TabExecutor {
 	public Command_parkour() {
 		super();
 		name = "parkour";
-		System.out.println(US.OUT_PREFIX + "Initializing parkour command" + US.THREE_DOTS);
+		System.out.println(StringUtil.OUT_PREFIX + "Initializing parkour command...");
 		instance = this;
 
 		//register subcomands
@@ -41,12 +42,12 @@ public class Command_parkour extends CommandManager implements TabExecutor {
 	}
 
 	@Override
-	public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
+	public List<String> onTabComplete(@NotNull CommandSender sender, @NotNull Command command, @NotNull String alias, String[] args) {
 		return complete(sender, command, alias, args);
 	}
 
 	@Override
-	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+	public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, String[] args) {
 		return perform(sender, command, label, args);
 	}
 
