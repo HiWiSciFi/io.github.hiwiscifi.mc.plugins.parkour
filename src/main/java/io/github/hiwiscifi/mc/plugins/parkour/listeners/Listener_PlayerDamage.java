@@ -7,8 +7,6 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.EntityDamageEvent.DamageCause;
 
-import io.github.hiwiscifi.mc.plugins.parkour.utils.StringUtil;
-
 public class Listener_PlayerDamage implements Listener {
 
 	public Listener_PlayerDamage getInstance() { return instance; }

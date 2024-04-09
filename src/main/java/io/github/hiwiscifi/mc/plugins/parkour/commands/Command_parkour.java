@@ -13,7 +13,6 @@ import io.github.hiwiscifi.mc.plugins.parkour.commands.parkourSubCommands.SCDele
 import io.github.hiwiscifi.mc.plugins.parkour.commands.parkourSubCommands.SCList;
 import io.github.hiwiscifi.mc.plugins.parkour.commands.parkourSubCommands.SCSet;
 import io.github.hiwiscifi.mc.plugins.parkour.commands.parkourSubCommands.SCWorld;
-import io.github.hiwiscifi.mc.plugins.parkour.utils.StringUtil;
 import io.github.hiwiscifi.mc.plugins.parkour.utils.command.CommandManager;
 import org.jetbrains.annotations.NotNull;
 

@@ -7,7 +7,6 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerChangedWorldEvent;
 
 import io.github.hiwiscifi.mc.plugins.parkour.utils.ParkourLogic;
-import io.github.hiwiscifi.mc.plugins.parkour.utils.StringUtil;
 import io.github.hiwiscifi.mc.plugins.parkour.utils.WorldControl;
 
 public class Listener_WorldChange implements Listener {

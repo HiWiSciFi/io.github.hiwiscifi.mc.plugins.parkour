@@ -12,7 +12,6 @@ import org.bukkit.persistence.PersistentDataContainer;
 import org.bukkit.persistence.PersistentDataType;
 
 import io.github.hiwiscifi.mc.plugins.parkour.Main;
-import net.md_5.bungee.api.ChatColor;
 
 public class ParkourItems {
 

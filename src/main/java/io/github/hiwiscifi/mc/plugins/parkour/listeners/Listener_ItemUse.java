@@ -10,7 +10,6 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 
 import io.github.hiwiscifi.mc.plugins.parkour.utils.ParkourItems;
-import io.github.hiwiscifi.mc.plugins.parkour.utils.StringUtil;
 
 public class Listener_ItemUse implements Listener{
 

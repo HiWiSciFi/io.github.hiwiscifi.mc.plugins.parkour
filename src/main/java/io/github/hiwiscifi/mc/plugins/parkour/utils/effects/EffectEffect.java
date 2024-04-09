@@ -1,5 +1,7 @@
 package io.github.hiwiscifi.mc.plugins.parkour.utils.effects;
 
+import org.bukkit.NamespacedKey;
+import org.bukkit.Registry;
 import org.bukkit.entity.Player;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
@@ -21,8 +23,14 @@ public class EffectEffect extends ParkourEffect{
 			length = Integer.parseInt(arguments[3]);
 		}
 
+		PotionEffectType effectType = Registry.EFFECT.get(NamespacedKey.minecraft(type));
+		if (effectType == null) {
+			// TODO: prompt user
+			return;
+		}
+
 		effect = new PotionEffect(
-				PotionEffectType.getByName(type),
+                effectType,
 				amplifier,
 				length,
 				false,

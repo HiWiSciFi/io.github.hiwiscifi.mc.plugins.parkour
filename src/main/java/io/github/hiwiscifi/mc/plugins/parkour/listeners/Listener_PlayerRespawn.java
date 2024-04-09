@@ -9,7 +9,6 @@ import org.bukkit.event.player.PlayerRespawnEvent;
 
 import io.github.hiwiscifi.mc.plugins.parkour.utils.ParkourHelper;
 import io.github.hiwiscifi.mc.plugins.parkour.utils.ParkourLogic;
-import io.github.hiwiscifi.mc.plugins.parkour.utils.StringUtil;
 
 public class Listener_PlayerRespawn implements Listener {
 
